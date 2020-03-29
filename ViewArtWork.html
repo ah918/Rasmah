@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Artwork</title>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
+
+  <script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+</head>
+<style>
+
+* {
+  box-sizing: border-box;
+  
+}
+
+
+.date {
+text-align: right;
+display: inline;
+}
+
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline;
+}
+
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 80%;
+}
+
+input[type=submit] {
+  background-color: #fad02c;
+  color: #fff;
+  cursor: pointer;
+  width: 19%;
+}
+
+input[type=button] {
+  background-color: #fad02c;
+  color: #fff;
+  cursor: pointer;
+  width: 47.45%;
+  float: right;
+  margin-right: 114px;
+  margin-top: 1%;
+}
+.thumbnail {
+    padding:0px;
+}
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:#009688;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+
+button.like {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 50%;
+  color: #009688;
+  background-color: rgba(38, 166, 154, 0.3);
+  border-color: #009688;
+  border-width: 1px;
+  font-size: 15px;
+  position: absolute;
+  right: 60px;
+  bottom: 599px;
+}
+
+button.dislike {
+    position: absolute;
+  right: 20px;
+
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 60%;
+  color: #ff5252;
+  background-color: rgba(255, 138, 128, 0.3);
+  border-color: #ff5252;
+  border-width: 1px;
+  font-size: 15px;
+    bottom: 599px;
+  
+}
+
+.container{
+  font-family:  cursive;
+	margin-left: 7%;
+
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5%;
+    background-color: #f1f1f1;
+    color: #5c5c5c;
+    text-align: center;
+    font-size: x-small;
+  }
+
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+li {
+  float: right;
+}
+
+.OurBar  li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.OurBar  li > a {
+  float: none;
+  padding: 30px 15px 30px;
+  color: white;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.OurBar  li:hover > a {
+	padding-right:30px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.bfirst > a,
+ .bfirst > a:hover,
+.bfirst > a:focus{
+background-color : #db9dbe;
+color:#fff;
+
+}
+.bSecoend > a,
+ .bSecoend > a:hover,
+.bSecoend > a:focus{
+background-color : #fad02c;
+color:#fff;
+
+}
+.bthird > a,
+ .bthird > a:hover,
+.bthird > a:focus{
+
+background-color : #ff97d5;
+color:#fff;
+}
+.bFourth > a,
+ .bFourth > a:hover,
+.bFourth > a:focus{
+background-color :  #dce253;   
+color:#fff;
+
+}
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
+
+ .ourLogo {
+ float: left;
+ margin-left : 5%;
+}
+.colorgraph {
+  height: 5px;
+  width: 90%;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #88ca5e, #88ca5e 12.5%, #669ae1 12.5%, #669ae1 25%, #ff97d5 25%, #ff97d5 37.5%, #dbe254 37.5%, #dbe254 50%, #7cbb00 50%, #7cbb00 62.5%, #db9dbe 62.5%, #db9dbe 75%, #fad02c 75%, #fad02c 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #88ca5e, #88ca5e 12.5%, #669ae1 12.5%, #669ae1 25%, #ff97d5 25%, #ff97d5 37.5%, #dbe254 37.5%, #dbe254 50%, #7cbb00 50%, #7cbb00 62.5%, #db9dbe 62.5%, #db9dbe 75%, #fad02c 75%, #fad02c 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #88ca5e, #88ca5e 12.5%, #669ae1 12.5%, #669ae1 25%, #ff97d5 25%, #ff97d5 37.5%, #dbe254 37.5%, #dbe254 50%, #7cbb00 50%, #7cbb00 62.5%, #db9dbe 62.5%, #db9dbe 75%, #fad02c 75%, #fad02c 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #88ca5e, #88ca5e 12.5%, #669ae1 12.5%, #669ae1 25%, #ff97d5 25%, #ff97d5 37.5%, #dbe254 37.5%, #dbe254 50%, #7cbb00 50%, #7cbb00 62.5%, #db9dbe 62.5%, #db9dbe 75%, #fad02c 75%, #fad02c 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+h1{
+  text-align: center;
+	font-family:  cursive;
+}
+.pageTitle{
+  margin-top: 80px;
+}
+.atheer {
+
+margin-left:90px;
+}
+#a15 {
+width:440px;
+
+}
+</style>
+
+<body>
+
+
+	
+  <div class="OurBar" >
+    <img class="ourLogo" src="img/owrlogo.png" >
+    <ul>
+    
+       <li class=" bfirst" >
+                      <a href="VistorF.html"><i class="fas fa-home"></i> Home</a>
+                      
+                    </li>
+      <li class=" bSecoend">
+                 <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                           
+                    </li>
+      <li class=" bthird">
+        <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
+    
+               
+                      
+                    </li>
+      <li class=" bFourth">
+                 <a href="Gallery.html"><i class="fas fa-paint-brush"></i> Gallery</a>
+                        </li>
+      
+       <li class=" bFifth">
+                            <a href="MyFavList.html"><i class="fas fa-star"></i> Favorite list</a>
+                              </li>
+    </ul>
+    </div> 
+    <div class = "pageTitle">
+      <hr class="colorgraph">
+      <br>
+    <h1>Artworks</h1>
+    <br>
+    <hr class="colorgraph">
+  </div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <h3>Artwork Description</h3>
+      <p> This is one of my favorite drawings, and I won it in the painting competition in my school in first place.
+          <br>
+          <br>
+        My mother helped me choose the colors and my father helped me in the idea, so thank them.
+        <br>
+        Share your opinion, my friends.
+    </p>
+   
+
+    <h3>Comments</h3> 
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+        
+        </div><!-- /col-sm-12 -->
+        </div><!-- /row -->
+        
+        <div class="col-sm-1">
+        <div class="thumbnail">
+        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        </div><!-- /thumbnail -->
+        </div><!-- /col-sm-1 -->
+        
+     
+            
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+                </div>
+                <div class="panel-body">
+                Panel content
+                </div><!-- /panel-body -->
+                </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
+            </div><!-- /container -->
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-12">
+                
+                </div><!-- /col-sm-12 -->
+                </div><!-- /row -->
+                
+                <div class="col-sm-1">
+                <div class="thumbnail">
+                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div><!-- /thumbnail -->
+                </div><!-- /col-sm-1 -->
+                
+             
+                    
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+                        </div>
+                        <div class="panel-body">
+                        Panel content
+                        </div><!-- /panel-body -->
+                        </div><!-- /panel panel-default -->
+                        </div><!-- /col-sm-5 -->
+                    </div><!-- /container -->
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-sm-12">
+                        
+                        </div><!-- /col-sm-12 -->
+                        </div><!-- /row -->
+                        
+                        <div class="col-sm-1">
+                        <div class="thumbnail">
+                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                        </div><!-- /thumbnail -->
+                        </div><!-- /col-sm-1 -->
+                        
+                     
+                            
+                            <div class="col-sm-4">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+                                </div>
+                                <div class="panel-body">
+                                Panel content
+                                </div><!-- /panel-body -->
+                                </div><!-- /panel panel-default -->
+                                </div><!-- /col-sm-5 -->
+                            </div><!-- /container -->
+    </div>
+    <div class="col-sm-6 atheer ">
+	
+      <h3>My creative drawing</h3>
+      <p class="date">19/Feb/2020</p>
+      
+      <button class="dislike">
+        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+    </button>
+    
+    <button class="like">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+    </button>
+      <img src="img/pic1.jpg" width="100%" height="500px">
+
+      <form>
+      <div class= "autocomplete" >
+      <input type="text"     placeholder="write your comment . ." >
+    
+    <input type="submit" value="Share!">
+</div>
+<input id="a15" type="button" value="Add to Favorite List!">
+    </div>
+	
+</form>
+
+
+       
+</div>
+</div>
+<footer id="sticky-footer" style="width: 100%;"><svg viewbox="0 0 100 25">
+  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+  </svg>
+  </footer>
+<!-- 
+<div id="footer" class = "page-footer" style="width: 100%; left: 0; bottom: 0;">
+<svg viewbox="0 0 100 25">
+<path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+</svg>
+</div> -->
+
+
+</body>
+</html>

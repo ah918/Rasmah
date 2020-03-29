@@ -1,0 +1,61 @@
+
+/* ==== overwrite bootstrap standard ==== */
+@import url('overwrite.css');
+@import url('boxtile.css');
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+/* ====================================== */
+
+
+
+.button {
+  width: 10vw;
+  height: 3vw;
+
+  transform: translate(-50%,-80%);
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(45deg,#fad02c,#ff97d5,#fad02c);
+  background-size: 400% 400%;
+  box-shadow: 1vw 1vw 0 #fad02c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+
+}
+.button:hover {
+    animation: gradient 10s ease infinite;
+    font-size: 18px;
+    box-shadow: 0.2vw 0.2vw 0 #fad02c;
+  }
+@keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }
+}
+.one {
+  position: absolute;
+  left: 68vw;
+  top: 80vh;	
+	
+}
+
+.tow {
+  position: absolute;
+  left: 80vw;
+  top: 80vh;	
+	
+}
+
+body {
+	
+  background-image: url(body12.png);
+}
+
+
+

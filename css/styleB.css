@@ -1,0 +1,188 @@
+
+/* ==== overwrite bootstrap standard ==== */
+@import url('overwrite.css');
+@import url('boxtile.css');
+
+
+
+/* header */
+header .navbar-inverse .navbar-inner {
+	border-top: 5px solid #444444;
+}
+
+/* logo */
+header .navbar .brand.logo {
+  padding: 0;
+  margin-left:0px;
+  margin-top:10px;
+}
+
+
+
+/* -- top menu -- */
+header .navbar-inverse .brand,
+header .navbar-inverse .nav > li > a {
+	color: #ddd;
+	text-shadow: none;
+	text-transform:uppercase;
+}
+
+header .navbar-inverse .navbar-inner li.active {
+	margin-top:0px;
+}
+
+header nav {
+	margin-right:-20px;
+}
+
+.navbar ul.topnav {
+	float:right;
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 30px 15px 30px;
+  color: #777777;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.navbar .nav > li:hover > a {
+	padding-right:30px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+header .topnav .dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0px;
+  margin-left: -1px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+
+
+
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover,
+.navbar .nav .active > a:focus {
+	background-image: url(../img/icons/add.png);
+	background-position: center 15px;
+	background-repeat: no-repeat;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	color:#fff;
+}
+
+/* assign template color scheme to menu bg */
+.navbar .nav .primary > a,
+.navbar .nav .primary > a:hover,
+.navbar .nav .primary > a:focus {
+	background-color: #88ca5e;
+	color:#fff;
+}
+
+.navbar .nav .warning > a,
+.navbar .nav .warning > a:hover,
+.navbar .nav .warning > a:focus {
+	background-color: #fad02c;
+	color:#fff;
+}
+
+.navbar .nav .danger > a,
+.navbar .nav .danger > a:hover,
+.navbar .nav .danger > a:focus {
+	background-color: #ff97d5;
+	color:#fff;
+}
+
+.navbar .nav .info > a,
+.navbar .nav .info > a:hover,
+.navbar .nav .info > a:focus {
+	background-color: #dbe254;
+	color:#fff;
+}
+
+.navbar .nav .success > a,
+.navbar .nav .success > a:hover,
+.navbar .nav .success > a:focus {
+	background-color: #7cbb00;
+	color:#fff;
+}
+
+.navbar .nav .inverse > a,
+.navbar .nav .inverse > a:hover,
+.navbar .nav .inverse > a:focus {
+	background-color: #db9dbe;
+	color:#fff;
+}
+
+nav select {
+    display: none;
+}
+
+
+
+
+.es-nav .es-nav-next:hover{background-position: -17px 0px ;}
+.es-nav .es-nav-prev:hover{background-position: 0px 0px ;}
+
+
+
+/* position */
+.alignleft{
+	float:left;
+}
+
+.alignright{
+	float:right;
+}
+
+.aligncenter{
+	text-align:center
+}
+
+img.alignleft{
+	margin:5px 15px 15px 0;
+}
+
+img.alignright{
+	margin:5px 0 15px 15px;
+}
+
+.aligncenter img{
+	margin-bottom:20px;
+}
+
+.absolute{
+	position:absolute;
+}
+
+.relative{
+	position:relative;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.navbar .navbar-inner .container {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+}
+
+@media (max-width: 767px) {
+	.navbar .navbar-inner .container {
+		margin-left: 10px;
+		margin-right: 20px;
+	}
+
