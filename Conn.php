@@ -19,19 +19,6 @@ function CloseCon($conn)
 
 $conn = OpenCon();
 echo "Connected Successfully";
-/*$sql1 ="INSERT INTO admin(AEmail, password) VALUES ('admin@gmail.com','1234')";
 
-if ($conn->query($sql1) === TRUE) {
-    echo "New record Admin created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}*/
-$sql = "INSERT INTO artists (ProfilePic, ArtEmail, Name, Password, AEmail, Approved) VALUES ('icon.png','random56565@gmail.com','Lena','1234','admin@gmail.com','true')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-CloseCon($conn);
+#CloseCon($conn);
 ?>

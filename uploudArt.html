@@ -179,10 +179,10 @@ color:#fff;
                        
         			
                      <div class="form-group">  
+                 
+                      <form action="upload.php" method="POST" enctype="multipart/form-data">
                 
-                      <form role="form" action="upload.php" method="POST" enctype="multipart/form-data">
-                
-                 <input type="file" form="nameform"  class="form-control input-lg" value="Submit">
+                 <input type="file" name="fileToUpload" >
                 </div>
         			</div>
                     
@@ -202,7 +202,7 @@ color:#fff;
                         <input type="text" name="title" id="jojo3"   class="form-control input-lg" placeholder="Title" tabindex="1"> 
                         
              	
-                         <input type="text" name="title"   id="jojo2" class="form-control input-lg" placeholder="dd/mm/yyyy" tabindex="1">
+                         
                         </div>
                 </div>
 				</div>
@@ -211,9 +211,9 @@ color:#fff;
 				<!-- <textarea>-->
 			</div>
 			<div class="form-group">
-                <input type="text" name="text " rows="11" cols="25" id="email" class="form-control input-lg" placeholder="discription" rows="50" cols ="60" tabindex="4">
+                <input type="text" name="discription" rows="11" cols="25" id="email" class="form-control input-lg" placeholder="discription" rows="50" cols ="60" tabindex="4">
                 <div class = "checkBox">
-                    <input type="checkbox"/><label> Available comment</label>
+                    <input type="checkbox" name="comment"/><label> Available comment</label>
                   </div>
 			</div>
 			

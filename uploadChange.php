@@ -29,30 +29,24 @@ if(isset($_POST["submit"])) {
     }
 }
 
+
 #end upload image
 
 $title = $_POST["title"];
 $discription = $_POST["discription"];
-if ($_POST['comment'] == "on")
-$comment = "yes"; #return 'Yes' if it checked
-else
-$comment = "no";
-date_default_timezone_set("Asia/Riyadh");
-$date =  date("Y-m-d  h:i:s") ;
+
 echo "Your file name is:  $target_file <br>"; 
 echo "Your title is:  $title <br>"; 
 echo "Your discription is:  $discription <br>"; 
-echo "anable comment ?:  $comment <br>"; 
-echo "date is:  $date <br>"; 
+
 
 include 'Conn.php';
-$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','random56565@gmail.com')";
+$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID=3";
+#$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','random56565@gmail.com')";
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
- 
-    echo "New record created successfully";
+    echo "New update created successfully";
     move_uploaded_file($fileTmpName ,$target_file);
-
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
