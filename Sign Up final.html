@@ -8,12 +8,13 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
 
- 
+ 	  
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheet.css" rel="stylesheet">
@@ -22,12 +23,8 @@
     background-color:#FAFEB6;
     color:#fff;
     text-align: center;
-<<<<<<< HEAD
-	}
-=======
 }
 
->>>>>>> efdf6aecdd2ba8ce00d7d8d058eded180a9c01fd
 #rightPanel{
     min-height:415px;
 
@@ -55,7 +52,11 @@
     font-size: x-small;
   }
 .row { font-family:cursive;}
-
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+<style>
 ul {
   list-style-type: none;
   margin: 0;
@@ -80,7 +81,7 @@ li {
 
 .OurBar  li > a {
   float: none;
-  padding: 30px 15px 320px;
+  padding: 30px 15px 30px;
   color: white;
   text-decoration: none;
   text-shadow: none;
@@ -142,6 +143,106 @@ color:#fff;
  float: left;
 
 }
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
 </style>
 
 
@@ -157,22 +258,37 @@ color:#fff;
 <ul>
 
    <li class=" bfirst" >
-                  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                  <a href="#"><i class="fas fa-home"></i> Home</a>
                   
                 </li>
   <li class=" bSecoend">
+  
                   <a href="#"><i class="fas fa-sign-in-alt"></i> sign in</a>
            
                 </li>
-  <li class=" bthird">
-                  <a href="#"><i class="fas fa-user-plus"></i> sign up</a>
+  <li class="bthird">
+
+                  <a id ="my" href="#"><i class="fas fa-user-plus"></i> sign up </a>
+			<script>
+
+      $("#my").click(function(){
+    $("#id01").css("display", "block")
+	  });
+
+</script>
+		
+	
                 </li>
   <li class=" bFourth">
                   <a href="#"><i class="far fa-address-card"></i> about us</a>
                     </li>
 </ul>
 </div>
-<div class="container">
+	
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
 <br>
 <br>
 
@@ -184,24 +300,11 @@ color:#fff;
     <div class="col-md-12">
     	<form role="form">
 			<h2 style="font-family:cursive; font-size:40pt;">Sign up</h2>
-			<?php
-if (! empty($errorMessage) && is_array($errorMessage)) {
-    ?>	
-            <div class="error-message">
-            <?php 
-            foreach($errorMessage as $message) {
-                echo $message . "<br/>";
-            }
-            ?>
-            </div>
-<?php
-}
-?>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" >
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
@@ -248,104 +351,31 @@ if (! empty($errorMessage) && is_array($errorMessage)) {
 				<input type="radio" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4"></label>
 			</div>
 			</div>
+			     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 			</div>
 			<hr class="colorgraph">
             
             <div class="row">
+			
 				<div class="col-xs-12 col-md-6"></div>
 				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" color=#c4e17f>Sign up</a></div>
 			</div>
 		</form>
+		<script>
+// Get the modal
+var modal = document.getElementById('id01');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 	</div>
 </div>
 <!-- Modal -->
-<?php
-namespace Phppot;
 
-use \Phppot\Member;
-if (! empty($_POST["raasmah"])) {
-    
-    $username = filter_var($_POST["userName"], FILTER_SANITIZE_STRING);
-    $displayName = filter_var($_POST["firstName"], FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST["userEmail"], FILTER_SANITIZE_STRING);
-    require_once ("Member.php");
-    /* Form Required Field Validation */
-    $member = new Member();
-    $errorMessage = $member->validateMember($username, $displayName, $password, $email);
-    
-    if (empty($errorMessage)) {
-        $memberCount = $member->isMemberExists($username, $email);
-        
-        if ($memberCount == 0) {
-            $insertId = $member->insertMemberRecord($username, $displayName, $password, $email);
-            if (! empty($insertId)) {
-                header("Location: thankyou.php");
-            }
-        } else {
-            $errorMessage[] = "User already exists.";
-        }
-    }
-}
-?>
-function validateMember()
-{
-    $valid = true;
-    $errorMessage = array();
-    foreach ($_POST as $key => $value) {
-        if (empty($_POST[$key])) {
-            $valid = false;
-        }
-    }
-    
-    if($valid == true) {
-        if ($_POST['password'] != $_POST['password_confirmation']) {
-            $errorMessage[] = 'Passwords should be same.';
-            $valid = false;
-        }
-        
-        if (! isset($error_message)) {
-            if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-                $errorMessage[] = "Invalid email address.";
-                $valid = false;
-            }
-        }
-        
-     
-    }
-    else {
-        $errorMessage[] = "All fields are required.";
-    }
-    
-    if ($valid == false) {
-        return $errorMessage;
-    }
-    return;
-}
-function isMemberExists($username, $email)
-{
-    $query = "select * FROM raasmah WHERE user_name = ? OR email = ?";
-    $paramType = "ss";
-    $paramArray = array($username, $email);
-    $memberCount = $this->ds->numRows($query, $paramType, $paramArray);
-    
-    return $memberCount;
-}
-function insertMemberRecord($username, $displayName, $password, $email)
-{
-    $passwordHash = md5($password);
-    $query = "INSERT INTO rassmah (user_name, display_name, password, email) VALUES (?, ?, ?, ?)";
-    $paramType = "ssss";
-    $paramArray = array(
-        $username,
-        $displayName,
-        $passwordHash,
-        $email
-    );
-    $insertId = $this->ds->insert($query, $paramType, $paramArray);
-    return $insertId;
-}
 </div>
         </div>
      </div>       
