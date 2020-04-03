@@ -184,11 +184,24 @@ color:#fff;
     <div class="col-md-12">
     	<form role="form">
 			<h2 style="font-family:cursive; font-size:40pt;">Sign up</h2>
+			<?php
+if (! empty($errorMessage) && is_array($errorMessage)) {
+    ?>	
+            <div class="error-message">
+            <?php 
+            foreach($errorMessage as $message) {
+                echo $message . "<br/>";
+            }
+            ?>
+            </div>
+<?php
+}
+?>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" >
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
@@ -243,10 +256,96 @@ color:#fff;
 				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" color=#c4e17f>Sign up</a></div>
 			</div>
 		</form>
+
 	</div>
 </div>
 <!-- Modal -->
+<?php
+namespace Phppot;
 
+use \Phppot\Member;
+if (! empty($_POST["raasmah"])) {
+    
+    $username = filter_var($_POST["userName"], FILTER_SANITIZE_STRING);
+    $displayName = filter_var($_POST["firstName"], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["userEmail"], FILTER_SANITIZE_STRING);
+    require_once ("Member.php");
+    /* Form Required Field Validation */
+    $member = new Member();
+    $errorMessage = $member->validateMember($username, $displayName, $password, $email);
+    
+    if (empty($errorMessage)) {
+        $memberCount = $member->isMemberExists($username, $email);
+        
+        if ($memberCount == 0) {
+            $insertId = $member->insertMemberRecord($username, $displayName, $password, $email);
+            if (! empty($insertId)) {
+                header("Location: thankyou.php");
+            }
+        } else {
+            $errorMessage[] = "User already exists.";
+        }
+    }
+}
+?>
+function validateMember()
+{
+    $valid = true;
+    $errorMessage = array();
+    foreach ($_POST as $key => $value) {
+        if (empty($_POST[$key])) {
+            $valid = false;
+        }
+    }
+    
+    if($valid == true) {
+        if ($_POST['password'] != $_POST['password_confirmation']) {
+            $errorMessage[] = 'Passwords should be same.';
+            $valid = false;
+        }
+        
+        if (! isset($error_message)) {
+            if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                $errorMessage[] = "Invalid email address.";
+                $valid = false;
+            }
+        }
+        
+     
+    }
+    else {
+        $errorMessage[] = "All fields are required.";
+    }
+    
+    if ($valid == false) {
+        return $errorMessage;
+    }
+    return;
+}
+function isMemberExists($username, $email)
+{
+    $query = "select * FROM raasmah WHERE user_name = ? OR email = ?";
+    $paramType = "ss";
+    $paramArray = array($username, $email);
+    $memberCount = $this->ds->numRows($query, $paramType, $paramArray);
+    
+    return $memberCount;
+}
+function insertMemberRecord($username, $displayName, $password, $email)
+{
+    $passwordHash = md5($password);
+    $query = "INSERT INTO rassmah (user_name, display_name, password, email) VALUES (?, ?, ?, ?)";
+    $paramType = "ssss";
+    $paramArray = array(
+        $username,
+        $displayName,
+        $passwordHash,
+        $email
+    );
+    $insertId = $this->ds->insert($query, $paramType, $paramArray);
+    return $insertId;
+}
 </div>
         </div>
      </div>       
