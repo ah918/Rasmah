@@ -174,6 +174,7 @@ color:#fff;
             <div class="row">
                 <div class="col-md-12">
                 	<div class ="riham3">
+                    <form action="uploadChange.php" method="POST" enctype="multipart/form-data">
         			<img src="img/Easy4_300x300.jpg" height="350" width="350" alt="profile " class="img-circle img">
                        
         			
@@ -181,7 +182,7 @@ color:#fff;
                 
                 
                 
-                 <button type="submit" form="nameform"  class="form-control input-lg" value="Submit">Uploud Art </button>
+                      <input type="file" name="fileToUpload" >
                 </div>
         			</div>
                     
@@ -191,17 +192,17 @@ color:#fff;
         <div class="col-md-8 well" id="rightPanel">
             <div class="row">
     <div class="col-md-12">
-    	<form role="form">
+    	
 			<h2>Edit Art work </h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
                         <div class ="jojo">
+                         
                         <input type="text" name="title" id="jojo3"   class="form-control input-lg" placeholder="Title" tabindex="1"> 
-                        
              	
-                        <input type="text" name="title"   id="jojo2" class="form-control input-lg" placeholder="dd/mm/yyyy" tabindex="1">
+                       
                         </div>
                 </div>
 				</div>
@@ -210,9 +211,9 @@ color:#fff;
 				<!-- <textarea>-->
 			</div>
 			<div class="form-group">
-                <textarea name="text " rows="11" cols="25" id="email" class="form-control input-lg" placeholder="discription" rows="50" cols ="60" tabindex="4"></textarea>
+                <input type="text" name="discription" rows="11" cols="25" id="email" class="form-control input-lg" placeholder="discription" rows="50" cols ="60" tabindex="4">
                 <div class = "checkBox">
-                    <input type="checkbox"/><label> Available comment</label>
+                  <input type="checkbox" name="comment"/><label> Available comment</label>
                   </div>
 			</div>
 			
@@ -224,7 +225,7 @@ color:#fff;
                     
                    <!-- <div class ="jojo4">-->
                    
-                <a href="#"  class="btn btn-success btn-block btn-lg"  >Save</a>
+                    <button type="submit" name="submit" class="btn btn-success btn-block btn-lg"  >Save changes</button>
 						 <a href="#"  class="btn btn-success btn-block btn-lg"  >Cancel</a>
                    <!-- </div>-->
                 <br>
