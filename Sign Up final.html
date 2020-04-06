@@ -1,3 +1,5 @@
+<?php include('server.php') ?>
+
 <html>
 <html lang="en">
 <head> 
@@ -57,6 +59,74 @@
 <head>
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
 <style>
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 120%;
+  background: #ffffff;
+}
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  padding: 30px;
+  font-size: 20px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 30px;
+}
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -204,7 +274,8 @@ button:hover {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
+ 
 }
 
 /* Style the horizontal ruler */
@@ -241,6 +312,7 @@ hr {
   .cancelbtn, .signupbtn {
      width: 100%;
   }
+  
 }
 
 </style>
@@ -253,8 +325,10 @@ hr {
 
     <body>
 
+
+
 	<div class="OurBar" >
-<img class="ourLogo" src="img/owrlogo.png" >
+<img class="ourLogo" src="owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
@@ -269,13 +343,7 @@ hr {
   <li class="bthird">
 
                   <a id ="my" href="#"><i class="fas fa-user-plus"></i> sign up </a>
-			<script>
 
-      $("#my").click(function(){
-    $("#id01").css("display", "block")
-	  });
-
-</script>
 		
 	
                 </li>
@@ -285,9 +353,11 @@ hr {
 </ul>
 </div>
 	
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
+
+  <form class="modal-content" action="SignUp.php" method="post">
+  <?php include('errors.php'); ?>
+  <?php include('success.php'); ?>
+	
     <div class="container">
 <br>
 <br>
@@ -304,12 +374,12 @@ hr {
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" value="<?php echo $first_name; ?>">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
-						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2" value="<?php echo $last_name; ?>">
 					</div>
 				</div>
 			</div>
@@ -317,40 +387,32 @@ hr {
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+						<input type="password" name="password_1" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+						<input type="password" name="password_2" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="form-group">
-				<input type="number" name="email" id="email" class="form-control input-lg" placeholder="Age" tabindex="4">
+				<input type="number" name="Age" id="email" class="form-control input-lg" placeholder="Age" tabindex="4" value="<?php echo $Age; ?>">
 			</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6">
 			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" value="<?php echo $email; ?>">
 			</div>
 			</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="form-group">
-				<label>Artist
-				<input type="radio" name="email" id="email" class="form-control input-lg" placeholder="Age" tabindex="4"></label>
-			</div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-			<div class="form-group">
-			</div>
-			</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-			<div class="form-group">
-			<label>Visitor
-				<input type="radio" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4"></label>
-			</div>
-			</div>
+				<select name="select" value="<?php echo $select; ?>">
+				<option>Artist</option>
+				<option>Visitor</option>
+				</select>
+				</div>
+				</div>
 			     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 			</div>
 			<hr class="colorgraph">
@@ -358,9 +420,18 @@ hr {
             <div class="row">
 			
 				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" color=#c4e17f>Sign up</a></div>
+				<div class="col-xs-12 col-md-6">
+				<div class ="class="btn btn-success btn-block btn-lg color=#c4e17f">
+				  	  <button type="submit" class="btn" name="reg_user">Register</button>
+
+				
 			</div>
 		</form>
+	
+			
+			
+			
+		
 		<script>
 // Get the modal
 var modal = document.getElementById('id01');
@@ -380,11 +451,6 @@ window.onclick = function(event) {
         </div>
      </div>       
 
-<div id="footer">
-           <svg viewbox="0 0 100 25">
-  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
-</svg>
-       </div>
 
 
 </body>
