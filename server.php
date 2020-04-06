@@ -71,9 +71,9 @@ if (isset($_POST['reg_user'])) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
 if($select=="Artist"){
-  	$sql = "INSERT INTO artists (Lname, Age, Approved, ProfilePic ,ArtEmail , FirstName ,Password,AEmail) VALUES ('$last_name','$Age','False','Null','$email','$first_name','$password','Null')";}
+  	$sql = "INSERT INTO artists (Lname, Age, Approved ,ArtEmail , FirstName ,Password,AEmail) VALUES ('$last_name','$Age','False','$email','$first_name','$password','Null')";}
 else {
-	  	$sql = "INSERT INTO visitor (Lname, Age, ProfilePic ,VEmail , FName ,Password) VALUES ('$last_name','$Age','Null','$email','$first_name','$password')";}
+	  	$sql = "INSERT INTO visitor (Lname, Age ,VEmail , FName ,Password) VALUES ('$last_name','$Age','$email','$first_name','$password')";}
 
   if ($conn->query($sql) === TRUE) {
  
