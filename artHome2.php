@@ -1,142 +1,44 @@
+<?php
+include 'Conn.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-	<!--Raghad	-->
-   <!-- Atheer atheerr-->
-   <!--سويت تغيير استوعب -->
-<!--بسولف بالعزيمه غصب -->
-<!-- ابغى كومنت-->
- 
+
+
+<!-- ********************** !-->
+
+  <!-- styles -->
+
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  
+  <!-- Bootstrap -->
+
+
+
+<!-- ********************** !-->
+    <meta charset="utf-8">
+	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+
+  
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
     <title>My profile</title>
  
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylesheetG.css" rel="stylesheet">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/stylesheet2.css" rel="stylesheet">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <script type="text/javascript">
 </script>
 <style>
-
-
-
-
-.container3  > i {
-    opacity: 0;
-
-    color: #fad02c;
-    will-change: transform;
-    -webkit-transform: scale(.1);
-            transform: scale(.1);
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.btn_wrap {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-    width: 62px;
-    height: 37px;
-    background-color: #EEEEED;
-    border-radius: 80px;
-    padding: 0 18px;
-    will-change: transform;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-
-.btn_wrap:hover {
-    /* transition-delay: .4s; */
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1)
-}
-
-.this{
-    position: absolute;
-    z-index: 99;
-    width: 240px;
-    height: 72px;
-    border-radius: 80px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
-    text-align: center;
-    line-height: 70px;
-    letter-spacing: 2px;
-    color: #EEEEED;
-    background-color: #fad02c;
-    padding: 0 18px;
-    -webkit-transition: all 1.2s ease;
-    transition: all 1.2s ease;
-}
-
-.container3 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 240px;
-    height: 64px;
-    border-radius: 80px;
-}
-
-.container3 i:nth-of-type(1) {
-            -webkit-transition-delay: 1.1s;
-                    transition-delay: 1.1s;
-}
-
-.container3 i:nth-of-type(2) {
-            -webkit-transition-delay: .9s;
-                    transition-delay: .9s;
-}
-
-.container3 i:nth-of-type(3) {
-            -webkit-transition-delay: .7s;
-                    transition-delay: .7s;
-}
-
-.container3 i:nth-of-type(4) {
-            -webkit-transition-delay: .4s;
-                    transition-delay: .4s;
-}
-
-.btn_wrap:hover span {
-    -webkit-transition-delay: .25s;
-            transition-delay: .25s;
-    -webkit-transform: translateX(-280px);
-            transform: translateX(-280px)
-}
-
-.btn_wrap:hover i {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}
-
-
-
-
-.OurBar  ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -144,7 +46,7 @@
   background-color: white;
 }
 
-.OurBar  ul li {
+li {
   float: right;
 }
 
@@ -163,7 +65,6 @@
   color: white;
   text-decoration: none;
   text-shadow: none;
-  font-family: cursive;
 }
 
 .OurBar  li:hover > a {
@@ -199,28 +100,24 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color :  #dce253;   
+background-color : #88ca5e;   
 color:#fff;
 
 }
-	
-	.bFifth > a,
-.bFifth > a:hover,
-.bFifth > a:focus{
-background-color :#88ca5e;
-	color:#fff;}
+
  .ourLogo {
  float: left;
  margin-left : 5%;
 }
-.container3 a{
+.arrow{
 
-color: #fad02c;
-
+left:87%
 }
+
 </style>
   </head>
-  
+  <body>
+
   <header>
   
         <div class="OurBar" >
@@ -228,35 +125,25 @@ color: #fad02c;
 <ul>
 
    <li class=" bfirst" >
-    <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
-                  
+                  <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
                   
                 </li>
-  <li class=" bthird">
-    <a href="myDrawing.html"><i class="fas fa-paint-brush"></i> My drawing</a>
+  <li class=" bSecoend">
+             <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
                        
                 </li>
-  <li class=" bFourth">
+  <li class=" bthird">
 	  <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
 
            
                   
                 </li>
-  <li class=" bFifth">
-    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+  <li class=" bFourth">
+             <a href="uploudArt.html"><i class="fas fa-paint-brush"></i> post</a>
                     </li>
 </ul>
 </div>
   </header>
-  <body>
-
-
-
-
-
-
-
-
 
 
 
@@ -272,17 +159,87 @@ color: #fad02c;
 	</div>
 	<!-- end of row !-->
 	</div>
-		
-			<br><br><br><br>
-		<br><br>
+		<br>
 	
+
+
 		<hr class="colorgraph">
       <div class="row my-3">
-    
-         <div class="col-md-12">
+         <div class="col-md-3 ">
+             <div class="col2">
+             <span id="photo">
+                <?php
+               
+            $query1 = "SELECT ProfilePic FROM artists WHERE ArtEmail ='akh9180@gmail.com';";
+            $result1 = mysqli_query($conn,$query1);
+           
+             if($result1){
+             while($rows = mysqli_fetch_array($result1))
+        {
+            $img_name = $rows['ProfilePic'];
+            $img_src = "profile photo/" . $img_name ;
+        ?>
+
+        
+        <img src="<?php echo $img_src; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
+        
+
+        <?php
+        }
+    }
+    else
+     echo mysqli_error($conn);
+    ?>
+            
+             
+             </span>
+			 </div>
+         </div>
+         <div class="col-md-9">
              <div class="col3">
-			 <span id="info">
-			  <p class="display-2">My drawing</p>
+             <span id="info">
+                 <?php
+$query1 = "SELECT Name FROM artists WHERE ArtEmail ='akh9180@gmail.com';";
+$result1 = mysqli_query($conn,$query1);
+if($result1){
+    while($rows = mysqli_fetch_array($result1))
+{
+   $Artist_name = $rows['Name'];
+?>
+              <p class="display-2"><?php echo $Artist_name; ?></p>
+
+              <?php
+}
+}
+              ?>
+              <?php
+$query1 = "SELECT COUNT(ArtEmail) As Num  FROM artwork WHERE ArtEmail ='akh9180@gmail.com';";
+$result1 = mysqli_query($conn,$query1);
+if($result1){
+    while($rows = mysqli_fetch_array($result1))
+{
+   $NumPost = $rows['Num'];
+?>            
+              <p class="font-weight-light"> <strong><?php echo $NumPost; ?></strong> posts</p>
+              <?php
+}
+}
+              ?>
+			     <?php
+$query1 = "SELECT COUNT(*) As Fav FROM artwork JOIN favoritelist WHERE artwork.ID = favoritelist.ID AND ArtEmail='akh9180@gmail.com';";
+$result1 = mysqli_query($conn,$query1);
+if($result1){
+    while($rows = mysqli_fetch_array($result1))
+{
+   $NumPostFav = $rows['Fav'];
+?>            
+              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> favorite</p>
+              <?php
+}
+}
+else
+     echo mysqli_error($conn);
+              ?>
 			 
 			 </span>
 			 </div>
@@ -290,14 +247,25 @@ color: #fad02c;
       </div>
 	  <hr class="colorgraph">
 	  
+<div class="container">
 
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">My drawing</a></li>
+    <li><a data-toggle="tab" href="#menu1">Popular Art</a></li>
+
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    
 	  <div class="wrapper">
     <div class="container-fluid" >
         		 <div class="row mt-5 mb-5">
-         <div class="col-md-3 text-center">
+         <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
-
+		   
     <a href="#" target="_blank">
       <div class="content-overlay"></div>
       <img class="content-image" src="img/max1_300x300.jpg">
@@ -321,21 +289,11 @@ color: #fad02c;
    
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3" >
-          <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
       </div>
        <!-- end of colom !-->
        </div>
        
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -360,23 +318,12 @@ color: #fad02c;
 </span>
    </div>
     </a>
-	
-
 	</div>
-	    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-           <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
     
-            <div class="col-md-3 text-center">
+            <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -402,59 +349,10 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-	   <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-              <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
    
-               <div class="col-md-3 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy4_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-	
-	   <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-            <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
-    </div>
-    <!-- end of colom !-->
-    </div>
       
      <!--end row !--> 
     </div>
@@ -462,7 +360,7 @@ color: #fad02c;
 	</div>
     
             		 <div class="row mt-5 mb-5">
-         <div class="col-md-3 text-center">
+         <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
@@ -489,21 +387,11 @@ color: #fad02c;
    
     </a>
 	</div>
-	
-	   <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-           <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
       </div>
        <!-- end of colom !-->
        </div>
        
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -529,21 +417,11 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-          <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
     
-            <div class="col-md-3 text-center">
+            <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -569,70 +447,33 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-            <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
    
-                  <div class="col-md-3 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy8_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-            <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
-    </div>
-    <!-- end of colom !-->
-    </div>
+      
      <!--end row !--> 
     </div>
-	
-    </div>
-	<div class="row mt-5 mb-5">
+     <div class="row">
+	 <div class="col-md-12 arrow" >
+	 <br>
+	 <a href="myDrawing.html" >
+	more<i class="fas fa-angle-double-right"></i>
+	</a>
+	</div>
 	</div>
 	
-    
+	</div>
+	
+	</div>
+     <!--end home tap !--> 
+    </div>
+    <div id="menu1" class="tab-pane fade">
 
+	  	  <div class="wrapper">
+    <div class="container-fluid" >
         		 <div class="row mt-5 mb-5">
-         <div class="col-md-3 text-center">
+         <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
@@ -659,21 +500,11 @@ color: #fad02c;
    
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-          <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
       </div>
        <!-- end of colom !-->
        </div>
        
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -699,21 +530,11 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-              <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
     
-            <div class="col-md-3 text-center">
+            <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -739,58 +560,10 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-         <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
-               <div class="col-md-3 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy7_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-             <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
-    </div>
-    <!-- end of colom !-->
-    </div>
+   
       
      <!--end row !--> 
     </div>
@@ -798,7 +571,7 @@ color: #fad02c;
 	<div  class="row mt-5 mb-5">
 	</div>
             		 <div class="row mt-5 mb-5">
-         <div class="col-md-3 text-center">
+         <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
@@ -825,21 +598,11 @@ color: #fad02c;
    
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-             <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
       </div>
        <!-- end of colom !-->
        </div>
        
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -865,21 +628,11 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-           <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
     
-            <div class="col-md-3 text-center">
+            <div class="col-md-4 text-center">
             <div class="col5">
         		 <div class="content">
 		   
@@ -905,58 +658,10 @@ color: #fad02c;
    </div>
     </a>
 	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-             <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
     </div>
     <!-- end of colom !-->
     </div>
-               <div class="col-md-3 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy2_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-	
-		    <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3">
-             <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
-	
-    </div>
-    <!-- end of colom !-->
-    </div>
+   
       
      <!--end row !--> 
     </div>
@@ -973,6 +678,10 @@ color: #fad02c;
 
 	  
 
+
+	
+        </div>
+		  </div>
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

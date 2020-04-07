@@ -46,7 +46,7 @@ echo "anable comment ?:  $comment <br>";
 echo "date is:  $date <br>"; 
 
 include 'Conn.php';
-$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','random56565@gmail.com')";
+$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','akh9180@gmail.com')";
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
  

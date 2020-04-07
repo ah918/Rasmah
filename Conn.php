@@ -18,7 +18,7 @@ function CloseCon($conn)
  }
 
 $conn = OpenCon();
-echo "Connected Successfully";
+#echo "Connected Successfully";
 
 #CloseCon($conn);
 ?>
