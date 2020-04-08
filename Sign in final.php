@@ -176,7 +176,7 @@ background-color :#88ca5e;
 				<div class="col-xs-12 col-sm-6 col-md-6">
           <form role = "form" method="post" action ="sign_in.php">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg"
+                        <input type="text" name="email"  class="form-control input-lg"
                          placeholder="Email Address" tabindex="1"  autofocus>
 					</div>
 				</div>
@@ -189,7 +189,7 @@ background-color :#88ca5e;
 						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
 					</div>
         </div>
-</form>
+
                <p>
 			   <div class="form-group">
              <a href ="Forget password (1).html">Forget password?</a></p><!-- URL-->
@@ -199,8 +199,11 @@ background-color :#88ca5e;
             
             <div class="row">
 				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg"  value="sign in" color=#c4e17f >Sign in</a></div>
-			</div>
+       <!-- <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" 
+         value="sign in" color=#c4e17f name="Sign in">Sign in</a></div>-->
+         <button type="submit" name="submit" class="btn">Login</button>
+      </div>
+      </form>
 		</form>
 	</div>
 </div>
@@ -223,13 +226,3 @@ background-color :#88ca5e;
 
 
 </html>
-
-<?php
-     if (!($database = mysql_connect("localhost","root")))
-     die("<p>could not connect to database</p>");
-
-     if(!mysqli_select_db($database,"raasmah"))
-     die("<p>Could not open URL database</p>");
-
-     if(isset($_POST['sign in']))
-?>
