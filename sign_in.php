@@ -1,11 +1,13 @@
-if(isset($_POST['submit']))
-   
+
 
 
 
 <?php
-
-{				
+$connection = mysqli_connect("localhost","root","","raasmah");
+{		
+    
+   
+   
          $email=$_POST['email'];
          $password	= $_POST['password'];
       

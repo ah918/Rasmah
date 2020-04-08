@@ -169,12 +169,12 @@ background-color :#88ca5e;
         <div class="col-md-8 well" id="rightPanel">
             <div class="row">
     <div class="col-md-12">
-    	<form role="form">
+    	<form role="form" method="POST" action ="sign_in.php">
 			<h2 style="font-family:cursive; font-size:40pt;">Sign in</h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
-          <form role = "form" method="post" action ="sign_in.php">
+        <!--  <form role = "form" >-->
 					<div class="form-group">
                         <input type="text" name="email"  class="form-control input-lg"
                          placeholder="Email Address" tabindex="1"  autofocus>
@@ -201,9 +201,10 @@ background-color :#88ca5e;
 				<div class="col-xs-12 col-md-6"></div>
        <!-- <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" 
          value="sign in" color=#c4e17f name="Sign in">Sign in</a></div>-->
-         <button type="submit" name="submit" class="btn">Login</button>
+         
       </div>
-      </form>
+     <!--  </form>-->
+	  <button type="submit" name="submit" class="btn">Login</button>
 		</form>
 	</div>
 </div>
