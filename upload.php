@@ -12,7 +12,7 @@ $fileTmpName = $_FILES['fileToUpload']['tmp_name'];
 $fileExt = explode('.',$fileName);
 $fileActualExt = strtolower(end($fileExt));
 $fileNameNew = uniqid('',true).".".$fileActualExt;
-$fileDestination ='uploads/'.$fileNameNew;
+$fileDestination ='uploads/'.$fileName;
 $target_file = $fileDestination ; #this variable refer to the path and image name , which should be stored in the database
 
 // Check if image file is a actual image or fake image

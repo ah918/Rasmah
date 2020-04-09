@@ -261,101 +261,88 @@ else
     
 	  <div class="wrapper">
     <div class="container-fluid" >
-        		 <div class="row mt-5 mb-5">
-         <div class="col-md-4 text-center">
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <?php
+    $first=0;
+$query1 = "SELECT * FROM artwork WHERE ArtEmail ='akh9180@gmail.com';";
+$result1 = mysqli_query($conn,$query1);
+if($result1->num_rows > 0){
+  $rowsn= $result1->num_rows;
+$j=0;
+  while ($j < $rowsn){
+  $i=0;
+  
+ 
+ echo' <div class="row mt-5 mb-5">';
+  
+  while($rows = mysqli_fetch_array($result1) && $i <3)
+{ 
+  
+$img = $rows['picture'];
+echo $img;
+$title = $rows['Title'];
+$desc =$rows['Description'];
+$like = $rows['LikeNum'];
+$dislike = $rows['DislikeNum'];
+$id = $rows['ID'];
+$comment = $rows['comment'];
+$commentNum = 0;
+if ($comment == 1){
+  $query2 = "SELECT COUNT(*) As Num  FROM artwork WHERE ID ='3';";
+  $result2 = mysqli_query($conn,$query2);
+  while($rows = mysqli_fetch_array($result2))
+  $commentNum = $rows['Num'];
+}
+ echo '<div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
     <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max1_300x300.jpg">
+      <div class="content-overlay"></div>' ?>
+      <img class="content-image" src="<?php echo $img; ?>"  />
       <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
+        <h3 class="content-title"><?php echo $title; ?></h3>
+        <p class="content-text"><?php echo $desc; ?></p>
 		    
 <span class="content-text"> 
 	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
+    <p  class="num" style=" display: inline;"><?php echo $like; ?> </p>
 </span>
 <span class="he"> 
 	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
+    <p  class="num" style=" display: inline;"> <?php echo $dislike; ?> </p>
 </span>
+<?php if ($comment ==1) { ?>
 <span class="he">
 <i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
+<p  class="num" style=" display: inline;"> <?php echo $commentNum; ?> </p>
 </span>
    </div>
-   
-    </a>
-	</div>
-      </div>
-       <!-- end of colom !-->
-       </div>
-       
-        <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max2_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
+<?php } ?>
+<?php 
+
+echo '</a>
+</div>
     </div>
-    <!-- end of colom !-->
-    </div>
+  
+     </div>';
     
-            <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max3_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-    </div>
-    <!-- end of colom !-->
-    </div>
+     $i=$i+1;
+     $j=$j+1;
+} #end while col
+echo '</div>';
+  } #end while row
+?>
+
+<?php
+} #end if rows not equal zero
+?>
+    
    
-      
+     <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&--> 
      <!--end row !--> 
-    </div>
+    
 	<div class="row mt-5 mb-5">
 	</div>
     
