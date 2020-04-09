@@ -1,3 +1,20 @@
+<?php
+session_start();
+if(isset($_SWSSION['email'])){
+  header("location : Sign_in_final");
+
+  exit();
+}
+
+?>
+
+
+
+
+
+
+
+
 <html>
 <head> 
    

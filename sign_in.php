@@ -25,6 +25,8 @@ $connection = mysqli_connect("localhost","root","","raasmah");
         header("Location: VistorF.html");
       }
 	  else{
+        
+          echo'<script> location.replace("Sign in final.php");</script>';
 		  $error = "Failed Login";
 	  } 
 	  
