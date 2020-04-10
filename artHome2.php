@@ -373,6 +373,10 @@ else
 
   </ul>
 
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    
  <?php
 $query1 = "SELECT * FROM artwork  WHERE ArtEmail='akh9180@gmail.com';";
 $result1 = mysqli_query($conn,$query1);
@@ -400,10 +404,6 @@ if($result1){
 
 $number = count($storeTitle);
 ?>
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-    
 	  <div class="wrapper">
     <div class="container-fluid" >
       <?php 
@@ -479,6 +479,8 @@ echo '</p>
     <!--end home tap !--> 
     </div>
 
+    
+    <div id="menu1" class="tab-pane fade">
     <?php
 $query2 = "SELECT * FROM artwork ORDER BY LikeNum DESC;";
 $result2 = mysqli_query($conn,$query2);
@@ -506,13 +508,14 @@ if($result2){
 
 $number2 = count($storeTitle2);
 ?>
-    <div id="menu1" class="tab-pane fade">
 	  <div class="wrapper">
     <div class="container-fluid" >
       <?php 
       define('z', 0);
-        for ( $z=0; $z<$number2 ;$z++) {
-          
+      
+     
+        for ( $z=0; $z<count($storeTitle2);$z++) {
+
         if($z%3==0 && z!=0){
           echo'<div class="row mt-5 mb-5">';}
           ?>
@@ -524,28 +527,28 @@ $number2 = count($storeTitle2);
 		   
     <a href="#" target="_blank">
       <div class="content-overlay"></div>
-      <?php $current = $storepicture[$z]; 
+      <?php $current2 = $storepicture2[$z]; 
      # echo $current;
      
       ?>
-      <img class="content-image" src="<?php echo $current; ?>">
+      <img class="content-image" src="<?php echo $current2; ?>">
       <div class="content-details fadeIn-bottom">
-        <h3 class="content-title"><?php echo $storeTitle[$z]; ?></h3>
-        <p class="content-text"><?php echo $storeDes[$z]; ?></p>
+        <h3 class="content-title"><?php echo $storeTitle2[$z]; ?></h3>
+        <p class="content-text"><?php echo $storeDes2[$z]; ?></p>
 		    
 <span class="content-text"> 
 	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> <?php echo $storelike[$z]; ?> </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storelike2[$z]; ?> </p>
 </span>
 <span class="he"> 
 	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> <?php echo $storeDislike[$z]; ?> </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storeDislike2[$z]; ?> </p>
 </span>
-<?php if ($storeComment[$z] == 1){ 
+<?php if ($storeComment2[$z] == 1){ 
 echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
 <p  class="num" style=" display: inline;">';
-  echo $storeNumComm[$z];
+  echo $storeNumComm2[$z];
 echo '</p>
 </span>';
  } ?>
