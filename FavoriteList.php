@@ -305,7 +305,7 @@ color: #fad02c;
 	</div>
     
     <?php
-$query2 = "SELECT * FROM artwork ORDER BY LikeNum DESC;";
+$query2 = "SELECT picture FROM artwork WHERE ID IN(SELECT ID FROM favoritelist WHERE VEmail ='".$_SESSION['Email']."' ";
 $result2 = mysqli_query($conn,$query2);
 $storepicture2 = Array();
 $storeTitle2 = Array();
