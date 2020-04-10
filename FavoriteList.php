@@ -1,44 +1,32 @@
 <?php
 include 'Conn.php';
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-
-<!-- ********************** !-->
-
-  <!-- styles -->
-
-	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
-
-
-
-  
-  <!-- Bootstrap -->
-
-
-
-<!-- ********************** !-->
     <meta charset="utf-8">
-	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+		
 
-  
+
+ 
+	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
     <title>My profile</title>
  
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/stylesheet2.css" rel="stylesheet">
-
+    <link href="css/stylesheetG.css" rel="stylesheet">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <script type="text/javascript">
 </script>
 <style>
-ul {
+.OurBar  ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -46,7 +34,7 @@ ul {
   background-color: white;
 }
 
-li {
+.OurBar  ul li {
   float: right;
 }
 
@@ -65,6 +53,7 @@ li {
   color: white;
   text-decoration: none;
   text-shadow: none;
+  font-family: cursive;
 }
 
 .OurBar  li:hover > a {
@@ -100,18 +89,21 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color : #88ca5e;   
+background-color :  #dce253;   
 color:#fff;
 
 }
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
+
 
  .ourLogo {
  float: left;
  margin-left : 5%;
-}
-.arrow{
-
-left:87%
 }
 .content{
   position :relative;
@@ -119,7 +111,6 @@ margin-bottom:15 px;
 
 
 }
-
 .container3  > i {
     opacity: 0;
 
@@ -232,33 +223,38 @@ color: #fad02c;
 </style>
   </head>
   <body>
-
-  <header>
-  
         <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-                  <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                   
                 </li>
-  <li class=" bSecoend">
-             <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
+  <li class=" bFourth">
+    <a href="#"><i class="fas fa-cog"></i> Setting</a>
+            
                        
                 </li>
-  <li class=" bthird">
-	  <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
+  <li class=" bFifth">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+	  
 
            
                   
                 </li>
-  <li class=" bFourth">
-             <a href="uploudArt.html"><i class="fas fa-paint-brush"></i> post</a>
-                    </li>
+ <!-- <li class=" bFourth">
+           <a href="#"><i class="far fa-address-card"></i> about us</a>
+                    </li>-->
 </ul>
 </div>
-  </header>
+
+
+
+
+
+
+
 
 
 
@@ -274,215 +270,40 @@ color: #fad02c;
 	</div>
 	<!-- end of row !-->
 	</div>
-		<br>
+		
+			<br><br><br><br>
+		<br><br>
 	
-
-
 		<hr class="colorgraph">
       <div class="row my-3">
-         <div class="col-md-3 ">
-             <div class="col2">
-             <span id="photo">
-                <?php
-               
-               $_SESSION['Email']= "akh9180@gmail.com";
-            $query1 = "SELECT ProfilePic FROM artists WHERE ArtEmail ='".$_SESSION['Email']."' ";
-            $result1 = mysqli_query($conn,$query1);
-           
-             if($result1){
-             while($rows = mysqli_fetch_array($result1))
-        {
-            $img_name = $rows['ProfilePic'];
-            $img_src = "profile photo/" . $img_name ;
-        ?>
-
-        
-        <img src="<?php echo $img_src; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
-        
-
-        <?php
-        }
-    }
-    else
-     echo mysqli_error($conn);
-    ?>
-            
-             
-             </span>
-			 </div>
-         </div>
-         <div class="col-md-9">
+    
+         <div class="col-md-12">
              <div class="col3">
-             <span id="info">
-                 <?php
-$query1 = "SELECT Name FROM artists WHERE ArtEmail ='akh9180@gmail.com';";
-$result1 = mysqli_query($conn,$query1);
-if($result1){
-    while($rows = mysqli_fetch_array($result1))
-{
-   $Artist_name = $rows['Name'];
-?>
-              <p class="display-2"><?php echo $Artist_name; ?></p>
-
-              <?php
-}
-}
-              ?>
-              <?php
-$query1 = "SELECT COUNT(ArtEmail) As Num  FROM artwork WHERE ArtEmail ='".$_SESSION['Email']."';";
-$result1 = mysqli_query($conn,$query1);
-if($result1){
-    while($rows = mysqli_fetch_array($result1))
-{
-   $NumPost = $rows['Num'];
-?>            
-              <p class="font-weight-light"> <strong><?php echo $NumPost; ?></strong> posts</p>
-              <?php
-}
-}
-              ?>
-			     <?php
-$query1 = "SELECT COUNT(*) As Fav FROM artwork JOIN favoritelist WHERE artwork.ID = favoritelist.ID AND ArtEmail='".$_SESSION['Email']."';";
-$result1 = mysqli_query($conn,$query1);
-if($result1){
-    while($rows = mysqli_fetch_array($result1))
-{
-   $NumPostFav = $rows['Fav'];
-?>            
-              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> favorite</p>
-              <?php
-}
-}
-else
-     echo mysqli_error($conn);
-              ?>
+			 <span id="info">
+			  <p class="display-2">My Favorite List</p>
 			 
 			 </span>
 			 </div>
          </div>
       </div>
-
-
 	  <hr class="colorgraph">
-	  
-<div class="container">
-
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">My drawing</a></li>
-    <li><a data-toggle="tab" href="#menu1">Popular Art</a></li>
-
-  </ul>
-
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-    
- <?php
-$query1 = "SELECT * FROM artwork  WHERE ArtEmail='".$_SESSION['Email']."';";
-$result1 = mysqli_query($conn,$query1);
-$storepicture = Array();
-$storeTitle = Array();
-$storeDes = Array();
-$storelike = Array();
-$storeComment = Array();
-$storeNumComm = Array();
-$storeDislike = Array();
-$storeID = Array();
-if($result1){
-    while($rows = mysqli_fetch_array($result1))
-{
-  $storepicture[] = $rows['picture']; 
-  $storeTitle[] = $rows['Title']; 
-  $storeDes[] = $rows['Description']; 
-  $storelike[] = $rows['LikeNum']; 
-  $storeDislike[] = $rows['DislikeNum'];
-  $storeComment[]= $rows['comment']; 
-  $storeNumComm[] = $rows['NumComment']; 
-  $storeID[] = $rows['ID'];
-}
-}
-
-$number = count($storeTitle);
-?>
+      
+      
+      <!---------------------------------------------------->
 	  <div class="wrapper">
     <div class="container-fluid" >
-      <?php 
-      define('i', 0);
-        for ( $i=0; $i<$number ;$i++) {
-          
-        if($i%3==0 && i!=0){
-          echo'<div class="row mt-5 mb-5">';}
-          ?>
-               <!------- ------->
 
-         <div class="col-md-4 text-center">
-            <div class="col5">
-                <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <?php $current = $storepicture[$i]; 
-     # echo $current;
-     
-      ?>
-      <img class="content-image" src="<?php echo $current; ?>">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title"><?php echo $storeTitle[$i]; ?></h3>
-        <p class="content-text"><?php echo $storeDes[$i]; ?></p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> <?php echo $storelike[$i]; ?> </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> <?php echo $storeDislike[$i]; ?> </p>
-</span>
-<?php if ($storeComment[$i] == 1){ 
-echo '<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;">';
-  echo $storeNumComm[$i];
-echo '</p>
-</span>';
- } ?>
-   </div>
-   
-    </a>
-  </div>
-  
-  <div class="btn_wrap">
-         <span class="this"  > ... </span>
-        <div class="container3" >
-        
-          <a  href="Edit.php?id= <?php echo $storeID[$i]; ?>" ><i class="far fa-edit fa-lg"></i> </a> 
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
-        
-        </div>
-    </div>
 
-      </div>
-       <!-- end of colom !-->
-       </div>
-       
+
+        		 <div class="row mt-5 mb-5">
+        
+      
      <!--end row !--> 
-     <?php if($i%3==0 && i!=0){
-    echo '</div>';}
-     }
-    ?>
-
-
-
-
-     
-    </div>
-    </div>
-    <!--end home tap !--> 
     </div>
 
+	<div class="row mt-5 mb-5">
+	</div>
     
-    <div id="menu1" class="tab-pane fade">
     <?php
 $query2 = "SELECT * FROM artwork ORDER BY LikeNum DESC;";
 $result2 = mysqli_query($conn,$query2);
@@ -518,12 +339,12 @@ $number2 = count($storeTitle2);
      
         for ( $z=0; $z<count($storeTitle2);$z++) {
 
-        if($z%3==0 && z!=0){
+        if($z%4==0 && z!=0){
           echo'<div class="row mt-5 mb-5">';}
           ?>
                <!------- ------->
 
-         <div class="col-md-4 text-center">
+         <div class="col-md-3 text-center">
             <div class="col5">
                 <div class="content">
 		   
@@ -561,41 +382,44 @@ echo '</p>
   
 
 
+  <div class="btn_wrap">
+         <span class="this"  > ... </span>
+        <div class="container3" >
+        
+         
+            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
+        
+        </div>
+    </div>
+
       </div>
        <!-- end of colom !-->
        </div>
        
      <!--end row !--> 
-     <?php if($z%3==0 && z!=0){
+     <?php if($z%4==0 && z!=0){
     echo '</div>';}
      }
-    ?>
+    ?>        
+    
 
 
 
 
-     
-    </div>
-    </div>
+
+
+    
+	</div>
+	</div>
 	  
-    
-    
-
-
-
 	   <!--end menu tap !--> 
     </div>
 
 
-  </div>
-</div>
+  
 
 	  
 
-
-	
-        </div>
-		  </div>
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
