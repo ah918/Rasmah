@@ -1,3 +1,11 @@
+
+<?php
+include 'Conn.php';
+
+?>
+
+
+
 <html>
 <head> 
     
@@ -221,7 +229,13 @@ background-color :#88ca5e;
  float: left;
  margin-left : 5%;
 }
-        
+
+
+ .may{
+    font-family:  cursive;
+    margin-left : 80%;
+    width:90%;
+   }     
         
    </style>
     
@@ -256,7 +270,14 @@ background-color :#88ca5e;
              
 </ul>
 </div>
-        
+    
+
+
+
+
+
+
+
         
         
 <div class="container">
@@ -267,8 +288,46 @@ background-color :#88ca5e;
             <div class="row">
                 <div class="col-md-12">
                 	<div>
-        				<img src="img/profileR.png" height="300" width="300" alt="profile " class="img-circle img">
-        			
+                  <form role="form" method="POST" action ="setphp.php">
+                  <?php
+             $query1 = "SELECT * FROM artists WHERE ArtEmail ='Riham@gmail.com';";
+                    
+               $result1 = mysqli_query($conn,$query1);
+
+             if($result1){
+             while($rows = mysqli_fetch_array($result1))
+               {
+                $img_name = $rows['ProfilePic'];
+                $Artist_name = $rows['Name'];
+                $Artist_Lastname = $rows['LastName'];
+                $Artist_Email = $rows['ArtEmail'];
+                $Artist_pass = $rows['Password'];
+           
+                }
+                   }
+
+                   else
+                   echo mysqli_error($conn);
+                   
+
+
+               
+              
+           
+              /* $img_name = $rows['ProfilePic'];
+               $img_src = "profile photo/" . $img_name ;*/
+             ?>
+               <img src="<?php echo $img_name; ?>" alt="" width="280px" height = "280px" 
+               class="img-circle img">
+        
+               <div class="form-group">  
+                
+                
+                
+                <input type="file" name="fileToUpload" >
+          </div>
+     
+  
                     
         			</div>
         		</div>
@@ -277,41 +336,70 @@ background-color :#88ca5e;
         <div class="col-md-8 well" id="rightPanel">
             <div class="row">
     <div class="col-md-12">
-    	<form role="form">
+
+   
+
 			<h2>Edit your profile.</h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+          
+            <input type="text" name="first_name" id="first_name" class="form-control input-lg" value="<?php echo $Artist_name; ?>">
+           
+                       
 					</div>
-				</div>
+        </div>
+        
+
 				<div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
-						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+                    
+
+<input type="text" name="last_name" id="first_name" class="form-control input-lg" value="<?php echo $Artist_Lastname; ?>">
+
+
+
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
-			</div>
+    
+
+
+				<input type="text" name="email" id="email" class="form-control input-lg"   value="<?php echo  $Artist_Email; ?>">
+
+    
+    
+      </div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-					</div>
+          
+
+
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5"  value="<?php echo  $Artist_pass; ?>">
+          
+         
+          
+          
+          </div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
-						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
-					</div>
+
+            <input type="password" name="password2" id="password" class="form-control input-lg" 
+            placeholder="Password" tabindex="5"  value="<?php echo  $Artist_pass; ?>">
+
+        
+          </div>
 				</div>
 			</div>
 			<hr class="colorgraph">
             
             <div class="row">
 				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" color=#c4e17f>Save</a></div>
+				<div class="may" ><button type="submit" name="submit" class="btn">Update</button></may>
 			</div>
 		</form>
 	</div>
@@ -338,10 +426,7 @@ background-color :#88ca5e;
 </svg>
        </div> 
         
-        
-        
-
-
+    
 
 </body>
 
@@ -349,3 +434,9 @@ background-color :#88ca5e;
 
 
 </html>
+
+
+
+
+
+
