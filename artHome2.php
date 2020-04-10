@@ -113,7 +113,12 @@ color:#fff;
 
 left:87%
 }
+.content{
+  position :relative;
+margin-bottom:15 px;
 
+
+}
 </style>
   </head>
   <body>
@@ -245,6 +250,8 @@ else
 			 </div>
          </div>
       </div>
+
+
 	  <hr class="colorgraph">
 	  
 <div class="container">
@@ -256,93 +263,101 @@ else
 
   </ul>
 
+ <?php
+$query1 = "SELECT * FROM artwork  WHERE ArtEmail='akh9180@gmail.com';";
+$result1 = mysqli_query($conn,$query1);
+$storepicture = Array();
+$storeTitle = Array();
+$storeDes = Array();
+$storelike = Array();
+$storeComment = Array();
+$storeNumComm = Array();
+$storeDislike = Array();
+$storeID = Array();
+if($result1){
+    while($rows = mysqli_fetch_array($result1))
+{
+  $storepicture[] = $rows['picture']; 
+  $storeTitle[] = $rows['Title']; 
+  $storeDes[] = $rows['Description']; 
+  $storelike[] = $rows['LikeNum']; 
+  $storeDislike[] = $rows['DislikeNum'];
+  $storeComment[]= $rows['comment']; 
+  $storeNumComm[] = $rows['NumComment']; 
+  $storeID[] = $rows['ID'];
+}
+}
+
+$number = count($storeTitle);
+?>
+
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
     
 	  <div class="wrapper">
     <div class="container-fluid" >
+      <?php 
+      define('i', 0);
+        for ( $i=0; $i<$number ;$i++) {
+          
+        if($i%3==0 && i!=0){
+          echo'<div class="row mt-5 mb-5">';}
+          ?>
+               <!------- ------->
 
-    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
-    <?php
-    $first=0;
-$query1 = "SELECT * FROM artwork WHERE ArtEmail ='akh9180@gmail.com';";
-$result1 = mysqli_query($conn,$query1);
-if($result1->num_rows > 0){
-  $rowsn= $result1->num_rows;
-$j=0;
-  while ($j < $rowsn){
-  $i=0;
-  
- 
- echo' <div class="row mt-5 mb-5">';
-  
-  while($rows = mysqli_fetch_array($result1) && $i <3)
-{ 
-  
-$img = $rows['picture'];
-echo $img;
-$title = $rows['Title'];
-$desc =$rows['Description'];
-$like = $rows['LikeNum'];
-$dislike = $rows['DislikeNum'];
-$id = $rows['ID'];
-$comment = $rows['comment'];
-$commentNum = 0;
-if ($comment == 1){
-  $query2 = "SELECT COUNT(*) As Num  FROM artwork WHERE ID ='3';";
-  $result2 = mysqli_query($conn,$query2);
-  while($rows = mysqli_fetch_array($result2))
-  $commentNum = $rows['Num'];
-}
- echo '<div class="col-md-4 text-center">
+         <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
     <a href="#" target="_blank">
-      <div class="content-overlay"></div>' ?>
-      <img class="content-image" src="<?php echo $img; ?>"  />
+      <div class="content-overlay"></div>
+      <?php $current = $storepicture[$i]; 
+      echo $current;?>
+      <img class="content-image" src="<?php echo $current; ?>">
       <div class="content-details fadeIn-bottom">
-        <h3 class="content-title"><?php echo $title; ?></h3>
-        <p class="content-text"><?php echo $desc; ?></p>
+        <h3 class="content-title"><?php echo $storeTitle[$i]; ?></h3>
+        <p class="content-text"><?php echo $storeDes[$i]; ?></p>
 		    
 <span class="content-text"> 
 	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"><?php echo $like; ?> </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storelike[$i]; ?> </p>
 </span>
 <span class="he"> 
 	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> <?php echo $dislike; ?> </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storeDislike[$i]; ?> </p>
 </span>
-<?php if ($comment ==1) { ?>
+<?php if ($storeComment[i]==1){ ?>
 <span class="he">
 <i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> <?php echo $commentNum; ?> </p>
+<p  class="num" style=" display: inline;"> <?php echo $storeNumComm[$i]; ?></p>
 </span>
-   </div>
 <?php } ?>
-<?php 
-
-echo '</a>
-</div>
-    </div>
-  
-     </div>';
-    
-     $i=$i+1;
-     $j=$j+1;
-} #end while col
-echo '</div>';
-  } #end while row
-?>
-
-<?php
-} #end if rows not equal zero
-?>
-    
+   </div>
    
-     <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&--> 
+    </a>
+	</div>
+      </div>
+       <!-- end of colom !-->
+       </div>
+       
      <!--end row !--> 
-    
+     <?php if($i%3==0 && i!=0){
+    echo '</div>';}
+     }
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div class="row mt-5 mb-5">
 	</div>
     
