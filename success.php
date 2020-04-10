@@ -1,8 +1,10 @@
-<?php if (isset($_POST['reg_user'])): ?>
+<?php if (isset($_POST['reg_user'])){ 
 	
-    <?php if (count($errors) == 0) :?>
-     <div class="success">
-         <p>Thank you for your registration</p>
-     </div>
-   <?php  endif ?>
-   <?php  endif ?>
+    if (count($errors) == 0) {?>
+      <div class="success">
+    <?php if($select=="Artist"){
+    echo "Thank you for your registration, please wait your account getting approved"; }
+        else if($select=="Visitor"){
+   echo "Thank you for your registration"; } } } ?>   
+   </div>
+   
