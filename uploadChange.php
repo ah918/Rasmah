@@ -82,8 +82,7 @@ $sql = "UPDATE artwork SET Title='$title',Description='$discription' WHERE ID='"
 $result1 = mysqli_query($conn,$sql);
 }// end there is comment
 else if($storeComment ==1 && $commentNew ==0){
-    $sql1 = "DELETE FROM comments WHERE ID='".$id."';";
-    $result1 = mysqli_query($conn,$sql1);
+  
     if ($Newimage)
     $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
     else  $sql = "UPDATE artwork SET Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
