@@ -1,16 +1,28 @@
 <?php
+//ob_start();
+session_start();
+include('Conn.php');
+/*if(!($_SESSION['role']='visitor')){
+header("location : Home.html");
+}
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);*/
-session_start();
+
+//include 'Conn.php';
+
+
+
+//$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
-  header("location : login.php");
+  //mysql_close($connection);  
+ header("location : login.php");
 
   
-}
+
 
 ?>
 
