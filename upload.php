@@ -12,7 +12,7 @@ $fileTmpName = $_FILES['fileToUpload']['tmp_name'];
 $fileExt = explode('.',$fileName);
 $fileActualExt = strtolower(end($fileExt));
 $fileNameNew = uniqid('',true).".".$fileActualExt;
-$fileDestination ='uploads/'.$fileNameNew;
+$fileDestination ='uploads/'.$fileName;
 $target_file = $fileDestination ; #this variable refer to the path and image name , which should be stored in the database
 
 // Check if image file is a actual image or fake image
@@ -34,9 +34,9 @@ if(isset($_POST["submit"])) {
 $title = $_POST["title"];
 $discription = $_POST["discription"];
 if ($_POST['comment'] == "on")
-$comment = "yes"; #return 'Yes' if it checked
+$comment = "1"; #return 'Yes' if it checked
 else
-$comment = "no";
+$comment = "0";
 date_default_timezone_set("Asia/Riyadh");
 $date =  date("Y-m-d  h:i:s") ;
 echo "Your file name is:  $target_file <br>"; 
@@ -46,7 +46,7 @@ echo "anable comment ?:  $comment <br>";
 echo "date is:  $date <br>"; 
 
 include 'Conn.php';
-$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','akh9180@gmail.com')";
+$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail, comment) VALUES ('$target_file','$title','$discription','$date','akh9180@gmail.com' , '$comment')";
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
  

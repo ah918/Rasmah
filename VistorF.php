@@ -1,3 +1,25 @@
+<?php
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+session_start();
+if(!isset($_SESSION['email'])) {
+  header("location : login.php");
+
+  
+}
+
+?>
+
+
+
+
+
+
+
 <html>
 <head> 
 
