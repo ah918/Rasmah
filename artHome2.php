@@ -457,7 +457,8 @@ echo '</p>
         <div class="container3" >
         
           <a  href="Edit.php?id= <?php echo $storeID[$i]; ?>" ><i class="far fa-edit fa-lg"></i> </a> 
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
+          <a  href="deleteArt.php?id= <?php echo $storeID[$i]; ?>"> <i class="far fa-trash-alt fa-lg"></i></a>
+            
         
         </div>
     </div>
