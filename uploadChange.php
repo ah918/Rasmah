@@ -19,8 +19,8 @@ if($result1){
     }
     
 $Newimage = false;
-if(isset($_POST['name'])) {
-    if(is_uploaded_file($_FILES['files']['tmp_name'][0])){
+if(isset($_FILES['fileToUpload']['name'])) {
+    
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false){
         $fileName = $_FILES['fileToUpload']['name'];
@@ -46,7 +46,7 @@ if(isset($_POST["submit"])) {
     }
 } 
     $Newimage = true;}
-    }
+    
 }
 
 
@@ -68,11 +68,10 @@ include 'Conn.php';
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }*/
-if (isset($_POST["commentC"])){
-if ($commentC == "on")
+if (isset($_POST["commentC"]))
 $commentNew = "1"; #return 'Yes' if it checked
 else
-$commentNew = "0";}
+$commentNew = "0";
 
 if ($storeComment ==1 && $commentNew ==1) {
     if ($Newimage)
