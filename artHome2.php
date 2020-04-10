@@ -119,6 +119,116 @@ margin-bottom:15 px;
 
 
 }
+
+.container3  > i {
+    opacity: 0;
+
+    color: #fad02c;
+    will-change: transform;
+    -webkit-transform: scale(.1);
+            transform: scale(.1);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.btn_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 80px;
+    height: 37px;
+    background-color: #EEEEED;
+    border-radius: 80px;
+    padding: 0 18px;
+    will-change: transform;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.btn_wrap:hover {
+    /* transition-delay: .4s; */
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1)
+}
+
+.this{
+    position: absolute;
+    z-index: 99;
+    width: 300px;
+    height: 72px;
+    border-radius: 80px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+    letter-spacing: 2px;
+    color: #EEEEED;
+    background-color: #fad02c;
+    padding: 0 18px;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+}
+
+.container3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 300px;
+    height: 64px;
+    border-radius: 80px;
+}
+
+.container3 i:nth-of-type(1) {
+            -webkit-transition-delay: 1.1s;
+                    transition-delay: 1.1s;
+}
+
+.container3 i:nth-of-type(2) {
+            -webkit-transition-delay: .9s;
+                    transition-delay: .9s;
+}
+
+.container3 i:nth-of-type(3) {
+            -webkit-transition-delay: .7s;
+                    transition-delay: .7s;
+}
+
+.container3 i:nth-of-type(4) {
+            -webkit-transition-delay: .4s;
+                    transition-delay: .4s;
+}
+
+.btn_wrap:hover span {
+    -webkit-transition-delay: .25s;
+            transition-delay: .25s;
+    -webkit-transform: translateX(-280px);
+            transform: translateX(-280px)
+}
+
+.btn_wrap:hover i {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+.container3 a{
+
+color: #fad02c;
+
+}
 </style>
   </head>
   <body>
@@ -312,7 +422,9 @@ $number = count($storeTitle);
     <a href="#" target="_blank">
       <div class="content-overlay"></div>
       <?php $current = $storepicture[$i]; 
-      echo $current;?>
+     # echo $current;
+     
+      ?>
       <img class="content-image" src="<?php echo $current; ?>">
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title"><?php echo $storeTitle[$i]; ?></h3>
@@ -326,16 +438,28 @@ $number = count($storeTitle);
 	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
     <p  class="num" style=" display: inline;"> <?php echo $storeDislike[$i]; ?> </p>
 </span>
-<?php if ($storeComment[i]==1){ ?>
-<span class="he">
+<?php if ($storeComment[$i] == 1){ 
+echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> <?php echo $storeNumComm[$i]; ?></p>
-</span>
-<?php } ?>
+<p  class="num" style=" display: inline;">';
+  echo $storeNumComm[$i];
+echo '</p>
+</span>';
+ } ?>
    </div>
    
     </a>
-	</div>
+  </div>
+  
+  <div class="btn_wrap">
+         <span class="this"  > ... </span>
+        <div class="container3" >
+          <a  href="edit.html"><i class="far fa-edit fa-lg"></i> </a>
+            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
+        
+        </div>
+    </div>
+
       </div>
        <!-- end of colom !-->
        </div>
@@ -349,328 +473,111 @@ $number = count($storeTitle);
 
 
 
-
-
-
-
-
-
-
-
-
-	<div class="row mt-5 mb-5">
-	</div>
-    
-            		 <div class="row mt-5 mb-5">
-         <div class="col-md-4 text-center">
-            <div class="col5">
-                <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max4_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-   
-    </a>
-	</div>
-      </div>
-       <!-- end of colom !-->
-       </div>
-       
-        <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max5_1_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
+     
     </div>
-    <!-- end of colom !-->
     </div>
-    
-            <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/max6_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
+    <!--end home tap !--> 
     </div>
-    <!-- end of colom !-->
-    </div>
-   
-      
-     <!--end row !--> 
-    </div>
-     <div class="row">
-	 <div class="col-md-12 arrow" >
-	 <br>
-	 <a href="myDrawing.html" >
-	more<i class="fas fa-angle-double-right"></i>
-	</a>
-	</div>
-	</div>
-	
-	</div>
-	
-	</div>
-     <!--end home tap !--> 
-    </div>
+
+    <?php
+$query2 = "SELECT * FROM artwork ORDER BY LikeNum DESC;";
+$result2 = mysqli_query($conn,$query2);
+$storepicture2 = Array();
+$storeTitle2 = Array();
+$storeDes2 = Array();
+$storelike2 = Array();
+$storeComment2 = Array();
+$storeNumComm2 = Array();
+$storeDislike2 = Array();
+$storeID2 = Array();
+if($result2){
+    while($rows2 = mysqli_fetch_array($result2))
+{
+  $storepicture2[] = $rows2['picture']; 
+  $storeTitle2[] = $rows2['Title']; 
+  $storeDes2[] = $rows2['Description']; 
+  $storelike2[] = $rows2['LikeNum']; 
+  $storeDislike2[] = $rows2['DislikeNum'];
+  $storeComment2[]= $rows2['comment']; 
+  $storeNumComm2[] = $rows2['NumComment']; 
+  $storeID2[] = $rows2['ID'];
+}
+}
+
+$number2 = count($storeTitle2);
+?>
     <div id="menu1" class="tab-pane fade">
-
-	  	  <div class="wrapper">
+	  <div class="wrapper">
     <div class="container-fluid" >
-        		 <div class="row mt-5 mb-5">
+      <?php 
+      define('z', 0);
+        for ( $z=0; $z<$number2 ;$z++) {
+          
+        if($z%3==0 && z!=0){
+          echo'<div class="row mt-5 mb-5">';}
+          ?>
+               <!------- ------->
+
          <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
 		   
     <a href="#" target="_blank">
       <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy1_300x300.jpg">
+      <?php $current = $storepicture[$z]; 
+     # echo $current;
+     
+      ?>
+      <img class="content-image" src="<?php echo $current; ?>">
       <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
+        <h3 class="content-title"><?php echo $storeTitle[$z]; ?></h3>
+        <p class="content-text"><?php echo $storeDes[$z]; ?></p>
 		    
 <span class="content-text"> 
 	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storelike[$z]; ?> </p>
 </span>
 <span class="he"> 
 	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
+    <p  class="num" style=" display: inline;"> <?php echo $storeDislike[$z]; ?> </p>
 </span>
-<span class="he">
+<?php if ($storeComment[$z] == 1){ 
+echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
+<p  class="num" style=" display: inline;">';
+  echo $storeNumComm[$z];
+echo '</p>
+</span>';
+ } ?>
    </div>
    
     </a>
-	</div>
+  </div>
+  
+
+
       </div>
        <!-- end of colom !-->
        </div>
        
-        <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy3_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-    </div>
-    <!-- end of colom !-->
-    </div>
-    
-            <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy4_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-    </div>
-    <!-- end of colom !-->
-    </div>
-   
-      
      <!--end row !--> 
+     <?php if($z%3==0 && z!=0){
+    echo '</div>';}
+     }
+    ?>
+
+
+
+
+     
     </div>
-    
-	<div  class="row mt-5 mb-5">
-	</div>
-            		 <div class="row mt-5 mb-5">
-         <div class="col-md-4 text-center">
-            <div class="col5">
-                <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy5_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-   
-    </a>
-	</div>
-      </div>
-       <!-- end of colom !-->
-       </div>
-       
-        <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy6_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
     </div>
-    <!-- end of colom !-->
-    </div>
-    
-            <div class="col-md-4 text-center">
-            <div class="col5">
-        		 <div class="content">
-		   
-    <a href="#" target="_blank">
-      <div class="content-overlay"></div>
-      <img class="content-image" src="img/Easy8_300x300.jpg">
-      <div class="content-details fadeIn-bottom">
-        <h3 class="content-title">Title</h3>
-        <p class="content-text">This is a short description</p>
-		    
-<span class="content-text"> 
-	<i class="fas fa-heart fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 10 </p>
-</span>
-<span class="he"> 
-	<i class="fas fa-heart-broken fa-1x" aria-hidden="true"></i>
-    <p  class="num" style=" display: inline;"> 13 </p>
-</span>
-<span class="he">
-<i class="fas fa-comment fa-1x"></i>
-<p  class="num" style=" display: inline;"> 15 </p>
-</span>
-   </div>
-    </a>
-	</div>
-    </div>
-    <!-- end of colom !-->
-    </div>
-   
-      
-     <!--end row !--> 
-    </div>
-    
-	</div>
-	</div>
 	  
+    
+    
+
+
+
 	   <!--end menu tap !--> 
     </div>
 
