@@ -1,13 +1,30 @@
-    <?php
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "raasmah";
 
-$conn = mysqli_connect('localhost', 'root', '', 'raasmah');
 
-// lets assume a user is logged in with id $user_id
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$db);
 $user_id = 2;
+$post_id = 1; 
 
-$comment=$_POST["comment"]
+/*if (isset($_POST['action'])) {
+    $post_id = $_POST['post_id'];
+}*/
 
-           
-$sql = "INSERT INTO comment VALUES ($user_id, $comment)";
+$comment = $_POST["comment"];
+            
+$sql = "INSERT INTO comment (Vemail, comment , post_id ) VALUES ($user_id, '$comment' , $post_id )";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+header('Location: http://localhost/comment/ViewArtWork.php');
 
 ?>
