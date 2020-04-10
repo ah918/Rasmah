@@ -45,6 +45,7 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 } 
+
     $Newimage = true;}
     
 }
@@ -75,32 +76,35 @@ $commentNew = "0";
 
 if ($storeComment ==1 && $commentNew ==1) {
     if ($Newimage)
-$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$id."';";
+$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription' WHERE ID='".$id."';";
 else
-$sql = "UPDATE artwork SET Title='$title',Description='discription' WHERE ID='".$id."';";
+$sql = "UPDATE artwork SET Title='$title',Description='$discription' WHERE ID='".$id."';";
 $result1 = mysqli_query($conn,$sql);
 }// end there is comment
 else if($storeComment ==1 && $commentNew ==0){
     $sql1 = "DELETE FROM comments WHERE ID='".$id."';";
     $result1 = mysqli_query($conn,$sql1);
     if ($Newimage)
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='0' WHERE ID='".$id."';"; 
-    else  $sql = "UPDATE artwork SET Title='$title',Description='discription',comment='0' WHERE ID='".$id."';"; 
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
+    else  $sql = "UPDATE artwork SET Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
     $result2 = mysqli_query($conn,$sql1);
 }//end remove comment
 else if ($storeComment ==0 && $commentNew ==1){
     if ($Newimage)
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='1' WHERE ID='".$id."';"; 
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription',comment='1' WHERE ID='".$id."';"; 
    else
-   $sql = "UPDATE artwork SET Title='$title',Description='discription',comment='1' WHERE ID='".$id."';"; 
+   $sql = "UPDATE artwork SET Title='$title',Description='$discription',comment='1' WHERE ID='".$id."';"; 
     $result2 = mysqli_query($conn,$sql);
 }else if ($storeComment ==0 && $commentNew ==0){
     if ($Newimage)
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$id."';"; 
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription' WHERE ID='".$id."';"; 
     else
-    $sql = "UPDATE artwork SET Title='$title',Description='discription' WHERE ID='".$id."';"; 
+    $sql = "UPDATE artwork SET Title='$title',Description='$discription' WHERE ID='".$id."';"; 
     $result2 = mysqli_query($conn,$sql); 
 }
+
+    move_uploaded_file($fileTmpName ,$target_file);
+
 
 header("location:/test/GitHub/Rasmah/artHome2.php"); 
 ?>
