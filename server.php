@@ -67,7 +67,7 @@ if (isset($_POST['reg_user'])) {
     }
   }
   if($Age >= '15')
-	  array_push($errors, "you should be younger than 15 years old "); }
+	  array_push($errors, "you should be younger than 15 years old"); }
   
   if($select=="Visitor"){
   $user_check_query = "SELECT * FROM visitor WHERE VEmail='$email'";
@@ -92,5 +92,12 @@ else {
 	  	$sql = "INSERT INTO visitor (Lname, Age, ProfilePic ,VEmail , FName ,Password)
 		VALUES ('$last_name','$Age','Null','$email','$first_name','$password')";}
 
+  if ($conn->query($sql) === TRUE) {
+ 
+    echo "New record created successfully";
+
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 }
 }
