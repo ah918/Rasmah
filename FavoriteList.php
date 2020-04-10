@@ -1,6 +1,7 @@
 <?php
 include 'Conn.php';
-
+$_SESSION['Email']= "akh9180@gmail.com";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

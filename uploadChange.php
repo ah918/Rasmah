@@ -1,21 +1,38 @@
 <?php
-# start upload image
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$fileName = $_FILES['fileToUpload']['name'];
-$fileError = $_FILES['fileToUpload']['error'];
-$fileSize = $_FILES['fileToUpload']['size'];
-$fileTmpName = $_FILES['fileToUpload']['tmp_name'];
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$db = "rasmah";
+$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
-$fileExt = explode('.',$fileName);
-$fileActualExt = strtolower(end($fileExt));
-$fileNameNew = uniqid('',true).".".$fileActualExt;
-$fileDestination ='uploads/'.$fileNameNew;
-$target_file = $fileDestination ; #this variable refer to the path and image name , which should be stored in the database
 
-// Check if image file is a actual image or fake image
+$id = $_POST['id'];
+$sql = "SELECT comment FROM artwork WHERE ID='".$id."';";
+$result1 = mysqli_query($conn,$sql);
+
+if($result1){
+    while($rows = mysqli_fetch_array($result1))
+{
+    $storeComment= $rows['comment']; 
+
+}
+    }
+    
+$Newimage = false;
+if(isset($_POST['name'])) {
+    if(is_uploaded_file($_FILES['files']['tmp_name'][0])){
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false){
+        $fileName = $_FILES['fileToUpload']['name'];
+        # start upload image
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $fileTmpName = $_FILES['fileToUpload']['tmp_name'];
+    $fileDestination ='uploads/'.$fileName;
+    $target_file = $fileDestination ;
+    // Check if image file is a actual image or fake image
 chmod($fileTmpName, 0755);
 
 if(isset($_POST["submit"])) {
@@ -27,7 +44,11 @@ if(isset($_POST["submit"])) {
         echo "File is not an image.";
         $uploadOk = 0;
     }
+} 
+    $Newimage = true;}
+    }
 }
+
 
 
 #end upload image
@@ -35,19 +56,52 @@ if(isset($_POST["submit"])) {
 $title = $_POST["title"];
 $discription = $_POST["discription"];
 
-echo "Your file name is:  $target_file <br>"; 
-echo "Your title is:  $title <br>"; 
-echo "Your discription is:  $discription <br>"; 
-
 
 include 'Conn.php';
-$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID=3";
+#$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$_GET['id']."';";
 #$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail) VALUES ('$target_file','$title','$discription','$date','random56565@gmail.com')";
 #stored successfully but the date does't store hour try to fix it later
-if ($conn->query($sql) === TRUE) {
+
+/*if ($conn->query($sql) === TRUE) {
     echo "New update created successfully";
     move_uploaded_file($fileTmpName ,$target_file);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+}*/
+if (isset($_POST["commentC"])){
+if ($commentC == "on")
+$commentNew = "1"; #return 'Yes' if it checked
+else
+$commentNew = "0";}
+
+if ($storeComment ==1 && $commentNew ==1) {
+    if ($Newimage)
+$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$id."';";
+else
+$sql = "UPDATE artwork SET Title='$title',Description='discription' WHERE ID='".$id."';";
+$result1 = mysqli_query($conn,$sql);
+}// end there is comment
+else if($storeComment ==1 && $commentNew ==0){
+    $sql1 = "DELETE FROM comments WHERE ID='".$id."';";
+    $result1 = mysqli_query($conn,$sql1);
+    if ($Newimage)
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='0' WHERE ID='".$id."';"; 
+    else  $sql = "UPDATE artwork SET Title='$title',Description='discription',comment='0' WHERE ID='".$id."';"; 
+    $result2 = mysqli_query($conn,$sql1);
+}//end remove comment
+else if ($storeComment ==0 && $commentNew ==1){
+    if ($Newimage)
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='1' WHERE ID='".$id."';"; 
+   else
+   $sql = "UPDATE artwork SET Title='$title',Description='discription',comment='1' WHERE ID='".$id."';"; 
+    $result2 = mysqli_query($conn,$sql);
+}else if ($storeComment ==0 && $commentNew ==0){
+    if ($Newimage)
+    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$id."';"; 
+    else
+    $sql = "UPDATE artwork SET Title='$title',Description='discription' WHERE ID='".$id."';"; 
+    $result2 = mysqli_query($conn,$sql); 
 }
+
+header("location:/test/GitHub/Rasmah/artHome2.php"); 
 ?>

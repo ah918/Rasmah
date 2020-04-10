@@ -189,7 +189,7 @@ background-color :#88ca5e;
             <div class="row">
                 <div class="col-md-12">
                 	<div class ="riham3">
-                    <form action="Edit.php" method="POST" enctype="multipart/form-data">
+                    <form action="uploadChange.php" method="POST" enctype="multipart/form-data">
                     <?php 
                     $query1 = "SELECT * FROM artwork WHERE ID='".$_GET['id']."';";
                     
@@ -249,7 +249,7 @@ background-color :#88ca5e;
 			<div class="form-group">
                 <input type="text" name="discription" rows="11" cols="25" id="email" class="form-control input-lg" value="<?php echo $storeDes; ?>" rows="50" cols ="60" tabindex="4">
                 <div class = "checkBox">
-                  <input type="checkbox" name="comment"/><label> Available comment</label>
+                  <input type="checkbox" name="commentC"/><label> Available comment</label>
                   </div>
 			</div>
 			
@@ -260,7 +260,7 @@ background-color :#88ca5e;
 				<div class="col-xs-12 col-md-6">
                     
                    <!-- <div class ="jojo4">-->
-                   
+                   <input type="hidden" name="id" value="<?php echo $storeID; ?>" />
                     <button type="submit" name="submit" class="btn btn-success btn-block btn-lg"  >Save changes</button>
 						 <a href="#"  class="btn btn-success btn-block btn-lg"  >Cancel</a>
                    <!-- </div>-->
@@ -296,76 +296,6 @@ background-color :#88ca5e;
 
 </html>
 
-<?php
-
-
-if(isset($_POST['name'])) {
-if(is_uploaded_file($_FILES['files']['tmp_name'][0])){
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-if($check !== false){
-    $fileName = $_FILES['fileToUpload']['name'];
-    # start upload image
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$fileTmpName = $_FILES['fileToUpload']['tmp_name'];
-$fileDestination ='uploads/'.$fileName;
-$target_file = $fileDestination ; }
-}else{
-    $fileName = $storepicture;
-}
-
-
-$storeID = $_GET['id'];
-
-// Check if image file is a actual image or fake image
-chmod($fileTmpName, 0755);
-
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-
-include 'Conn.php';
-#end upload image
-
-$title = $_POST["title"];
-$discription = $_POST["discription"];
-if ($_POST['comment'] == "on")
-$commentNew = "1"; #return 'Yes' if it checked
-else
-$commentNew = "0";
-if ($storeComment ==1 && $commentNew ==1) {
-$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$_GET['id']."';";
-$result1 = mysqli_query($conn,$sql);
-}// end there is comment
-else if($storeComment ==1 && $commentNew ==0){
-    $sql1 = "DELETE FROM comments WHERE ID='".$_GET['id']."';";
-    $result1 = mysqli_query($conn,$sql1);
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='0' WHERE ID='".$_GET['id']."';"; 
-    $result2 = mysqli_query($conn,$sql2);
-}//end remove comment
-else if ($storeComment ==0 && $commentNew ==1){
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription',comment='1' WHERE ID='".$_GET['id']."';"; 
-    $result2 = mysqli_query($conn,$sql);
-}else if ($storeComment ==0 && $commentNew ==0){
-    $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='discription' WHERE ID='".$_GET['id']."';"; 
-    $result2 = mysqli_query($conn,$sql); 
-}
-
-echo $result2;
-echo $result1;
-
-} 
-header("location:/test/GitHub/Rasmah/artHome2.php");   
-?>
 
 
 
