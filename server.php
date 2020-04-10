@@ -11,7 +11,7 @@ $errors = array();
 
 // connect to the database
 $conn=OpenCon();
-echo "Connected Successfully";
+
 function OpenCon()
  {
  $dbhost = "localhost";
@@ -56,31 +56,41 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM artists WHERE ArtEmail='$email' LIMIT 1";
+  if($select=="Artist"){
+  $user_check_query = "SELECT * FROM artists WHERE ArtEmail='$email'";
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
-    if ($user['email'] === $email) {
+    if ($user['ArtEmail'] === $email) {
       array_push($errors, "email already exists");
     }
   }
+  if($Age >= '15')
+	  array_push($errors, "you should be younger than 15 years old "); }
+  
+  if($select=="Visitor"){
+  $user_check_query = "SELECT * FROM visitor WHERE VEmail='$email'";
+  $result = mysqli_query($conn, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+  
+  if ($user) { // if user exists
+    if ($user['VEmail'] === $email) {
+      array_push($errors, "email already exists");
+    }
+  }}
+  
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
 if($select=="Artist"){
-  	$sql = "INSERT INTO artists (Lname, Age, Approved ,ArtEmail , FirstName ,Password,AEmail) VALUES ('$last_name','$Age','False','$email','$first_name','$password','Null')";}
+$sql = "INSERT INTO artists (Lname, Age, Approved, ProfilePic ,ArtEmail , FirstName ,Password)
+ VALUES ('$last_name','$Age','False','Null','$email','$first_name','$password')";}
 else {
-	  	$sql = "INSERT INTO visitor (Lname, Age ,VEmail , FName ,Password) VALUES ('$last_name','$Age','$email','$first_name','$password')";}
+	  	$sql = "INSERT INTO visitor (Lname, Age, ProfilePic ,VEmail , FName ,Password)
+		VALUES ('$last_name','$Age','Null','$email','$first_name','$password')";}
 
-  if ($conn->query($sql) === TRUE) {
- 
-    echo "New record created successfully";
-
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 }
 }
