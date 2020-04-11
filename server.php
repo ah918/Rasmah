@@ -56,29 +56,23 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  if($select=="Artist"){
   $user_check_query = "SELECT * FROM artists WHERE ArtEmail='$email'";
+  $user_check_quer = "SELECT * FROM visitor WHERE VEmail='$email'";
+
   $result = mysqli_query($conn, $user_check_query);
+   $resul = mysqli_query($conn, $user_check_quer);
   $user = mysqli_fetch_assoc($result);
+    $use = mysqli_fetch_assoc($resul);
+
   
-  if ($user) { // if user exists
-    if ($user['ArtEmail'] === $email) {
+if ($user||$use) { // if user exists
+if ($user['ArtEmail'] == $email||$use==['VEmail']) {
       array_push($errors, "email already exists");
     }
   }
-  if($Age >= '15')
+  if($select=="Artist"){
+	  if($Age >= '15')
 	  array_push($errors, "you should be younger than 15 years old"); }
-  
-  if($select=="Visitor"){
-  $user_check_query = "SELECT * FROM visitor WHERE VEmail='$email'";
-  $result = mysqli_query($conn, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['VEmail'] === $email) {
-      array_push($errors, "email already exists");
-    }
-  }}
   
 
   // Finally, register user if there are no errors in the form
