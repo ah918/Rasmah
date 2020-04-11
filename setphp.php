@@ -59,13 +59,13 @@ $Newimage = true;
     
     $result1 = mysqli_query($conn,$sql);
  
-  
+    move_uploaded_file($fileTmpName ,$target_file);
 
     
    // echo $result1;
     
 
-    header("location:/test/GitHub/Rasmah/settingF.php");   
+    header("location:/test/GitHub/Rasmah/artHome2.php");   
     
     
 
