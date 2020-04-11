@@ -109,7 +109,7 @@ li {
 .bfirst > a,
  .bfirst > a:hover,
 .bfirst > a:focus{
-background-color : #88ca5e;
+background-color : #db9dbe;
 color:#fff;
 
 }
@@ -130,10 +130,16 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color : #db9dbe;
+background-color :  #dce253;   
 color:#fff;
 
 }
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
 .bfirst > a,
 .bfirst > a:hover,
 .bfirst > a:focus {
@@ -158,29 +164,27 @@ color:#fff;
     </head>
 <!------ Include the above in your HEAD tag ---------->
 <body>
-        <div class="OurBar" >
+<div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-                  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                  
                   
                 </li>
-  <li class=" bSecoend">
-             <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
+ <!-- <li class=" bSecoend">
+    <a href="#"><i class="far fa-address-card"></i> about us</a>-->
                        
                 </li>
-  <li class=" bthird">
-	  <a href="#"><i class="fas fa-cog"></i> setting</a>
+  <li class=" bFourth">
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Setting</a>
 
            
                   
                 </li>
-  <li class=" bFourth">
-           <a href="#"><i class="far fa-address-card"></i> about us</a>
-                    </li>
-</ul>
-</div>
+  <li class=" bFifth">
+    <a href="Home.html"><i class="fas fa-home"></i><u> Home</u></a>
 <div class="jumbotron text-center">
 	<hr class="colorgraph">
 	<br>

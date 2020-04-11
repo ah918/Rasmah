@@ -296,17 +296,17 @@ width:440px;
                       
                     </li>
       <li class=" bSecoend">
-        <a href="MyFavList.html"><i class="fas fa-star"></i> Favorite list</a>
+        <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
                            
                     </li>
       <li class=" bthird">
         
-        <a href="Gallery.html"><i class="fas fa-paint-brush"></i> Gallery</a>
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
                
                       
                     </li>
       <li class=" bFourth">
-        <a href="settingF.html"><i class="fas fa-cog"></i> Edit profile</a>
+        <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
                
                         </li>
       

@@ -269,35 +269,35 @@ align:center;
 
     <body>
 	
-  <div class="OurBar" >
+    <div class="OurBar" >
     <img class="ourLogo" src="img/owrlogo.png" >
     <ul>
     
        <li class=" bfirst" >
-        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
                       
                     </li>
       <li class=" bSecoend">
-        <a href="MyFavList.html"><i class="fas fa-star"></i> Favorite list</a>
-               
+        <a href="FavoriteList"><i class="fas fa-star"></i> Favorite list</a>
                            
                     </li>
       <li class=" bthird">
-        <a href="Gallery.html"><i class="fas fa-paint-brush"></i> Gallery</a>
-       
-    
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
                
                       
                     </li>
       <li class=" bFourth">
-        <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
+        <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+               
                         </li>
       
-       <li class=" bFifth"> <a href="VistorF.html"><i class="fas fa-home"></i> Home</a>
-                          
+       <li class=" bFifth">
+        <a href="VistorF.php"><i class="fas fa-home"></i> <u>Home</u></a>
+                           
                               </li>
     </ul>
-    </div>   
+    </div>  
 
 <div class="wrapper">
     <div class="container-fluid" >

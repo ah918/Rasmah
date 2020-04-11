@@ -149,26 +149,31 @@ background-color :#88ca5e;
 
     <body>
         
-      <div class="OurBar" >
+    <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+               
                   
                 </li>
- 
+  <li class=" bthird">
+    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i><u>Post</u></a>
+                       
+                </li>
   <li class=" bFourth">
-	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    
+
 
            
                   
                 </li>
   <li class=" bFifth">
     <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
-          
+             
                     </li>
-					  
 </ul>
 </div>
         

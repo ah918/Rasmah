@@ -148,12 +148,12 @@ background-color :#88ca5e;
                   
                   
                 </li>-->
-  <!--<li class=" bSecoend">
-                  <a href="#"><i class="fas fa-sign-in-alt"></i> sign in</a>
+  <li class=" bSecoend">
+                  <a href="#"><i class="fas fa-sign-in-alt"></i> <u>Sign in</u></a>
            
-                </li>-->
+                
   <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> sign up</a>
+                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> Sign up</a>
                 </li>
   <li class=" bFifth">
     <a href="Home.html"><i class="fas fa-home"></i> Home</a>

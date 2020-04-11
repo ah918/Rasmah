@@ -256,13 +256,15 @@ color: #fad02c;
                        
                 </li>
   <li class=" bFourth">
-	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    
+
 
            
                   
                 </li>
-  <!--<li class=" bFifth">
-    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>-->
+  <li class=" bFifth">
+    <a href="artHome2.php"><i class="fas fa-home"></i><u> Home</u></a>
              
                     </li>
 </ul>

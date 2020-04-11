@@ -116,31 +116,34 @@ margin-bottom:15 px;
   </head>
   <body>
   <div class="OurBar" >
-<img class="ourLogo" src="img/owrlogo.png" >
-<ul>
-
-   <li class=" bfirst" >
-    <a href="#"><i class="fas fa-sign-out-alt"></i> Sign out</a>
-                  
-                </li>
-  <li class=" bFourth">
-    <a href="#"><i class="fas fa-cog"></i> Edit profile</a>
-            
-                       
-                </li>
-  <li class=" bFifth">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-	  
-	  
-
-           
-                  
-                </li>
- <!-- <li class=" bFourth">
-           <a href="#"><i class="far fa-address-card"></i> about us</a>
-                    </li>-->
-</ul>
-</div>
+    <img class="ourLogo" src="img/owrlogo.png" >
+    <ul>
+    
+       <li class=" bfirst" >
+        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                      
+                    </li>
+      <li class=" bSecoend">
+        <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
+                           
+                    </li>
+      <li class=" bthird">
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i><u> Gallery</u></a>
+               
+                      
+                    </li>
+      <li class=" bFourth">
+        <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+               
+                        </li>
+      
+       <li class=" bFifth">
+        <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
+                           
+                              </li>
+    </ul>
+    </div>  
 
 
 
