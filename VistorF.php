@@ -3,7 +3,7 @@ session_start();
 ob_start();
 
 //include('Conn.php');
-
+include('Conn.php');
 
 
 if(($_SESSION['role'] !='' || $_SESSION['role']=='visitor')){
@@ -326,7 +326,26 @@ align:center;
          <div class="col-md-3 ">
              <div class="col2">
 			<span id="photo">
-			 <img src="img/iStock_1_280x280.jpg" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray"   alt="">
+      <?php
+               
+               //$_SESSION['Email']= "akh9180@gmail.com";
+            $query1 = "SELECT * FROM visitor WHERE VEmail ='".$_SESSION['email']."' ";
+            $result1 = mysqli_query($conn,$query1);
+           
+             if($result1){
+             while($rows = mysqli_fetch_array($result1))
+        {
+            $img_name = $rows['ProfilePic'];
+            $name = $rows['Name'];
+        ?>
+
+        
+        <img src="<?php echo $img_name; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
+        
+
+        <?php
+        }
+      }?>
 			 </span>
 			 </div>
          </div>
@@ -335,7 +354,7 @@ align:center;
 			 <span id="info">
                  
                  
-			  <p class="display-4">  Welcome <?php echo $_SESSION['email'] ; ?> !</p>
+			  <p class="display-4">  Welcome <?php echo $name ; ?> !</p>
 			
 			 </span>
                  

@@ -17,7 +17,7 @@ function OpenCon()
  $dbhost = "localhost";
  $dbuser = "root";
  $dbpass = "";
- $db = "raasmah";
+ $db = "rasmah";
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
  
  return $conn;
@@ -86,15 +86,15 @@ if (isset($_POST['reg_user'])) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
 if($select=="Artist"){
-$sql = "INSERT INTO artists (Lname, Age, Approved, ProfilePic ,ArtEmail , FirstName ,Password)
- VALUES ('$last_name','$Age','False','Null','$email','$first_name','$password')";}
-else {
-	  	$sql = "INSERT INTO visitor (Lname, Age, ProfilePic ,VEmail , FName ,Password)
-		VALUES ('$last_name','$Age','Null','$email','$first_name','$password')";}
+  $sql = " INSERT INTO artists(ArtEmail, Name, LastName, Password, AEmail, Approved, Age) 
+  VALUES ('$email','$first_name','$last_name','$password','admin@gmail.com','0','$Age')";}
 
+else {
+	  	
+$sql = " INSERT INTO visitor ( VEmail, Name, LastName, Password) VALUES ('$email','$first_name','$last_name','$password')";}
   if ($conn->query($sql) === TRUE) {
  
-    echo "New record created successfully";
+    #echo "New record created successfully";
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

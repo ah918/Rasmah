@@ -4,7 +4,7 @@ ob_start();
 
 include('Conn.php');
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' || $_SESSION['role']=='admin' ) ){
  
 
 }
@@ -321,8 +321,10 @@ background-color :#88ca5e;
                 	<div>
                   <form role="form" method="POST" action ="setphp.php" enctype="multipart/form-data" >
                   <?php
+                  if ($_SESSION['role']=='artist')
              $query1 = "SELECT * FROM artists WHERE ArtEmail ='".$_SESSION['email']."';";
-                    
+            else  if ($_SESSION['role']=='visitor')
+             $query1 = "SELECT * FROM visitor WHERE VEmail ='".$_SESSION['email']."';";
                $result1 = mysqli_query($conn,$query1);
 
              if($result1){
@@ -331,7 +333,7 @@ background-color :#88ca5e;
                 $img_name = $rows['ProfilePic'];
                 $Artist_name = $rows['Name'];
                 $Artist_Lastname = $rows['LastName'];
-                $Artist_Email = $rows['ArtEmail'];
+                $Artist_Email = $rows['VEmail'];
                 $Artist_pass = $rows['Password'];
            
                 }
