@@ -115,7 +115,7 @@ margin-bottom:15 px;
 </style>
   </head>
   <body>
-        <div class="OurBar" >
+  <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
@@ -130,6 +130,7 @@ margin-bottom:15 px;
                 </li>
   <li class=" bFifth">
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
+	  
 	  
 
            

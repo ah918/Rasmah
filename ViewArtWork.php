@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -260,6 +261,10 @@ background-color :#88ca5e;
 
 margin-left:90px;
 }
+.numberLike {
+
+display:inline;
+}
 #a15 {
 width:440px;
 
@@ -440,6 +445,7 @@ mysqli_close($conn);
       
       
       </h3>
+      
       <p class="date">
       
        <?php
@@ -474,10 +480,16 @@ mysqli_close($conn);
       
       
       </p>
+      <p class="date">hhhhh</p>
+      <form action="dislike.php" method="POST">
+      <input type="hidden" name= "dis" value="1"> <!-- value should be id of post -->
+
       <button class="dislike" type="submit" >
         <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
     </button>
-    
+ 
+    </form>
+
     <button class="like">
         <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
     </button>
