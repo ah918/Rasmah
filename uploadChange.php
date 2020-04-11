@@ -86,7 +86,7 @@ else if($storeComment ==1 && $commentNew ==0){
     if ($Newimage)
     $sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
     else  $sql = "UPDATE artwork SET Title='$title',Description='$discription',comment='0' WHERE ID='".$id."';"; 
-    $result2 = mysqli_query($conn,$sql1);
+    $result2 = mysqli_query($conn,$sql);
 }//end remove comment
 else if ($storeComment ==0 && $commentNew ==1){
     if ($Newimage)
@@ -105,5 +105,5 @@ else if ($storeComment ==0 && $commentNew ==1){
     move_uploaded_file($fileTmpName ,$target_file);
 
 
-header("location:/test/GitHub/Rasmah/artHome2.php"); 
+#header("location:/test/GitHub/Rasmah/artHome2.php"); 
 ?>

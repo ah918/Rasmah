@@ -210,7 +210,7 @@ function OpenCon()
  $dbhost = "localhost";
  $dbuser = "root";
  $dbpass = "";
- $db = "raasmah";
+ $db = "rasmah";
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
  
  return $conn;
@@ -249,12 +249,13 @@ define('MYSQL_ASSOC',MYSQLI_ASSOC);
         foreach ($storeArray as $value){?>
     <form action="Admin.php" method="POST">
     <li class="w3-bar">
-	        <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="Approve" value="Approve" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </button></span>
-			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="dApprove" value="dApprove" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </button></span>
+	        <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="Approve" value="Approve" class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </button></span>
+			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="dApprove" value="dApprove" class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </button></span>
       <div class="w3-bar-item">
 
  <span class="w3-large"><?php echo "$value"; ?></span><br>
- <span>Artist</span></div> </li> </form>
+ <span>Artist</span></div> </li> 
+</form>
 
       
 	<?php if (isset($_POST['Approve'])){
@@ -263,17 +264,15 @@ if ($conn->query($sql) === TRUE)
     echo "New record created successfully";
  else 
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-	 
-	  
+}  
        else if (isset($_POST['dApprove'])){
         $sql="DELETE FROM artists WHERE ArtEmail ='$value';";
         if ($conn->query($sql) === TRUE) 
     echo "New record created successfullylll";
  else 
-	   echo "Error: " . $sql . "<br>" . $conn->error;}
-			 } 
+     echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+        }		 
  ?>
  
 

@@ -302,11 +302,11 @@ color: #fad02c;
              while($rows = mysqli_fetch_array($result1))
         {
             $img_name = $rows['ProfilePic'];
-            $img_src = "profile photo/" . $img_name ;
+           
         ?>
 
         
-        <img src="<?php echo $img_src; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
+        <img src="<?php echo $img_name; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
         
 
         <?php

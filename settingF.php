@@ -288,9 +288,9 @@ background-color :#88ca5e;
             <div class="row">
                 <div class="col-md-12">
                 	<div>
-                  <form role="form" method="POST" action ="setphp.php">
+                  <form role="form" method="POST" action ="setphp.php" enctype="multipart/form-data" >
                   <?php
-             $query1 = "SELECT * FROM artists WHERE ArtEmail ='Riham@gmail.com';";
+             $query1 = "SELECT * FROM artists WHERE ArtEmail ='akh9180@gmail.com';";
                     
                $result1 = mysqli_query($conn,$query1);
 
