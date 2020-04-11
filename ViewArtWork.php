@@ -384,13 +384,14 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Title FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT Title FROM artwork  WHERE ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        
+      $postID = $_GET['id'];
+
         echo "<strong> " . $row["Title"]. "</strong>";
     }
 } else {
@@ -426,7 +427,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT ArtEmail FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT ArtEmail FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 $artistEmail;
 if (mysqli_num_rows($result) > 0) {
@@ -670,7 +671,7 @@ mysqli_close($conn);
 
       </p>
       <form action="dislike.php" method="POST">
-      <input type="hidden" name= "dis" value="1"> <!-- value should be id of post -->
+      <input type="hidden" name= "dis" value="<?php echo $postID; ?>"> <!-- value should be id of post -->
       
       <button class="dislike" type="submit" >
         <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
@@ -680,7 +681,7 @@ mysqli_close($conn);
 
 
     <form action="like.php" method="POST">
-      <input type="hidden" name= "dis" value="1"> <!-- value should be id of post -->
+      <input type="hidden" name= "dis" value="<?php echo $postID; ?>"> <!-- value should be id of post -->
 
     <button class="like" type="submit">
         <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
@@ -702,7 +703,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT picture FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT picture FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -730,7 +731,7 @@ if (mysqli_num_rows($result) > 0) {
       <form action="post_comment.php" method="POST">
       
       <input type="text" name="comment"    placeholder="write your comment . ." >
-    
+      <input type="hidden" name= "Areej" value="<?php echo $postID; ?>"> 
     <input type="submit" value="Share!" id="comment">
     </form>
     <?php } ?>
@@ -738,7 +739,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 <form action="addFav.php" method="POST">
-  <input type="hidden" name= "Areej" value="1"> <!-- value should be id of post -->
+  <input type="hidden" name= "Areej" value="<?php echo $postID; ?>"> <!-- value should be id of post -->
   
 <input id="a15" type="submit" value="Add to Favorite List!">
 </form>
