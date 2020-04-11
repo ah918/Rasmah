@@ -1,4 +1,39 @@
 <?php
+session_start();
+ob_start();
+
+$dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "rasmah";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+ 
+
+}
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");
+ exit();}
+
+
 # start upload image
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -46,7 +81,7 @@ echo "anable comment ?:  $comment <br>";
 echo "date is:  $date <br>"; 
 
 include 'Conn.php';
-$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail, comment) VALUES ('$target_file','$title','$discription','$date','akh9180@gmail.com' , '$comment')";
+$sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail, comment) VALUES ('$target_file','$title','$discription','$date','".$_SESSION['email']."' , '$comment')";
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
  
@@ -56,4 +91,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+
+header("location:/test/GitHub/Rasmah/artHome2.php");   
 ?>

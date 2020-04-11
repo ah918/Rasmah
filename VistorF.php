@@ -1,11 +1,18 @@
 <?php
-ob_start();
 session_start();
+ob_start();
+
 //include('Conn.php');
-if(($_SESSION['role']!='visitor')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+
+
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='visitor')){
+ 
+
 }
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php"); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";

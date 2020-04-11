@@ -13,7 +13,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n".
 $uploadOk = 1;
     
 $Newimage = false;
-if(isset($_FILES['fileToUpload'])) {
+if (!empty($_FILES['fileToUpload']['name'])) {
  
     $fileName = $_FILES['fileToUpload']['name'];
     # start upload image

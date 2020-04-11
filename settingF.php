@@ -1,12 +1,17 @@
-
 <?php
-ob_start();
 session_start();
+ob_start();
+
 include('Conn.php');
-if(($_SESSION['role']!='artist')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+ 
+
 }
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
@@ -16,12 +21,13 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-//echo 'ses '.$_SESSION['role'];
+echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
   //mysql_close($connection);  
- header("location : login.php");}
+ header("location : login.php");
+ exit();}
 
 
 
@@ -315,7 +321,7 @@ background-color :#88ca5e;
                 	<div>
                   <form role="form" method="POST" action ="setphp.php" enctype="multipart/form-data" >
                   <?php
-             $query1 = "SELECT * FROM artists WHERE ArtEmail ='Riham@gmail.com';";
+             $query1 = "SELECT * FROM artists WHERE ArtEmail ='".$_SESSION['email']."';";
                     
                $result1 = mysqli_query($conn,$query1);
 
