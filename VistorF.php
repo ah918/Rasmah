@@ -205,8 +205,8 @@ background-color:;
         
 #center1{
   position: absolute;
-  top: 73%;
-  left: 29%;
+  top: 74%;
+  left: 25%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   background-color:white;
@@ -231,8 +231,8 @@ background-color:;
         
         #center3{
   position: absolute;
-  top:  73%;
-  left: 58%;
+  top:  74%;
+  left: 53%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   background-color:white;
@@ -364,12 +364,12 @@ align:center;
 <div class="container">
 
 <img class ="atheer" src="img/childArt4.jpg" alt="">
- <div id ="center1"><a href="Gallery.html">View gallery</a></div>
+ <div id ="center1"><a href="Gallery.php">View gallery</a></div>
 <!--<img src="childArt3.jpg" alt="">
     <div id="center2"><a href="g.html">View Art work</a></div>-->
     
 <img class= "riham "  src= "img/childArt2.jpg" alt="">
-    <div id ="center3"><a href="MyFavList.html">View favourite list </a></div>
+    <div id ="center3"><a href="FavoriteList.php">View favourite list </a></div>
 </div>
 </div>
 

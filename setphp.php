@@ -96,14 +96,14 @@ $Newimage = true;
     if ($_SESSION['role']=='artist'){
         $sql = "UPDATE artists SET ProfilePic='$target_file', ArtEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE Artemail='$email'";} 
   else if ($_SESSION['role']=='visitor'){
-    $sql = "UPDATE visitor SET ProfilePic='$target_file', ArtEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE Artemail='$email'";}
+    $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
      
 } else {
         if ($_SESSION['role']=='artist'){
     $sql = " UPDATE artists SET ArtEmail='$email', Name='$Name', LastName='$lastname',Password='$pass'  WHERE Artemail='$email'"; }
    
     else if ($_SESSION['role']=='visitor'){
-        $sql = "UPDATE visitor SET ProfilePic='$target_file', ArtEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE Artemail='$email'";}
+        $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
     }
    
     

@@ -1,11 +1,17 @@
 <?php
-ob_start();
 session_start();
-//include('Conn.php');
-if(($_SESSION['role']!='visitor')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+ob_start();
+
+include('Conn.php');
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' )){
+ 
+
 }
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
@@ -15,12 +21,12 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-//echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
   //mysql_close($connection);  
- header("location : login.php");}
+ header("location : login.php");
+ exit();}
 
 
 
@@ -335,7 +341,7 @@ width:555px;
 <body>
 
 
-	
+	<?php if ($_SESSION['role']=='visitor'){ ?>
   
 <div class="OurBar" >
     <img class="ourLogo" src="img/owrlogo.png" >
@@ -366,6 +372,38 @@ width:555px;
                               </li>
     </ul>
     </div>  
+  <?php }?>
+	<?php if ($_SESSION['role']=='artist'){ ?>
+  
+  
+  <div class="OurBar" >
+<img class="ourLogo" src="img/owrlogo.png" >
+<ul>
+
+   <li class=" bfirst" >
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+               
+                  
+                </li>
+  <li class=" bthird">
+    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
+                       
+                </li>
+  <li class=" bFourth">
+    <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    
+
+
+           
+                  
+                </li>
+  <li class=" bFifth">
+    <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
+             
+                    </li>
+</ul>
+</div> 
+    <?php }?>
     <div class = "pageTitle">
       <hr class="colorgraph">
       <br>
@@ -375,7 +413,7 @@ width:555px;
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -384,7 +422,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Title FROM artwork  WHERE ='".$_GET['id']."'";
+$sql = "SELECT Title FROM artwork  WHERE ID='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -418,7 +456,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -442,14 +480,14 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-$sql = "SELECT FirstName , Lname FROM artists  WHERE ArtEmail ='" .$artistEmail. "'";
+$sql = "SELECT Name , LastName FROM artists  WHERE ArtEmail ='" .$artistEmail. "'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
       
-      echo "<strong> " . $row["FirstName"]." " . $row["Lname"]. "</strong>";
+      echo "<strong> " . $row["Name"]." " . $row["LastName"]. "</strong>";
     }
 } else {
     
@@ -475,7 +513,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -515,7 +553,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -524,14 +562,14 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Vemail, comment FROM comment where post_id ='".$_GET['id']."'";
+$sql = "SELECT author, content FROM comments where ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         
-        echo "<strong> " . $row["Vemail"]. ": </strong> <br>" . $row["comment"].  "<br> <br>";
+        echo "<strong> " . $row["author"]. ": </strong> <br>" . $row["content"].  "<br> <br>";
     }
 } else {
     echo "";
@@ -566,7 +604,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -600,7 +638,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -634,7 +672,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -643,7 +681,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT DislikeNum , comment  FROM artwork  WHERE ='".$_GET['id']."'";
+$sql = "SELECT DislikeNum , comment  FROM artwork  WHERE ID='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -694,7 +732,7 @@ mysqli_close($conn);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "raasmah";
+$dbname = "rasmah";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -726,6 +764,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
       <div class= "autocomplete" >
+      <?php if ($_SESSION['role']=='visitor'){ ?> 
       <?php if ($commentE == 1) 
 { ?>
       <form action="post_comment.php" method="POST">
@@ -743,6 +782,8 @@ if (mysqli_num_rows($result) > 0) {
   
 <input id="a15" type="submit" value="Add to Favorite List!">
 </form>
+
+<?php } ?>
     </div>
 	
 

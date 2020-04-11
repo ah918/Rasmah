@@ -170,7 +170,7 @@ background-color :#88ca5e;
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 1%;
+    padding: 0%;
     background-color: #f1f1f1;
     color: #5c5c5c;
     text-align: center;
@@ -273,34 +273,70 @@ background-color :#88ca5e;
 <!------ Include the above in your HEAD tag ---------->
 
     <body>
+     
+	<?php if ($_SESSION['role']=='visitor'){ ?>
+  
+  <div class="OurBar" >
+      <img class="ourLogo" src="img/owrlogo.png" >
+      <ul>
+      
+         <li class=" bfirst" >
+          <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                        
+                      </li>
+        <li class=" bSecoend">
+          <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
+                             
+                      </li>
+        <li class=" bthird">
+          
+          <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+                 
+                        
+                      </li>
+        <li class=" bFourth">
+          <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+                 
+                          </li>
         
-    <div class="OurBar" >
-<img class="ourLogo" src="img/owrlogo.png" >
-<ul>
-
-   <li class=" bfirst" >
-    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
-               
-                  
-                </li>
-  <li class=" bthird">
-    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
-                       
-                </li>
-  <li class=" bFourth">
-    <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+         <li class=" bFifth">
+          <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
+                             
+                                </li>
+      </ul>
+      </div>  
+    <?php }?>
+    <?php if ($_SESSION['role']=='artist'){ ?>
     
-
-
-           
-                  
-                </li>
-  <li class=" bFifth">
-    <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
+    
+    <div class="OurBar" >
+  <img class="ourLogo" src="img/owrlogo.png" >
+  <ul>
+  
+     <li class=" bfirst" >
+      <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                 
+                    
+                  </li>
+    <li class=" bthird">
+      <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
+                         
+                  </li>
+    <li class=" bFourth">
+      <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+      
+  
+  
              
-                    </li>
-</ul>
-</div>
+                    
+                  </li>
+    <li class=" bFifth">
+      <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
+               
+                      </li>
+  </ul>
+  </div> 
+      <?php }?>
     
 
 

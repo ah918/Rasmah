@@ -391,7 +391,7 @@ if($result1){
 {
    $NumPostFav = $rows['Fav'];
 ?>            
-              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> favorite</p>
+              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> No. my artworks favored</p>
               <?php
 }
 }

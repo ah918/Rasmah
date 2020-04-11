@@ -37,7 +37,7 @@ if(!isset($_SESSION['email'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "raasmah";
+$db = "rasmah";
 
 
 
@@ -47,13 +47,13 @@ $PostID = $_POST["dis"];
 
 
 
-$sql = "UPDATE artwork SET DislikeNum= DislikeNum+ 1 WHERE id=" .$PostID ;
+$sql = "UPDATE artwork SET DislikeNum= DislikeNum+ 1 WHERE ID=" .$PostID ;
 
 if (mysqli_query($conn, $sql)) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
-header('Location: http://localhost/comment/ViewArtWork.php');
+header('Location:ViewArtWork.php?id='. $PostID .'');
 
 ?>

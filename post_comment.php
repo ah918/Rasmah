@@ -37,7 +37,7 @@ if(!isset($_SESSION['email'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "raasmah";
+$db = "rasmah";
 
 
 
@@ -49,10 +49,20 @@ $post_id = $_POST["Areej"];
 /*if (isset($_POST['action'])) {
     $post_id = $_POST['post_id'];
 }*/
+$sql2 = "SELECT * FROM visitor  WHERE VEmail ='" .$user_id. "'";
+$result1 = mysqli_query($conn,$sql2);
+if($result1){
+while($rows = mysqli_fetch_array($result1)) {
+  $Name ="".  $rows["Name"] ." ". $rows["LastName"]."";
+} }
+else {
+  echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
+echo  $Name;
 
 $comment = $_POST["comment"];
             
-$sql = "INSERT INTO comment (Vemail, comment , post_id ) VALUES ($user_id, '$comment' , $post_id )";
+$sql = "INSERT INTO comments (VEmail, content , ID , author ) VALUES ('$user_id', '$comment' , '$post_id' ,'$Name')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -60,6 +70,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-header('Location: http://localhost/comment/ViewArtWork.php');
+header('Location:ViewArtWork.php?id='. $post_id .'');
 
 ?>
