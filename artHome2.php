@@ -1,7 +1,7 @@
 <?php
 include 'Conn.php';
 session_start();
-
+echo 'ses '.$_SESSION['role'];
 if(!isset($_SESSION['email'])) {
   //mysql_close($connection);  
  header("location : login.php");}

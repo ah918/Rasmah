@@ -1,7 +1,7 @@
 
 <?php
+session_start();
 ob_start();
-//session_start();
 $connection = mysqli_connect("localhost","root","","raasmah");
 {		
     
@@ -45,7 +45,7 @@ $connection = mysqli_connect("localhost","root","","raasmah");
  
         elseif(mysqli_num_rows($query2) == 1){
            // if($row=mysqli_fetch_assoc($query2))
-            if($row[5] = 'true'){
+            if($row['Approved'] = 'true'){
             $_SESSION['email']=$email;
             $_SESSION['role']='artist';
           header("Location: artHome2.php");}
