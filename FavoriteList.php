@@ -1,6 +1,6 @@
 <?php
 include 'Conn.php';
-$_SESSION['Email']= "akh9180@gmail.com";
+$_SESSION['Email']= "lolo@gmail.com";
 session_start();
 ?>
 <!DOCTYPE html>
@@ -306,7 +306,8 @@ color: #fad02c;
 	</div>
     
     <?php
-$query2 = "SELECT picture FROM artwork WHERE ID IN(SELECT ID FROM favoritelist WHERE VEmail ='".$_SESSION['Email']."' ";
+    #$_SESSION['Email']
+$query2 = "SELECT * FROM artwork WHERE ID IN (SELECT ID FROM favoritelist WHERE VEmail ='lolo@gmail.com') ;";
 $result2 = mysqli_query($conn,$query2);
 $storepicture2 = Array();
 $storeTitle2 = Array();
@@ -317,8 +318,9 @@ $storeNumComm2 = Array();
 $storeDislike2 = Array();
 $storeID2 = Array();
 if($result2){
+ 
     while($rows2 = mysqli_fetch_array($result2))
-{
+{ 
   $storepicture2[] = $rows2['picture']; 
   $storeTitle2[] = $rows2['Title']; 
   $storeDes2[] = $rows2['Description']; 
@@ -329,8 +331,11 @@ if($result2){
   $storeID2[] = $rows2['ID'];
 }
 }
+else
+ echo mysqli_error($conn);
 
 $number2 = count($storeTitle2);
+
 ?>
 	  <div class="wrapper">
     <div class="container-fluid" >
@@ -388,7 +393,7 @@ echo '</p>
         <div class="container3" >
         
          
-            <a  href="#"> <i class="far fa-trash-alt fa-lg"></i></a>
+            <a  href="deleteFav.php?id= <?php echo $storeID2[$z]; ?>"> <i class="far fa-trash-alt fa-lg"></i></a>
         
         </div>
     </div>
