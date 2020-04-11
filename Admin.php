@@ -1,3 +1,4 @@
+
 <html>
 <head> 
     
@@ -197,15 +198,13 @@ color:#fff;
 				<div class="col-xs-12 col-md-6"></div>
 				</div>
   <ul class="w3-ul w3-card-4">
-  	   <?php
-	   
+  	  
 
 // initializing variables
  
+<?php
 
-// connect to the database
-$conn=OpenCon();
-echo "Connected Successfully";
+
 function OpenCon()
  {
  $dbhost = "localhost";
@@ -220,7 +219,17 @@ function OpenCon()
 function CloseCon($conn)
  {
  $conn -> close();
- }	
+ }
+
+$conn = OpenCon();
+#echo "Connected Successfully";
+
+#CloseCon($conn);
+
+
+
+
+
 	//predifined fetch constants
 define('MYSQL_BOTH',MYSQLI_BOTH);
 define('MYSQL_NUM',MYSQLI_NUM);
@@ -229,7 +238,7 @@ define('MYSQL_ASSOC',MYSQLI_ASSOC);
              $result = mysqli_query($conn,"SELECT ArtEmail FROM artists WHERE Approved='False'");
              $storeArray = Array();
 			 if(mysqli_num_rows($result) > 0 ){
-              while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+              while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) 
 			 $storeArray[] =  $row['ArtEmail']; }
 			
 
@@ -237,64 +246,45 @@ define('MYSQL_ASSOC',MYSQLI_ASSOC);
         
 
     
-        foreach ($storeArray as $value)
-        {?>
-    <form action="" method="POST">
+        foreach ($storeArray as $value){?>
+    <form action="Admin.php" method="POST">
     <li class="w3-bar">
-	        <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="Approve" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </button></span>
-			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="dApprove" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </button></span>
-      <img src="img/imggg.jpg" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+	        <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="Approve" value="Approve" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </button></span>
+			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="dApprove" value="dApprove" class=="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </button></span>
       <div class="w3-bar-item">
 
  <span class="w3-large"><?php echo "$value"; ?></span><br>
- <span>Artist</span></form>
+ <span>Artist</span></div> </li> </form>
 
       
 	<?php if (isset($_POST['Approve'])){
+$sql="UPDATE artists SET Approved='true' WHERE ArtEmail ='$value';";
+if ($conn->query($sql) === TRUE) 
+    echo "New record created successfully";
+ else 
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+	 
+	  
+       else if (isset($_POST['dApprove'])){
+        $sql="DELETE FROM artists WHERE ArtEmail ='$value';";
+        if ($conn->query($sql) === TRUE) 
+    echo "New record created successfullylll";
+ else 
+	   echo "Error: " . $sql . "<br>" . $conn->error;}
+			 } 
+ ?>
+ 
+
+			
 		
-		try {
-    
+<div id="footer">
+           <svg viewbox="0 0 100 25">
+  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+</svg>
+       </div>
 
-    $sql = "UPDATE artists SET Approved='true' WHERE ArtEmail ='$value'";
+</body>
 
-    // Prepare statement
-    $stmt = $conn->prepare($sql);
-
-    // execute the query
-    $stmt->execute();
-
-    // echo a message to say the UPDATE succeeded
-    echo $stmt->num_rows() . " records UPDATED successfully";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-
- $conn = null;
-			 }
-			 else if (isset($_POST['dApprove'])){
-				 try {
-    
-
-      $sql = "DELETE FROM artists WHERE ArtEmail ='$value';";
-
-    // Prepare statement
-    $stmt = $conn->prepare($sql);
-
-    // execute the query
-    $stmt->execute();
-
-    // echo a message to say the UPDATE succeeded
-    echo $stmt->num_rows() . " records UPDATED successfully";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-
- $conn = null;
-			}
-			 }}
-?> </div>
-    </li>
+</html>
