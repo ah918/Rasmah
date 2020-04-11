@@ -1,11 +1,23 @@
 <?php
-ob_start();
+
 session_start();
-//include('Conn.php');
-if(($_SESSION['role']!='visitor')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+ob_start();
+
+$dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "rasmah";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
+
+if(($_SESSION['role'] !=''  || $_SESSION['role']=='visitor'  ) ){
+ 
+
 }
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
@@ -15,15 +27,21 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-//echo 'ses '.$_SESSION['role'];
+echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
   //mysql_close($connection);  
- header("location : login.php");}
+ header("location : login.php");
+ exit();}
 
 
-
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "rasmah";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
 
 ?>
 <!DOCTYPE html>

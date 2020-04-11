@@ -4,9 +4,9 @@
       <div class="success">
     <?php if($select=="Artist"){?>
    <script> alert("Thank you for your registration,please wait your account getting approved"); 
-   window.location = "http/GitHub/Rasmah/Home.html"</script> <?php }
+   window.location = "Home.html"</script> <?php }
         else if($select=="Visitor"){?>
-   <script> alert("Thank you for your registration,please wait your account getting approved"); 
-   window.location = "http/GitHub/Rasmah/Home.html"</script> <?php } } } ?>   
+   <script> alert("Thank you for your registration"); 
+   window.location = "Home.html"</script> <?php } } } ?>   
    </div>
    

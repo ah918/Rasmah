@@ -1,7 +1,12 @@
 <?php
 ob_start();
 session_start();
-include('Conn.php');
+$dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "rasmah";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
 if(($_SESSION['role']!='admin')){
   echo '<script> window.location="login.php";</script>';
 //header("location : login.php");
@@ -205,7 +210,7 @@ background-color :#88ca5e;
                        
                 </li>
   <li class=" bFourth">
-	  <a href="edit.html"><i class="fas fa-cog"></i> Edit profile</a>
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
@@ -252,7 +257,7 @@ define('MYSQL_BOTH',MYSQLI_BOTH);
 define('MYSQL_NUM',MYSQLI_NUM);
 define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
-             $result = mysqli_query($conn,"SELECT ArtEmail FROM artists WHERE Approved='False'");
+             $result = mysqli_query($conn,"SELECT ArtEmail FROM artists WHERE Approved='0'");
              $storeArray = Array();
 			 if(mysqli_num_rows($result) > 0 ){
               while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
