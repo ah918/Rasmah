@@ -100,13 +100,13 @@ form, .content {
   padding: 5px 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid gray;
+  
 }
 .btn {
   padding: 30px;
   font-size: 20px;
   color: white;
-  background: #5F9EA0;
+  background:#228B22;
   border: none;
   border-radius: 30px;
 }
@@ -171,7 +171,7 @@ li {
 .bfirst > a,
  .bfirst > a:hover,
 .bfirst > a:focus{
-background-color : #db9dbe;
+background-color : #88ca5e;
 color:#fff;
 
 }
@@ -192,16 +192,10 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color :  #dce253;   
+background-color : #db9dbe;
 color:#fff;
 
 }
-	
-	.bFifth > a,
-.bFifth > a:hover,
-.bFifth > a:focus{
-background-color :#88ca5e;
-	color:#fff;}
 .bfirst > a,
 .bfirst > a:hover,
 .bfirst > a:focus {
@@ -223,7 +217,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password] ,input[type=number],input[type=email] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -232,11 +226,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-/* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+
 
 
 
@@ -333,29 +323,34 @@ hr {
 
 
 
-    <div class="OurBar"  >
-<img class="ourLogo" src="img/owrlogo.png" >
+	<div class="OurBar" >
+<img class="ourLogo" src="owrlogo.png" >
 <ul>
 
-  <!-- <li class=" bfirst" >
+   <li class=" bfirst" >
+                  <a href="#"><i class="fas fa-home"></i> Home</a>
                   
-                  
-                </li>-->
-  <li class=" bSecoend">
-                  <a href="login.php"><i class="fas fa-sign-in-alt"></i> <u>Sign in</u></a>
-           
-                
-  <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> Sign up</a>
                 </li>
-  <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+  <li class=" bSecoend">
+  
+                  <a href="#"><i class="fas fa-sign-in-alt"></i> sign in</a>
+           
+                </li>
+  <li class="bthird">
+
+                  <a id ="my" href="#"><i class="fas fa-user-plus"></i> sign up </a>
+
+		
+	
+                </li>
+  <li class=" bFourth">
+                  <a href="#"><i class="far fa-address-card"></i> about us</a>
                     </li>
 </ul>
 </div>
 	
 
-  <form class="modal-content" action="SignUp.php" method="post">
+  <form class="modal-content" action="sign_up.php" method="post">
   <?php include('errors.php'); ?>
   <?php include('success.php'); ?>
 	
@@ -414,7 +409,6 @@ hr {
 				</select>
 				</div>
 				</div>
-			     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 			</div>
 			<hr class="colorgraph">
             
