@@ -100,10 +100,17 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color : #88ca5e;   
+background-color :  #dce253;   
 color:#fff;
 
 }
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
+
 
  .ourLogo {
  float: left;
@@ -235,26 +242,28 @@ color: #fad02c;
 
   <header>
   
-        <div class="OurBar" >
+  <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-                  <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+               
                   
                 </li>
-  <li class=" bSecoend">
-             <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
+  <li class=" bthird">
+    <a href="uploudArt.html"><i class="fas fa-paint-brush"></i>   Post</a>
                        
                 </li>
-  <li class=" bthird">
-	  <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
+  <li class=" bFourth">
+	  <a href="settingF.html"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
                 </li>
-  <li class=" bFourth">
-             <a href="uploudArt.html"><i class="fas fa-paint-brush"></i> post</a>
+  <li class=" bFifth">
+    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+             
                     </li>
 </ul>
 </div>
