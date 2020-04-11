@@ -124,7 +124,7 @@ margin-bottom:15 px;
                   
                 </li>
   <li class=" bFourth">
-    <a href="#"><i class="fas fa-cog"></i> Setting</a>
+    <a href="#"><i class="fas fa-cog"></i> Edit profile</a>
             
                        
                 </li>

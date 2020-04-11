@@ -295,12 +295,12 @@ width:440px;
                       
                     </li>
       <li class=" bFourth">
-        <a href="settingF.html"><i class="fas fa-cog"></i> setting</a>
+        <a href="settingF.html"><i class="fas fa-cog"></i> Edit profile</a>
                
                         </li>
       
        <li class=" bFifth">
-        <a href="VistorF.html"><i class="fas fa-home"></i> Home</a>
+        <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
                            
                               </li>
     </ul>

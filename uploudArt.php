@@ -157,18 +157,15 @@ background-color :#88ca5e;
     <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
                   
                 </li>
-  <li class=" bthird">
-    <a href="myDrawing"><i class="fas fa-paint-brush"></i> My drawing</a>
-                       
-                </li>
+ 
   <li class=" bFourth">
-	  <a href="setting.html"><i class="fas fa-cog"></i> setting</a>
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
                 </li>
   <li class=" bFifth">
-    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+    <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
           
                     </li>
 					  

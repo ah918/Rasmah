@@ -163,15 +163,15 @@ background-color :#88ca5e;
                 </li>
 
               </li>
-              <li class=" bthird">
-                         <a href="myDrawing.html"><i class="fas fa-paint-brush"></i> My drawing</a>
+             <!-- <li class=" bthird">
+                         <a href="myDrawing.html"><i class="fas fa-paint-brush"></i> My drawing</a>-->
                                 </li>
   <li class=" bFourth">
-    <a href="edit.html"><i class="fas fa-cog"></i> Setting</a>
+    <a href="edit.html"><i class="fas fa-cog"></i> Edit profile </a>
                        
                 </li>
   <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="artHome2"><i class="fas fa-home"></i> Home</a>
 	  
 
            
