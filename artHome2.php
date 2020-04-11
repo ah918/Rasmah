@@ -1,15 +1,17 @@
 <?php
-ob_start();
 session_start();
+ob_start();
+
 include('Conn.php');
-if(($_SESSION['role']==null)){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+ 
+
 }
-if(($_SESSION['role']!='artist')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
-}
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
@@ -19,12 +21,12 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
   //mysql_close($connection);  
- header("location : login.php");}
+ header("location : login.php");
+ exit();}
 
 
 
@@ -389,7 +391,7 @@ if($result1){
 {
    $NumPostFav = $rows['Fav'];
 ?>            
-              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> favorite</p>
+              <p class="font-weight-light"> <strong><?php echo $NumPostFav; ?></strong> No. my artworks favored</p>
               <?php
 }
 }

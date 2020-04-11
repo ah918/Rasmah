@@ -1,11 +1,18 @@
 <?php
-ob_start();
 session_start();
+ob_start();
+
 //include('Conn.php');
-if(($_SESSION['role']!='visitor')){
-  echo '<script> window.location="login.php";</script>';
-//header("location : login.php");
+include('Conn.php');
+
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='visitor')){
+ 
+
 }
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php"); }
 /*$servername = "localhost";
 $username = "username";
 $password = "password";
@@ -198,8 +205,8 @@ background-color:;
         
 #center1{
   position: absolute;
-  top: 73%;
-  left: 29%;
+  top: 74%;
+  left: 25%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   background-color:white;
@@ -224,8 +231,8 @@ background-color:;
         
         #center3{
   position: absolute;
-  top:  73%;
-  left: 58%;
+  top:  74%;
+  left: 53%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   background-color:white;
@@ -319,7 +326,26 @@ align:center;
          <div class="col-md-3 ">
              <div class="col2">
 			<span id="photo">
-			 <img src="img/iStock_1_280x280.jpg" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray"   alt="">
+      <?php
+               
+               //$_SESSION['Email']= "akh9180@gmail.com";
+            $query1 = "SELECT * FROM visitor WHERE VEmail ='".$_SESSION['email']."' ";
+            $result1 = mysqli_query($conn,$query1);
+           
+             if($result1){
+             while($rows = mysqli_fetch_array($result1))
+        {
+            $img_name = $rows['ProfilePic'];
+            $name = $rows['Name'];
+        ?>
+
+        
+        <img src="<?php echo $img_name; ?>" alt="" width="280px" height = "280px" class="rounded-circle z-depth-3 border border-gray" />
+        
+
+        <?php
+        }
+      }?>
 			 </span>
 			 </div>
          </div>
@@ -328,7 +354,7 @@ align:center;
 			 <span id="info">
                  
                  
-			  <p class="display-4">  Welcome <?php echo $_SESSION['email'] ; ?> !</p>
+			  <p class="display-4">  Welcome <?php echo $name ; ?> !</p>
 			
 			 </span>
                  
@@ -338,12 +364,12 @@ align:center;
 <div class="container">
 
 <img class ="atheer" src="img/childArt4.jpg" alt="">
- <div id ="center1"><a href="Gallery.html">View gallery</a></div>
+ <div id ="center1"><a href="Gallery.php">View gallery</a></div>
 <!--<img src="childArt3.jpg" alt="">
     <div id="center2"><a href="g.html">View Art work</a></div>-->
     
 <img class= "riham "  src= "img/childArt2.jpg" alt="">
-    <div id ="center3"><a href="MyFavList.html">View favourite list </a></div>
+    <div id ="center3"><a href="FavoriteList.php">View favourite list </a></div>
 </div>
 </div>
 

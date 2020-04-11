@@ -287,7 +287,7 @@ color: #fad02c;
 
 
 <div class="wrapper">
-    <div class="container-fluid" >
+    <div class="container-sm" >
 	
 	<div class="row" >
 	<div class="headerT" >

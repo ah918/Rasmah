@@ -1,4 +1,44 @@
 <?php
+session_start();
+ob_start();
+
+$dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "rasmah";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
+
+if(($_SESSION['role'] !='' || $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' || $_SESSION['role']=='admin' ) ){
+ 
+
+}
+else
+{echo '<script> window.location="login.php";</script>';
+  die("Redirecting to login.php");
+exit(); }
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");
+ exit();}
+
+
+
+
+?>
+<?php
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
@@ -13,7 +53,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n".
 $uploadOk = 1;
     
 $Newimage = false;
-if(isset($_FILES['fileToUpload'])) {
+if (!empty($_FILES['fileToUpload']['name'])) {
  
     $fileName = $_FILES['fileToUpload']['name'];
     # start upload image
@@ -51,11 +91,21 @@ $Newimage = true;
     $passcon = $_POST["password2"];
     
     include 'Conn.php';
-    if ($Newimage)
-    $sql = "UPDATE artists SET ProfilePic='$target_file', ArtEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE Artemail='$email'"; 
-  else
-    $sql = " UPDATE artists SET ArtEmail='$email', Name='$Name', LastName='$lastname',Password='$pass'  WHERE Artemail='$email'"; 
     
+    if ($Newimage){
+    if ($_SESSION['role']=='artist'){
+        $sql = "UPDATE artists SET ProfilePic='$target_file', ArtEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE Artemail='$email'";} 
+  else if ($_SESSION['role']=='visitor'){
+    $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
+     
+} else {
+        if ($_SESSION['role']=='artist'){
+    $sql = " UPDATE artists SET ArtEmail='$email', Name='$Name', LastName='$lastname',Password='$pass'  WHERE Artemail='$email'"; }
+   
+    else if ($_SESSION['role']=='visitor'){
+        $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
+    }
+   
     
     $result1 = mysqli_query($conn,$sql);
  
@@ -64,10 +114,10 @@ $Newimage = true;
     
    // echo $result1;
     
-
+   if ($_SESSION['role']=='artist')
     header("location:/test/GitHub/Rasmah/artHome2.php");   
-    
-    
+    else if ($_SESSION['role']=='visitor')
+    header("location:/test/GitHub/Rasmah/VistorF.php"); 
 
 
 

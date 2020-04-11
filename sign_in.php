@@ -61,6 +61,7 @@ $connection = mysqli_connect("localhost","root","","rasmah");
         
       }
 	  else{
+      $_SESSION['role']='';
         //$message = "invalid username or password";
 
        /* echo '<script> alert ("Try to enter email and password" );</script>';
