@@ -2,7 +2,7 @@
 <?php
 session_start();
 ob_start();
-$connection = mysqli_connect("localhost","root","","raasmah");
+$connection = mysqli_connect("localhost","root","","rasmah");
 {		
     
    

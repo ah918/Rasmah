@@ -1,7 +1,11 @@
 <?php
 ob_start();
 session_start();
-//include('Conn.php');
+include('Conn.php');
+if(($_SESSION['role']==null)){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
 if(($_SESSION['role']!='artist')){
   echo '<script> window.location="login.php";</script>';
 //header("location : login.php");
