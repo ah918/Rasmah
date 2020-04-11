@@ -152,7 +152,7 @@ background-color :#88ca5e;
 
     <body>
         
-        <div class="OurBar" >
+    <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
@@ -172,6 +172,9 @@ background-color :#88ca5e;
                 </li>
   <li class=" bFifth">
     <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+	  
+
+           
 	  
 
            
