@@ -419,7 +419,7 @@ hr {
 				<div class="col-xs-12 col-md-6"></div>
 				<div class="col-xs-12 col-md-6">
 				<div class ="class="btn btn-success btn-block btn-lg color=#c4e17f">
-				  	  <button type="submit" class="btn" name="reg_user">Register</button>
+				  	  <button type="submit" class="btn" name="reg_user">Sign Up</button>
 
 				
 			</div>
