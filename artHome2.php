@@ -247,7 +247,7 @@ color: #fad02c;
 <ul>
 
    <li class=" bfirst" >
-    <a href="#"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                
                   
                 </li>
@@ -256,7 +256,7 @@ color: #fad02c;
                        
                 </li>
   <li class=" bFourth">
-	  <a href="settingF.html"><i class="fas fa-cog"></i> Edit profile</a>
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
