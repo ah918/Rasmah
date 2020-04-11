@@ -315,7 +315,7 @@ color: #fad02c;
              <div class="col3">
              <span id="info">
                  <?php
-$query1 = "SELECT Name FROM artists WHERE ArtEmail ='akh9180@gmail.com';";
+$query1 = "SELECT Name FROM artists WHERE ArtEmail ='".$_SESSION['Email']."';";
 $result1 = mysqli_query($conn,$query1);
 if($result1){
     while($rows = mysqli_fetch_array($result1))
@@ -420,7 +420,7 @@ $number = count($storeTitle);
             <div class="col5">
                 <div class="content">
 		   
-    <a href="#" target="_blank">
+    <a href="ViewArtWork.php?id= <?php echo $storeID[$i]; ?>" target="_blank">
       <div class="content-overlay"></div>
       <?php $current = $storepicture[$i]; 
      # echo $current;
