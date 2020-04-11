@@ -1,7 +1,30 @@
 <?php
-include 'Conn.php';
-$_SESSION['Email']= "lolo@gmail.com";
+ob_start();
 session_start();
+include('Conn.php');
+if(($_SESSION['role']!='visitor')){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+//echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -229,11 +252,11 @@ color: #fad02c;
     <ul>
     
        <li class=" bfirst" >
-        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
                       
                     </li>
       <li class=" bSecoend">
-        <a href="FavoriteList"><i class="fas fa-star"></i> <u>Favorite list</u></a>
+        <a href="FavoriteList.php"><i class="fas fa-star"></i> <u>Favorite list</u></a>
                            
                     </li>
       <li class=" bthird">

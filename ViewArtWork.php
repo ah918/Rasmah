@@ -1,4 +1,31 @@
+<?php
+ob_start();
+session_start();
+//include('Conn.php');
+if(($_SESSION['role']!='visitor')){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+//echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -23,10 +50,16 @@
   
 }
 
+#img {
+  position: relative;
+  top:-20px; 
+}
 
 .date {
-text-align: right;
-display: inline;
+position: relative;
+  display: inline;  
+  left: 480px;
+  top: 60px;
 }
 
 
@@ -50,6 +83,7 @@ input[type=submit] {
 .autocomplete {
   position: relative;
   display: inline;
+  
 }
 
 
@@ -111,52 +145,61 @@ input[type=button] {
 }
 
 
+
 button.like {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 0 auto;
   line-heigth: 50px;
   border-radius: 50%;
-  color: #009688;
-  background-color: rgba(38, 166, 154, 0.3);
-  border-color: #009688;
+  color: #88ca5e;
+  background-color: 88ca5e;
+  border-color: #88ca5e;
   border-width: 1px;
   font-size: 15px;
-  position: absolute;
-  right: 128px;
-  bottom: 599px;
+  position: relative;
+  display: inline;  
+  left: 6px;
+  top: -20px;
+
+  
 }
 
 button.dislike {
-    position: absolute;
-  right: 51px;
+  
 
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 0 auto;
   line-heigth: 50px;
   border-radius: 60%;
   color: #ff5252;
-  background-color: rgba(255, 138, 128, 0.3);
+  background-color: 88ca5e;
   border-color: #ff5252;
   border-width: 1px;
   font-size: 15px;
-    bottom: 599px;
+  position: relative;
+  display: inline;  
+  left: 90px;
+  top: 20px;
   
 }
 .numberLike {
-  position: absolute;
-  left: 460px;
-  top: 40px;
-  font-size: 16px;
-display: inline;
+  position: relative;
+  display: inline;  
+  left: -23px;
+  top: 48px;
+  
+  font-size: 17px;
+
 }
 .numberDLike {
-  position: absolute;
-  left: 538px;
-  top: 40px;
-  font-size: 16px;
-display: inline;
+  position: relative;
+  display: inline;  
+  left: 40px;
+  top: 49px;
+  font-size: 17px;
+
 }
 .container{
   font-family:  cursive;
@@ -187,6 +230,10 @@ li {
   float: right;
 }
 
+h4 {
+
+  color: grey;
+}
 .OurBar  li a {
   display: block;
   color: white;
@@ -276,8 +323,11 @@ margin-left:90px;
 }
 
 #a15 {
-width:440px;
+width:555px;
 
+}
+#comment {
+  background-color:#dbe254;
 }
 
 </style>
@@ -292,7 +342,7 @@ width:440px;
     <ul>
     
        <li class=" bfirst" >
-        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
                       
                     </li>
       <li class=" bSecoend">
@@ -320,7 +370,45 @@ width:440px;
       <hr class="colorgraph">
       <br>
     <div class ="T1">
-      <h1>Artwork</h1> 
+      <h1>
+      <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "raasmah";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT Title FROM artwork  WHERE ID = '1' ";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        
+        echo "<strong> " . $row["Title"]. "</strong>";
+    }
+} else {
+    echo "";
+}
+
+mysqli_close($conn);
+?>
+
+
+
+
+
+
+
+
+
+      </h1> 
 
     
     <h4>
@@ -395,14 +483,14 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT text FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT Description FROM artwork  WHERE ID='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         
-        echo "<strong> " . $row["text"].  "</strong>";
+        echo "<strong> " . $row["Description"].  "</strong>";
     }
 } else {
     echo "";
@@ -435,7 +523,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Vemail, comment FROM comment where post_id = '1'";
+$sql = "SELECT Vemail, comment FROM comment where post_id ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -469,38 +557,7 @@ mysqli_close($conn);
     </div>
     <div class="col-sm-6 atheer ">
 	
-      <h3>
-      <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "raasmah";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT Title FROM artwork  WHERE ID = '1' ";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        
-        echo "<strong> " . $row["Title"]. "</strong>";
-    }
-} else {
-    echo "";
-}
-
-mysqli_close($conn);
-?>
       
-      
-      </h3>
       
       <p class="date">
       
@@ -517,7 +574,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Date FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT Date FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -551,7 +608,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT LikeNum FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT LikeNum FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -585,13 +642,13 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT DislikeNum FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT DislikeNum , comment  FROM artwork  WHERE ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        $commentE = $row["comment"];
+      $commentE = $row["comment"];
         echo "<strong> " . $row["DislikeNum"]. "</strong>";
     }
 } else {
@@ -614,7 +671,7 @@ mysqli_close($conn);
       </p>
       <form action="dislike.php" method="POST">
       <input type="hidden" name= "dis" value="1"> <!-- value should be id of post -->
-
+      
       <button class="dislike" type="submit" >
         <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
     </button>
@@ -629,22 +686,56 @@ mysqli_close($conn);
         <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
         </form>
     </button>
-      <img src="img/pic1.jpg" width="100%" height="500px">
+<!-- image -->
+    
+
+      <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "raasmah";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT picture FROM artwork  WHERE ID = '1' ";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+      $img = $row["picture"];
+       // echo "<strong> " . $row["DislikeNum"]. "</strong>";
+    }
+} else {
+ //   echo "";
+}
+
+?>
 
 
-<?php if ($commentE == 1) 
+
+<img src="<?php echo $img; ?>" width="100%" height="500px" id="img">
+
+
+
+
+      <div class= "autocomplete" >
+      <?php if ($commentE == 1) 
 { ?>
       <form action="post_comment.php" method="POST">
-      <div class= "autocomplete" >
+      
       <input type="text" name="comment"    placeholder="write your comment . ." >
     
-    <input type="submit" value="Share!">
+    <input type="submit" value="Share!" id="comment">
     </form>
-<?php } ?>
-
-
-
+    <?php } ?>
 </div>
+
 
 <form action="addFav.php" method="POST">
   <input type="hidden" name= "Areej" value="1"> <!-- value should be id of post -->
@@ -654,6 +745,7 @@ mysqli_close($conn);
     </div>
 	
 
+    
 
 
        

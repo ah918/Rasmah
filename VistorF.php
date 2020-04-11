@@ -15,7 +15,7 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-echo 'ses '.$_SESSION['role'];
+//echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
