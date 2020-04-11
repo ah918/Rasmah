@@ -261,7 +261,7 @@ define('MYSQL_ASSOC',MYSQLI_ASSOC);
 $sql="UPDATE artists SET Approved='true' WHERE ArtEmail ='$value';";
 if ($conn->query($sql) === TRUE) 
     echo "New record created successfully";
- else 
+ else
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
