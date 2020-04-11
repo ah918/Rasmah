@@ -456,7 +456,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Description FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT Description FROM artwork  WHERE ID='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -496,7 +496,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Vemail, comment FROM comment where post_id = '1'";
+$sql = "SELECT Vemail, comment FROM comment where post_id ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -547,7 +547,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Date FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT Date FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -581,7 +581,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT LikeNum FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT LikeNum FROM artwork  WHERE ID ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -615,7 +615,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT DislikeNum , comment  FROM artwork  WHERE ID = '1' ";
+$sql = "SELECT DislikeNum , comment  FROM artwork  WHERE ='".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -644,7 +644,7 @@ mysqli_close($conn);
       </p>
       <form action="dislike.php" method="POST">
       <input type="hidden" name= "dis" value="1"> <!-- value should be id of post -->
-
+      
       <button class="dislike" type="submit" >
         <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
     </button>
