@@ -591,7 +591,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        
+        $commentE = $row["comment"];
         echo "<strong> " . $row["DislikeNum"]. "</strong>";
     }
 } else {
@@ -631,12 +631,19 @@ mysqli_close($conn);
     </button>
       <img src="img/pic1.jpg" width="100%" height="500px">
 
+
+<?php if ($commentE == 1) 
+{ ?>
       <form action="post_comment.php" method="POST">
       <div class= "autocomplete" >
       <input type="text" name="comment"    placeholder="write your comment . ." >
     
     <input type="submit" value="Share!">
     </form>
+<?php } ?>
+
+
+
 </div>
 
 <form action="addFav.php" method="POST">
