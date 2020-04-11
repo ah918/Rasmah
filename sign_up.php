@@ -355,7 +355,7 @@ hr {
 </div>
 	
 
-  <form class="modal-content" action="SignUp.php" method="post">
+  <form class="modal-content" action="signUp.php" method="post">
   <?php include('errors.php'); ?>
   <?php include('success.php'); ?>
 	
