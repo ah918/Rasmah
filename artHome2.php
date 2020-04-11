@@ -1,6 +1,16 @@
 <?php
 include 'Conn.php';
 session_start();
+echo 'ses '.$_SESSION['role'];
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -256,13 +266,15 @@ color: #fad02c;
                        
                 </li>
   <li class=" bFourth">
-	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    
+
 
            
                   
                 </li>
-  <!--<li class=" bFifth">
-    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>-->
+  <li class=" bFifth">
+    <a href="artHome2.php"><i class="fas fa-home"></i><u> Home</u></a>
              
                     </li>
 </ul>
@@ -292,10 +304,11 @@ color: #fad02c;
          <div class="col-md-3 ">
              <div class="col2">
              <span id="photo">
+             <p class="display-4"> 
                 <?php
                
-               $_SESSION['Email']= "akh9180@gmail.com";
-            $query1 = "SELECT ProfilePic FROM artists WHERE ArtEmail ='".$_SESSION['Email']."' ";
+               //$_SESSION['Email']= "akh9180@gmail.com";
+            $query1 = "SELECT ProfilePic FROM artists WHERE ArtEmail ='".$_SESSION['email']."' ";
             $result1 = mysqli_query($conn,$query1);
            
              if($result1){
@@ -324,7 +337,7 @@ color: #fad02c;
              <div class="col3">
              <span id="info">
                  <?php
-$query1 = "SELECT Name FROM artists WHERE ArtEmail ='".$_SESSION['Email']."';";
+$query1 = "SELECT Name FROM artists WHERE ArtEmail ='".$_SESSION['email']."';";
 $result1 = mysqli_query($conn,$query1);
 if($result1){
     while($rows = mysqli_fetch_array($result1))
@@ -338,7 +351,7 @@ if($result1){
 }
               ?>
               <?php
-$query1 = "SELECT COUNT(ArtEmail) As Num  FROM artwork WHERE ArtEmail ='".$_SESSION['Email']."';";
+$query1 = "SELECT COUNT(ArtEmail) As Num  FROM artwork WHERE ArtEmail ='".$_SESSION['email']."';";
 $result1 = mysqli_query($conn,$query1);
 if($result1){
     while($rows = mysqli_fetch_array($result1))
@@ -351,7 +364,7 @@ if($result1){
 }
               ?>
 			     <?php
-$query1 = "SELECT COUNT(*) As Fav FROM artwork JOIN favoritelist WHERE artwork.ID = favoritelist.ID AND ArtEmail='".$_SESSION['Email']."';";
+$query1 = "SELECT COUNT(*) As Fav FROM artwork JOIN favoritelist WHERE artwork.ID = favoritelist.ID AND ArtEmail='".$_SESSION['email']."';";
 $result1 = mysqli_query($conn,$query1);
 if($result1){
     while($rows = mysqli_fetch_array($result1))
@@ -388,7 +401,7 @@ else
     <div id="home" class="tab-pane fade in active">
     
  <?php
-$query1 = "SELECT * FROM artwork  WHERE ArtEmail='".$_SESSION['Email']."';";
+$query1 = "SELECT * FROM artwork  WHERE ArtEmail='".$_SESSION['email']."';";
 $result1 = mysqli_query($conn,$query1);
 $storepicture = Array();
 $storeTitle = Array();

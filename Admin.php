@@ -1,8 +1,11 @@
-
+<?php
+ $_SESSION['Email']= "may.a.alfahad@gmail.com";
+session_start();
+include 'Conn.php';?>
 <html>
 <head> 
     
-       
+      
     <!-- "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" -->
 	
   <meta charset="utf-8">
@@ -167,8 +170,9 @@ color:#fff;
                   
                 </li>
   <li class=" bSecoend">
-             <a href="#"><i class="fas fa-sign-out-alt"></i> sign out</a>
-                       
+             <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                    
+
                 </li>
   <li class=" bthird">
 	  <a href="#"><i class="fas fa-cog"></i> setting</a>
@@ -200,31 +204,13 @@ color:#fff;
   <ul class="w3-ul w3-card-4">
   	  
 
-// initializing variables
+
  
 <?php
 
 
-function OpenCon()
- {
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "";
- $db = "rasmah";
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
- 
- return $conn;
- }
- 
-function CloseCon($conn)
- {
- $conn -> close();
- }
 
-$conn = OpenCon();
-#echo "Connected Successfully";
 
-#CloseCon($conn);
 
 
 
@@ -238,42 +224,25 @@ define('MYSQL_ASSOC',MYSQLI_ASSOC);
              $result = mysqli_query($conn,"SELECT ArtEmail FROM artists WHERE Approved='False'");
              $storeArray = Array();
 			 if(mysqli_num_rows($result) > 0 ){
-              while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) 
-			 $storeArray[] =  $row['ArtEmail']; }
+              while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+			 $storeArray[] =  $row['ArtEmail']; }}
 			
 
 
         
 
     
-        foreach ($storeArray as $value){?>
+                for ( $z=0; $z<count($storeArray);$z++) 
+{?>
     <form action="Admin.php" method="POST">
     <li class="w3-bar">
-	        <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="Approve" value="Approve" class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </button></span>
-			      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><button type="submit" name="dApprove" value="dApprove" class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </button></span>
+	        <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><a href="approve.php?id= <?php echo $storeArray[$z]; ?>"> <class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10004 </a></span>
+			      <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><a href="dapprove.php?id= <?php echo $storeArray[$z]; ?>"> <class="w3-bar-item w3-circle w3-hide-small" style="width:60px" >&#10008 </a></span>
       <div class="w3-bar-item">
+		<span class="w3-large"><?php echo "$storeArray[$z]"; ?></span><br>
+ <span>Artist</span></div> </li> </form><?php }?>
 
- <span class="w3-large"><?php echo "$value"; ?></span><br>
- <span>Artist</span></div> </li> 
-</form>
-
-      
-	<?php if (isset($_POST['Approve'])){
-$sql="UPDATE artists SET Approved='true' WHERE ArtEmail ='$value';";
-if ($conn->query($sql) === TRUE) 
-    echo "New record created successfully";
- else
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}  
-       else if (isset($_POST['dApprove'])){
-        $sql="DELETE FROM artists WHERE ArtEmail ='$value';";
-        if ($conn->query($sql) === TRUE) 
-    echo "New record created successfullylll";
- else 
-     echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-        }		 
- ?>
+     
  
 
 			

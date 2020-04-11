@@ -244,30 +244,31 @@ background-color :#88ca5e;
 
     <body>
         
-       <div class="OurBar" >
+    <div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+               
                   
                 </li>
-  <li class=" bSecoend">
-    <a href="Gallery.html"><i class="fas fa-paint-brush"></i> Gallery</a>
-             
+  <li class=" bthird">
+    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
                        
                 </li>
- <!-- <li class=" bthird">
-	   <a href="#"><i class="far fa-address-card"></i> about us</a>-->
+  <li class=" bFourth">
+    <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+    
 
-                 
-                    </li>
-	
-  <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+
            
-                    </li>
+                  
+                </li>
+  <li class=" bFifth">
+    <a href="artHome2.php"><i class="fas fa-home"></i> Home</a>
              
+                    </li>
 </ul>
 </div>
     

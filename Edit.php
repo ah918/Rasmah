@@ -158,28 +158,25 @@ background-color :#88ca5e;
 
    <li class=" bfirst" >
     <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
-                 
+               
                   
                 </li>
-
-              </li>
-             <!-- <li class=" bthird">
-                         <a href="myDrawing.html"><i class="fas fa-paint-brush"></i> My drawing</a>-->
-                                </li>
-  <li class=" bFourth">
-    <a href="edit.html"><i class="fas fa-cog"></i> Edit profile </a>
+  <li class=" bthird">
+    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
                        
                 </li>
-  <li class=" bFifth">
-    <a href="artHome2"><i class="fas fa-home"></i> Home</a>
-	  
+  <li class=" bFourth">
+    <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+    
 
-           
-	  
 
            
                   
-
+                </li>
+  <li class=" bFifth">
+    <a href="artHome2.php"><i class="fas fa-home"></i>Home</a>
+             
+                    </li>
 </ul>
 </div>
         
