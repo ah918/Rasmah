@@ -1,3 +1,37 @@
+<?php
+ob_start();
+session_start();
+//include('Conn.php');
+if(($_SESSION['role']!='artist')){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+//echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
+?>
+
+
+
+
+
+
 <html>
 
 
@@ -154,7 +188,7 @@ background-color :#88ca5e;
 <ul>
 
    <li class=" bfirst" >
-    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                
                   
                 </li>

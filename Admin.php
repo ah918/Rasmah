@@ -1,7 +1,31 @@
 <?php
- $_SESSION['Email']= "may.a.alfahad@gmail.com";
+ob_start();
 session_start();
-include 'Conn.php';?>
+include('Conn.php');
+if(($_SESSION['role']!='admin')){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+//echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
+?>
 <html>
 <head> 
     
@@ -112,7 +136,7 @@ li {
 .bfirst > a,
  .bfirst > a:hover,
 .bfirst > a:focus{
-background-color : #88ca5e;
+background-color : #db9dbe;
 color:#fff;
 
 }
@@ -133,10 +157,16 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color : #db9dbe;
+background-color :  #dce253;   
 color:#fff;
 
 }
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
 .bfirst > a,
 .bfirst > a:hover,
 .bfirst > a:focus {
@@ -161,27 +191,28 @@ color:#fff;
     </head>
 <!------ Include the above in your HEAD tag ---------->
 <body>
-        <div class="OurBar" >
+<div class="OurBar" >
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
    <li class=" bfirst" >
-                  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                  
                   
                 </li>
-  <li class=" bSecoend">
-             <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
-                    
-
+ <!-- <li class=" bSecoend">
+    <a href="#"><i class="far fa-address-card"></i> about us</a>-->
+                       
                 </li>
-  <li class=" bthird">
-	  <a href="#"><i class="fas fa-cog"></i> setting</a>
+  <li class=" bFourth">
+	  <a href="edit.html"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
                 </li>
-  <li class=" bFourth">
-           <a href="#"><i class="far fa-address-card"></i> about us</a>
+  <li class=" bFifth">
+    <a href="Admin.php"><i class="fas fa-home"></i><u> Home</u></a>
+         
                     </li>
 </ul>
 </div>

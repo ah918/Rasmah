@@ -1,8 +1,41 @@
-<?php
-include 'Conn.php';
-session_start(); ?>
 
+<?php
+ob_start();
+session_start();
+include 'Conn.php';
+//include('Conn.php');
+if(($_SESSION['role']!='artist')){
+  echo '<script> window.location="login.php";</script>';
+//header("location : login.php");
+}
+/*$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);*/
+
+//include 'Conn.php';
+
+//echo 'ses '.$_SESSION['role'];
+
+//$_SESSION['email']=$email;
+if(!isset($_SESSION['email'])) {
+  //mysql_close($connection);  
+ header("location : login.php");}
+
+
+
+
+?>
 <html lang="en">
+
+
+
+
+
+
+
 
 
 <head> 

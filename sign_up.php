@@ -171,7 +171,7 @@ li {
 .bfirst > a,
  .bfirst > a:hover,
 .bfirst > a:focus{
-background-color : #88ca5e;
+background-color : #db9dbe;
 color:#fff;
 
 }
@@ -192,10 +192,17 @@ color:#fff;
 .bFourth > a,
  .bFourth > a:hover,
 .bFourth > a:focus{
-background-color : #db9dbe;
+background-color :  #dce253;   
 color:#fff;
 
 }
+	
+	.bFifth > a,
+.bFifth > a:hover,
+.bFifth > a:focus{
+background-color :#88ca5e;
+	color:#fff;}
+
 .bfirst > a,
 .bfirst > a:hover,
 .bfirst > a:focus {
@@ -323,28 +330,23 @@ hr {
 
 
 
-	<div class="OurBar" >
-<img class="ourLogo" src="owrlogo.png" >
+    <div class="OurBar"  >
+<img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
-   <li class=" bfirst" >
-                  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <!-- <li class=" bfirst" >
                   
-                </li>
+                  
+                </li>-->
   <li class=" bSecoend">
-  
-                  <a href="#"><i class="fas fa-sign-in-alt"></i> sign in</a>
+                  <a href="login.php"><i class="fas fa-sign-in-alt"></i> <u>Sign in</u></a>
            
+                
+  <li class=" bthird">
+                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> <u>Sign up</u></a>
                 </li>
-  <li class="bthird">
-
-                  <a id ="my" href="#"><i class="fas fa-user-plus"></i> sign up </a>
-
-		
-	
-                </li>
-  <li class=" bFourth">
-                  <a href="#"><i class="far fa-address-card"></i> about us</a>
+  <li class=" bFifth">
+    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
                     </li>
 </ul>
 </div>
