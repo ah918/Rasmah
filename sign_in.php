@@ -39,7 +39,7 @@ $connection = mysqli_connect("localhost","root","","rasmah");
          // if($row=mysqli_fetch_row($run))
           $_SESSION['email']=$email;
           $_SESSION['role']='admin';
-        header("Location: adminpast.php");
+        header("Location: admin.php");
        // $_SESSION['email']=$email;
             }
  
