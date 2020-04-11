@@ -1,7 +1,7 @@
 
 <?php
-ob_start();
 session_start();
+ob_start();
 $connection = mysqli_connect("localhost","root","","raasmah");
 {		
     
@@ -38,16 +38,17 @@ $connection = mysqli_connect("localhost","root","","raasmah");
          // $run=mysqli_query($database,$query1);
          // if($row=mysqli_fetch_row($run))
           $_SESSION['email']=$email;
-          //$_SESSION['role']='admin';
-        header("Location: admin.html");
+          $_SESSION['role']='admin';
+        header("Location: adminpast.php");
        // $_SESSION['email']=$email;
             }
  
         elseif(mysqli_num_rows($query2) == 1){
            // if($row=mysqli_fetch_assoc($query2))
-            if($row[5] = 'true'){
+            if($row['Approved'] = 'true'){
             $_SESSION['email']=$email;
-          header("Location: artHome.html");}
+            $_SESSION['role']='artist';
+          header("Location: artHome2.php");}
             
             }
 
@@ -56,7 +57,7 @@ $connection = mysqli_connect("localhost","root","","raasmah");
       //  if($row=mysqli_fetch_assoc($query3))
         $_SESSION['email']=$email;
         $_SESSION['role']='visitor';
-        header("Location: VistorF.html");
+        header("Location: VistorF.php");
         
       }
 	  else{
