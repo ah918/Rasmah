@@ -238,7 +238,7 @@ color: #fad02c;
                        
                 </li>
   <li class=" bFifth">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
 	  
 
            

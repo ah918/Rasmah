@@ -252,7 +252,7 @@ color: #fad02c;
                   
                 </li>
   <li class=" bthird">
-    <a href="uploudArt.html"><i class="fas fa-paint-brush"></i>   Post</a>
+    <a href="uploudArt.php"><i class="fas fa-paint-brush"></i>Post</a>
                        
                 </li>
   <li class=" bFourth">
@@ -261,8 +261,8 @@ color: #fad02c;
            
                   
                 </li>
-  <li class=" bFifth">
-    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>
+  <!--<li class=" bFifth">
+    <a href="artHome.html"><i class="fas fa-home"></i> Home</a>-->
              
                     </li>
 </ul>
