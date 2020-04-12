@@ -327,7 +327,7 @@ $number2 = count($storeTitle2);
         for ( $z=0; $z<count($storeTitle2);$z++) {
 
         if($z%3==0 && z!=0){
-          echo'<div class="row mt-5 mb-5">';}
+          echo'<br> <div class="row mt-5 mb-5">';}
           ?>
                <!------- ------->
 
