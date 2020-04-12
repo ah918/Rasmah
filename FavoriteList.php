@@ -50,12 +50,12 @@ if(!isset($_SESSION['email'])) {
    <script type="text/javascript">
 </script>
 <style>
-  body {
-    position:absolute;
-    height:%100;
+  body ,html {
+    
     width:%100;
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
+    overflow-x:hidden;
   }
 .OurBar  ul {
   list-style-type: none;
@@ -250,6 +250,10 @@ margin-bottom:15 px;
 
 color: #fad02c;
 
+}
+.display-2{
+position:relative;
+  left:-90px;
 }
 </style>
   </head>

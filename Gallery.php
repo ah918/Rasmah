@@ -153,12 +153,14 @@ margin-bottom:15 px;
 
 
 }
-.wrapper33{
-  position :relative;
-margin-left:-20px;
 
-}
-
+body ,html {
+    
+    width:%100;
+    margin:0px;
+    padding:0px;
+    overflow-x:hidden;
+  }
 </style>
   </head>
   <body>

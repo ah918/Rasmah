@@ -266,7 +266,7 @@ background-color :#88ca5e;
 			<div class="form-group">
                 <input type="text" name="discription" rows="11" cols="25" id="email" class="form-control input-lg" placeholder="discription" rows="50" cols ="60" tabindex="4">
                 <div class = "checkBox">
-                    <input type="checkbox" name="comment"/><label> Available comment</label>
+                    <input type="checkbox" name="comment" checked /><label> Available comment</label>
                   </div>
 			</div>
 			
