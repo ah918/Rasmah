@@ -8,7 +8,7 @@ $dbhost = "localhost";
  $db = "rasmah";
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
  
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+if( $_SESSION['role']=='artist'){
  
 
 }
@@ -74,13 +74,17 @@ else
 $comment = "0";
 date_default_timezone_set("Asia/Riyadh");
 $date =  date("Y-m-d  h:i:s") ;
-echo "Your file name is:  $target_file <br>"; 
-echo "Your title is:  $title <br>"; 
-echo "Your discription is:  $discription <br>"; 
-echo "anable comment ?:  $comment <br>"; 
-echo "date is:  $date <br>"; 
+$uplo = false;
 
 include 'Conn.php';
+if (empty($_FILES['fileToUpload']['name'])) {
+   ?> <script> alert("please upload an image"); 
+    
+  window.location="uploudArt.php";
+  exist();</script> 
+    <?php
+}
+
 $sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail, comment) VALUES ('$target_file','$title','$discription','$date','".$_SESSION['email']."' , '$comment')";
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
@@ -90,8 +94,9 @@ if ($conn->query($sql) === TRUE) {
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
+}?>
+<script> alert("your uploade has been done successfully"); 
+</script>
+<script> window.location="artHome2.php";</script>; 
 
-
-header("location:/test/GitHub/Rasmah/artHome2.php");   
-?>
+ 

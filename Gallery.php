@@ -10,7 +10,7 @@ $dbhost = "localhost";
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
  
 
-if(($_SESSION['role'] !=''  || $_SESSION['role']=='visitor'  ) ){
+if( $_SESSION['role']=='visitor' || $_SESSION['role']=='admin'  ){
  
 
 }
@@ -27,7 +27,7 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-echo 'ses '.$_SESSION['role'];
+#echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
@@ -157,35 +157,77 @@ margin-bottom:15 px;
 </style>
   </head>
   <body>
+	<?php if ($_SESSION['role']=='visitor'){ ?>
+  
   <div class="OurBar" >
-    <img class="ourLogo" src="img/owrlogo.png" >
-    <ul>
-    
-       <li class=" bfirst" >
-        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
-                      
-                    </li>
-      <li class=" bSecoend">
-        <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
-                           
-                    </li>
-      <li class=" bthird">
-        
-        <a href="Gallery.php"><i class="fas fa-paint-brush"></i><u> Gallery</u></a>
-               
-                      
-                    </li>
-      <li class=" bFourth">
-        <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
-               
-                        </li>
+      <img class="ourLogo" src="img/owrlogo.png" >
+      <ul>
       
-       <li class=" bFifth">
-        <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
-                           
-                              </li>
-    </ul>
-    </div>  
+         <li class=" bfirst" >
+          <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                        
+                      </li>
+        <li class=" bSecoend">
+          <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
+                             
+                      </li>
+        <li class=" bthird">
+          
+          <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+                 
+                        
+                      </li>
+        <li class=" bFourth">
+          <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+                 
+                          </li>
+        
+         <li class=" bFifth">
+          <a href="VistorF.php"><i class="fas fa-home"></i> Home</a>
+                             
+                                </li>
+      </ul>
+      </div>  
+    <?php }?>
+ 
+    <?php if ($_SESSION['role']=='admin' ){
+
+?>
+<div class="OurBar" >
+<img class="ourLogo" src="img/owrlogo.png" >
+<ul>
+
+   <li class=" bfirst" >
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                  
+                  
+                </li>
+ <!-- <li class=" bSecoend">
+    <a href="#"><i class="far fa-address-card"></i> about us</a>-->
+                       
+                </li>
+                <li class=" bthird">
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+               
+                      
+                    </li>
+  <li class=" bFourth">
+	  <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+
+           
+                  
+                </li>
+  <li class=" bFifth">
+    <a href="Admin.php"><i class="fas fa-home"></i> Home</a>
+         
+                    </li>
+</ul>
+</div>
+    <?php }?>
+
+
+
 
 
 

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 ob_start();
@@ -19,15 +18,15 @@ $connection = mysqli_connect("localhost","root","","rasmah");
 
 
       //admin
-      $sql= "SELECT * FROM admin WHERE AEmail='$email' AND password='$password'";
+      $sql= "SELECT * FROM admin WHERE AEmail='$email' AND Password='$password'";
        $query1 = mysqli_query($connection, $sql);
        //artist
        
-       $sql="SELECT * FROM artists WHERE ArtEmail='$email' AND password='$password'";
+       $sql="SELECT * FROM artists WHERE ArtEmail='$email' AND Password='$password'";
        $query2 = mysqli_query($connection, $sql);
 
        //visitor
-       $sql3="SELECT * FROM visitor WHERE VEmail='$email' AND password='$password'";
+       $sql3="SELECT * FROM visitor WHERE VEmail='$email' AND Password='$password'";
        $query3 = mysqli_query($connection, $sql3);
 
 
@@ -76,8 +75,10 @@ window.location.href='admin/ahm/panel';
 
 
 echo "<script type='text/javascript'>alert(\"Wrong email or Password\")</script>";
-//header("location:page1.php");
+#header("location:login.php");
 include("login.php");
+#{echo '<script> window.location="login.php";</script>';
+  #die("Redirecting to login.php"); }
 
 		  $error = "Failed Login";
 	  } 

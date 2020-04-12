@@ -3,5 +3,5 @@
 
 session_destroy();
 
- header("location:/test/GitHub/Rasmah/Home.html");
- exit;?>
+ header("location:Home.php");
+ exit();?>

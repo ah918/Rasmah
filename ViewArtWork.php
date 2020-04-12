@@ -4,7 +4,7 @@ ob_start();
 
 include('Conn.php');
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' )){
+if( $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' || $_SESSION['role']=='admin'){
  
 
 }
@@ -51,7 +51,7 @@ if(!isset($_SESSION['email'])) {
 </head>
 <style>
 
-* {
+body {
   box-sizing: border-box;
   
 }
@@ -64,7 +64,7 @@ if(!isset($_SESSION['email'])) {
 .date {
 position: relative;
   display: inline;  
-  left: 480px;
+  left: 460px;
   top: 60px;
 }
 
@@ -165,8 +165,8 @@ button.like {
   font-size: 15px;
   position: relative;
   display: inline;  
-  left: 6px;
-  top: -20px;
+  left: 3px;
+  top: -23px;
 
   
 }
@@ -186,14 +186,14 @@ button.dislike {
   font-size: 15px;
   position: relative;
   display: inline;  
-  left: 90px;
-  top: 20px;
+  left: 86px;
+  top: 17px;
   
 }
 .numberLike {
   position: relative;
   display: inline;  
-  left: -23px;
+  left: -35px;
   top: 48px;
   
   font-size: 17px;
@@ -202,14 +202,14 @@ button.dislike {
 .numberDLike {
   position: relative;
   display: inline;  
-  left: 40px;
+  left: 35px;
   top: 49px;
   font-size: 17px;
 
 }
 .container{
   font-family:  cursive;
-	margin-left: 7%;
+	margin-left: 0%;
 
 }
 
@@ -324,8 +324,8 @@ background-color :#88ca5e;
   margin-top: 80px;
 }
 .atheer {
-
-margin-left:90px;
+position :relative;
+left:40%;
 }
 
 #a15 {
@@ -335,7 +335,13 @@ width:555px;
 #comment {
   background-color:#dbe254;
 }
+.w3 {
+  position :relative;
+  bottom:-55px;
+left:20%;
 
+
+}
 </style>
 
 <body>
@@ -403,6 +409,41 @@ width:555px;
                     </li>
 </ul>
 </div> 
+    <?php }?>
+    <?php if ($_SESSION['role']=='admin' ){
+
+?>
+<div class="OurBar" >
+<img class="ourLogo" src="img/owrlogo.png" >
+<ul>
+
+   <li class=" bfirst" >
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                  
+                  
+                </li>
+ <!-- <li class=" bSecoend">
+    <a href="#"><i class="far fa-address-card"></i> about us</a>-->
+                       
+                </li>
+                <li class=" bthird">
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+               
+                      
+                    </li>
+  <li class=" bFourth">
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
+
+           
+                  
+                </li>
+  <li class=" bFifth">
+    <a href="Admin.php"><i class="fas fa-home"></i> Home</a>
+         
+                    </li>
+</ul>
+</div>
     <?php }?>
     <div class = "pageTitle">
       <hr class="colorgraph">
@@ -506,6 +547,7 @@ mysqli_close($conn);
   
 <div class="container">
   <div class="row">
+    <div class="w3" >
     <div class="col-sm-5">
       <h3>Artwork Description</h3>
       <p> 
@@ -577,14 +619,19 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 ?>
+
                         </div><!-- /panel-body -->
+                        
                         </div><!-- /panel panel-default -->
+                       
                         </div><!-- /col-sm-5 -->
+
+                       
                     </div><!-- /container -->
 
 
 
-
+                    </div>
 
 
 
@@ -593,7 +640,7 @@ mysqli_close($conn);
 
 
                     
-    </div>
+    </div> <!-- end w3 -->
     <div class="col-sm-6 atheer ">
 	
       
@@ -793,12 +840,15 @@ if (mysqli_num_rows($result) > 0) {
        
 </div>
 </div>
-<footer id="sticky-footer" style="width: 100%;"><svg viewbox="0 0 100 25">
-  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
-  </svg>
-  </footer>
+
 
 
 
 </body>
+
+
+<footer id="sticky-footer" style="width: 100%;"><svg viewbox="0 0 100 25">
+  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+  </svg>
+  </footer>
 </html>

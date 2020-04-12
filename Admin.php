@@ -209,6 +209,12 @@ background-color :#88ca5e;
     <a href="#"><i class="far fa-address-card"></i> about us</a>-->
                        
                 </li>
+                <li class=" bthird">
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+               
+                      
+                    </li>
   <li class=" bFourth">
 	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
 

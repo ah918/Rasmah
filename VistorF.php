@@ -6,7 +6,7 @@ ob_start();
 include('Conn.php');
 
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='visitor')){
+if(  $_SESSION['role']=='visitor'){
  
 
 }
@@ -282,7 +282,7 @@ align:center;
     <ul>
     
        <li class=" bfirst" >
-        <a href="Home.html"><i class="fas fa-sign-out-alt"></i> sign out</a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
                       
                     </li>
       <li class=" bSecoend">

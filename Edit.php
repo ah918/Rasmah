@@ -5,7 +5,7 @@ ob_start();
 
 include('Conn.php');
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
+if(( $_SESSION['role']=='artist')){
  
 
 }
@@ -287,9 +287,17 @@ background-color :#88ca5e;
 			</div>
 			<div class="form-group">
                 <input type="text" name="discription" rows="11" cols="25" id="email" class="form-control input-lg" value="<?php echo $storeDes; ?>" rows="50" cols ="60" tabindex="4">
+                
+<?php if ($storeComment ==0){ ?>
                 <div class = "checkBox">
                   <input type="checkbox" name="commentC"/><label> Available comment</label>
                   </div>
+<?php }else { ?>
+  <div class = "checkBox">
+                  <input type="checkbox" name="commentC" checked/><label> Available comment</label>
+                  </div>
+
+<?php } ?>
 			</div>
 			
 			<hr class="colorgraph">

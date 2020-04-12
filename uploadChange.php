@@ -105,8 +105,12 @@ else if ($storeComment ==0 && $commentNew ==1){
     $result2 = mysqli_query($conn,$sql); 
 }
 
-    
+#echo "<script type='text/javascript'>alert(\"your change has been saved successfully\")</script>";  
+?>
+<script> alert("your change has been saved successfully"); 
+</script>
+<script> window.location="artHome2.php";</script>; 
+<?php
 
-
-header("location:/test/GitHub/Rasmah/artHome2.php"); 
+#header("location:/test/GitHub/Rasmah/artHome2.php"); 
 ?>

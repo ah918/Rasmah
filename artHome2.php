@@ -4,12 +4,11 @@ ob_start();
 
 include('Conn.php');
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist')){
- 
-
+if($_SESSION['role']=='artist'){
 }
 else
-{echo '<script> window.location="login.php";</script>';
+{ 
+  echo '<script> window.location="login.php";</script>';
   die("Redirecting to login.php");
 exit(); }
 /*$servername = "localhost";

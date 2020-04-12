@@ -346,7 +346,7 @@ hr {
                   <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> <u>Sign up</u></a>
                 </li>
   <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Home.php"><i class="fas fa-home"></i> Home</a>
                     </li>
 </ul>
 </div>

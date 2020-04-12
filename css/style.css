@@ -55,6 +55,7 @@
 body {
 	
   background-image: url(body12.png);
+  background-repeat:no-repeat;
 }
 
 

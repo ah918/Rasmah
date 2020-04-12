@@ -1,12 +1,11 @@
 <?php
-
-session_start();
+#session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db="rasmah";
 // Create connection
-echo 'ses '.$_SESSION['role'];
+#echo 'ses '.$_SESSION['role'];
 $conn = new mysqli($servername, $username, $password,$db);
 ?>
 

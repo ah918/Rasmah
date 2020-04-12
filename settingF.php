@@ -4,7 +4,7 @@ ob_start();
 
 include('Conn.php');
 
-if(($_SESSION['role'] !='' || $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' || $_SESSION['role']=='admin' ) ){
+if( $_SESSION['role']=='artist' || $_SESSION['role']=='visitor' || $_SESSION['role']=='admin'  ){
  
 
 }
@@ -21,7 +21,7 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-echo 'ses '.$_SESSION['role'];
+
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
@@ -337,7 +337,41 @@ background-color :#88ca5e;
   </ul>
   </div> 
       <?php }?>
-    
+    <?php if ($_SESSION['role']=='admin' ){
+
+?>
+<div class="OurBar" >
+<img class="ourLogo" src="img/owrlogo.png" >
+<ul>
+
+   <li class=" bfirst" >
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> sign out</a>
+                  
+                  
+                </li>
+ <!-- <li class=" bSecoend">
+    <a href="#"><i class="far fa-address-card"></i> about us</a>-->
+                       
+                </li>
+                <li class=" bthird">
+        
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+               
+                      
+                    </li>
+  <li class=" bFourth">
+	  <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+
+           
+                  
+                </li>
+  <li class=" bFifth">
+    <a href="Admin.php"><i class="fas fa-home"></i> Home</a>
+         
+                    </li>
+</ul>
+</div>
+    <?php }?>
 
 
 
@@ -361,6 +395,8 @@ background-color :#88ca5e;
              $query1 = "SELECT * FROM artists WHERE ArtEmail ='".$_SESSION['email']."';";
             else  if ($_SESSION['role']=='visitor')
              $query1 = "SELECT * FROM visitor WHERE VEmail ='".$_SESSION['email']."';";
+             else  if ($_SESSION['role']=='admin')
+             $query1 = "SELECT * FROM admin WHERE AEmail ='".$_SESSION['email']."';";
                $result1 = mysqli_query($conn,$query1);
 
              if($result1){
@@ -369,7 +405,13 @@ background-color :#88ca5e;
                 $img_name = $rows['ProfilePic'];
                 $Artist_name = $rows['Name'];
                 $Artist_Lastname = $rows['LastName'];
+                if ($_SESSION['role']=='artist')
+                $Artist_Email = $rows['ArtEmail'];
+                else if ($_SESSION['role']=='visitor')
                 $Artist_Email = $rows['VEmail'];
+                else if ($_SESSION['role']=='admin')
+                $Artist_Email = $rows['AEmail'];
+                
                 $Artist_pass = $rows['Password'];
            
                 }
@@ -489,17 +531,17 @@ background-color :#88ca5e;
         
         
            <!-- -->
-<div id="footer">
-           <svg viewbox="0 0 100 25">
-  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
-</svg>
-       </div> 
+
         
     
 
 </body>
 
 
+<footer id="sticky-footer" style="width: 200%; margin-left:0px;"><svg viewbox="0 0 100 25">
+  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+  </svg>
+  </footer>
 
 
 </html>
