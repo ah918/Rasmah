@@ -35,7 +35,7 @@ if(!isset($_SESSION['email'])) {
 
 
 # start upload image
-$target_dir = "uploads/";
+$target_dir = "img/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -47,7 +47,7 @@ $fileTmpName = $_FILES['fileToUpload']['tmp_name'];
 $fileExt = explode('.',$fileName);
 $fileActualExt = strtolower(end($fileExt));
 $fileNameNew = uniqid('',true).".".$fileActualExt;
-$fileDestination ='uploads/'.$fileName;
+$fileDestination ='img/uploads/'.$fileName;
 $target_file = $fileDestination ; #this variable refer to the path and image name , which should be stored in the database
 
 // Check if image file is a actual image or fake image
@@ -56,7 +56,7 @@ chmod($fileTmpName, 0755);
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        #echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -89,7 +89,7 @@ $sql = "INSERT INTO artwork (picture, Title, Description, Date, ArtEmail, commen
 #stored successfully but the date does't store hour try to fix it later
 if ($conn->query($sql) === TRUE) {
  
-    echo "New record created successfully";
+    #echo "New record created successfully";
     move_uploaded_file($fileTmpName ,$target_file);
 
 } else {

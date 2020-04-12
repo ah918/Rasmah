@@ -286,7 +286,7 @@ align:center;
                       
                     </li>
       <li class=" bSecoend">
-        <a href="FavoriteList"><i class="fas fa-star"></i> Favorite list</a>
+        <a href="FavoriteList.php"><i class="fas fa-star"></i> Favorite list</a>
                            
                     </li>
       <li class=" bthird">

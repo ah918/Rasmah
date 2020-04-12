@@ -57,12 +57,12 @@ if (!empty($_FILES['fileToUpload']['name'])) {
  
     $fileName = $_FILES['fileToUpload']['name'];
     # start upload image
-$target_dir = "profile photo/";
+$target_dir = "img/profile photo/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $fileTmpName = $_FILES['fileToUpload']['tmp_name'];
-$fileDestination ='profile photo/'.$fileName;
+$fileDestination ='img/profile photo/'.$fileName;
 $target_file = $fileDestination ;
 // Check if image file is a actual image or fake image
 chmod($fileTmpName, 0755);
@@ -70,7 +70,7 @@ chmod($fileTmpName, 0755);
 if(isset($_POST["submit"])) {
 $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
+    #echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
 } else {
     echo "File is not an image.";

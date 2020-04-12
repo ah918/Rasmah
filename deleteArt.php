@@ -1,6 +1,14 @@
 <?php
 include 'Conn.php';
+$sql2 = "DELETE FROM favoritelist WHERE ID ='".$_GET['id']."';";
+// Prepare statement
+$stmt2 = $conn->prepare($sql2);
+
+// execute the query
+$stmt2->execute();
+
  $sql = "DELETE FROM artwork WHERE ID ='".$_GET['id']."';";
+
 
     // Prepare statement
     $stmt = $conn->prepare($sql);

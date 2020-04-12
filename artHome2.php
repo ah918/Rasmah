@@ -439,7 +439,7 @@ if($result1){
   $storelike[] = $rows['LikeNum']; 
   $storeDislike[] = $rows['DislikeNum'];
   $storeComment[]= $rows['comment']; 
-  $storeNumComm[] = $rows['NumComment']; 
+  #$storeNumComm[] = $rows['NumComment']; 
   $storeID[] = $rows['ID'];
 }
 }
@@ -484,6 +484,14 @@ $number = count($storeTitle);
 echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
 <p  class="num" style=" display: inline;">';
+
+$sql4 = "SELECT COUNT(*) AS total FROM comments WHERE ID='".$storeID[$i]."';";
+$result4 = mysqli_query($conn,$sql4);
+if($result4){
+  while($rows4 = mysqli_fetch_array($result4))
+{
+  $storeNumComm[$i] = $rows4['total']; 
+}}
   echo $storeNumComm[$i];
 echo '</p>
 </span>';
@@ -545,7 +553,7 @@ if($result2){
   $storelike2[] = $rows2['LikeNum']; 
   $storeDislike2[] = $rows2['DislikeNum'];
   $storeComment2[]= $rows2['comment']; 
-  $storeNumComm2[] = $rows2['NumComment']; 
+ # $storeNumComm2[] = $rows2['NumComment']; 
   $storeID2[] = $rows2['ID'];
 }
 }
@@ -592,6 +600,13 @@ $number2 = count($storeTitle2);
 echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
 <p  class="num" style=" display: inline;">';
+$sql5 = "SELECT COUNT(*) AS total FROM comments WHERE ID='".$storeID2[$z]."';";
+$result5 = mysqli_query($conn,$sql5);
+if($result5){
+  while($rows5 = mysqli_fetch_array($result5))
+{
+  $storeNumComm2[$z] = $rows5['total']; 
+}}
   echo $storeNumComm2[$z];
 echo '</p>
 </span>';

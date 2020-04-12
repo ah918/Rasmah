@@ -153,6 +153,11 @@ margin-bottom:15 px;
 
 
 }
+.wrapper33{
+  position :relative;
+margin-left:-20px;
+
+}
 
 </style>
   </head>
@@ -173,12 +178,12 @@ margin-bottom:15 px;
                       </li>
         <li class=" bthird">
           
-          <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+          <a href="Gallery.php"><i class="fas fa-paint-brush"></i><u> Gallery</u></a>
                  
                         
                       </li>
         <li class=" bFourth">
-          <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+          <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
                  
                           </li>
         
@@ -208,12 +213,12 @@ margin-bottom:15 px;
                 </li>
                 <li class=" bthird">
         
-        <a href="Gallery.php"><i class="fas fa-paint-brush"></i> Gallery</a>
+        <a href="Gallery.php"><i class="fas fa-paint-brush"></i><u> Gallery</u></a>
                
                       
                     </li>
   <li class=" bFourth">
-	  <a href="settingF.php"><i class="fas fa-cog"></i><u> Edit profile</u></a>
+	  <a href="settingF.php"><i class="fas fa-cog"></i> Edit profile</a>
 
            
                   
@@ -239,7 +244,7 @@ margin-bottom:15 px;
 
 
 <div class="wrapper">
-    <div class="container-fluid" >
+    <div class="container-xl" >
 	
 	<div class="row" >
 	<div class="headerT" >
@@ -270,8 +275,8 @@ margin-bottom:15 px;
       
       
       <!---------------------------------------------------->
-	  <div class="wrapper">
-    <div class="container-fluid" >
+	  <div class="wrapper33">
+    <div class="container" >
 
 
 
@@ -304,7 +309,7 @@ if($result2){
   $storelike2[] = $rows2['LikeNum']; 
   $storeDislike2[] = $rows2['DislikeNum'];
   $storeComment2[]= $rows2['comment']; 
-  $storeNumComm2[] = $rows2['NumComment']; 
+  #$storeNumComm2[] = $rows2['NumComment']; 
   $storeID2[] = $rows2['ID'];
 }
 }
@@ -319,7 +324,7 @@ $number2 = count($storeTitle2);
      
         for ( $z=0; $z<count($storeTitle2);$z++) {
 
-        if($z%4==0 && z!=0){
+        if($z%3==0 && z!=0){
           echo'<div class="row mt-5 mb-5">';}
           ?>
                <!------- ------->
@@ -351,6 +356,13 @@ $number2 = count($storeTitle2);
 echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
 <p  class="num" style=" display: inline;">';
+$sql5 = "SELECT COUNT(*) AS total FROM comments WHERE ID='".$storeID2[$z]."';";
+$result5 = mysqli_query($conn,$sql5);
+if($result5){
+  while($rows5 = mysqli_fetch_array($result5))
+{
+  $storeNumComm2[$z] = $rows5['total']; 
+}}
   echo $storeNumComm2[$z];
 echo '</p>
 </span>';
@@ -367,7 +379,7 @@ echo '</p>
        </div>
        
      <!--end row !--> 
-     <?php if($z%4==0 && z!=0){
+     <?php if($z%3==0 && z!=0){
     echo '</div>';}
      }
     ?>        
@@ -400,11 +412,9 @@ echo '</p>
   
   <footer>
   
-  	   <div id="footer">
-           <svg viewbox="0 0 100 25">
+  <footer id="sticky-footer" style="width: 100%; margin-left:0px;"><svg viewbox="0 0 100 25">
   <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
-</svg>
-       </div>
-  
+  </svg>
+  </footer>
   </footer>
 </html>

@@ -50,6 +50,13 @@ if(!isset($_SESSION['email'])) {
    <script type="text/javascript">
 </script>
 <style>
+  body {
+    position:absolute;
+    height:%100;
+    width:%100;
+    margin:0;
+    padding:0;
+  }
 .OurBar  ul {
   list-style-type: none;
   margin: 0;
@@ -287,7 +294,7 @@ color: #fad02c;
 
 
 <div class="wrapper">
-    <div class="container-sm" >
+    <div class="container-fluid" >
 	
 	<div class="row" >
 	<div class="headerT" >
@@ -319,7 +326,7 @@ color: #fad02c;
       
       <!---------------------------------------------------->
 	  <div class="wrapper">
-    <div class="container-fluid" >
+    <div class="container" >
 
 
 
@@ -354,7 +361,7 @@ if($result2){
   $storelike2[] = $rows2['LikeNum']; 
   $storeDislike2[] = $rows2['DislikeNum'];
   $storeComment2[]= $rows2['comment']; 
-  $storeNumComm2[] = $rows2['NumComment']; 
+  #$storeNumComm2[] = $rows2['NumComment']; 
   $storeID2[] = $rows2['ID'];
 }
 }
@@ -404,6 +411,13 @@ $number2 = count($storeTitle2);
 echo '<span class="he">
 <i class="fas fa-comment fa-1x"></i>
 <p  class="num" style=" display: inline;">';
+$sql5 = "SELECT COUNT(*) AS total FROM comments WHERE ID='".$storeID2[$z]."';";
+$result5 = mysqli_query($conn,$sql5);
+if($result5){
+  while($rows5 = mysqli_fetch_array($result5))
+{
+  $storeNumComm2[$z] = $rows5['total']; 
+}}
   echo $storeNumComm2[$z];
 echo '</p>
 </span>';
@@ -444,7 +458,7 @@ echo '</p>
     
 	</div>
 	</div>
-	  
+	  </div>
 	   <!--end menu tap !--> 
     </div>
 
@@ -463,11 +477,13 @@ echo '</p>
   
   <footer>
   
-  	   <div id="footer">
-           <svg viewbox="0 0 100 25">
-  <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
-</svg>
-       </div>
+  <footer>
   
-  </footer>
+  <div id="footer">
+      <svg viewbox="0 0 100 25">
+<path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+</svg>
+  </div>
+
+</footer>
 </html>

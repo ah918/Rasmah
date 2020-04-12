@@ -196,7 +196,7 @@ background-color :#88ca5e;
 <ul>
 
    <li class=" bfirst" >
-    <a href="Home.html"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                
                   
                 </li>
@@ -243,7 +243,7 @@ background-color :#88ca5e;
                       $storelike = $rows['LikeNum']; 
                       $storeDislike = $rows['DislikeNum'];
                       $storeComment= $rows['comment']; 
-                      $storeNumComm = $rows['NumComment']; 
+                      #$storeNumComm = $rows['NumComment']; 
                       $storeID = $rows['ID'];
                     }
                     }

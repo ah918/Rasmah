@@ -53,7 +53,7 @@ if(!isset($_SESSION['email'])) {
 
 body {
   box-sizing: border-box;
-  
+  overflow:auto;
 }
 
 #img {
@@ -325,7 +325,7 @@ background-color :#88ca5e;
 }
 .atheer {
 position :relative;
-left:40%;
+left:30%;
 }
 
 #a15 {
@@ -338,8 +338,12 @@ width:555px;
 .w3 {
   position :relative;
   bottom:-55px;
-left:20%;
+left:17%;
 
+
+}
+html{
+height:100%;
 
 }
 </style>
