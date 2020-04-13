@@ -46,8 +46,16 @@ $connection = mysqli_connect("localhost","root","","rasmah");
             while($row=mysqli_fetch_assoc($query2)){
             if($row['Approved'] == '1'){
             $_SESSION['email']=$email;
-            $_SESSION['role']='artist';}}
-          header("Location: artHome2.php");}
+            $_SESSION['role']='artist';
+            header("Location: artHome2.php");
+          
+          }
+           else{
+            echo "<script type='text/javascript'>alert(\"Wait to approve from admin\")</script>";
+            #header("location:login.php");
+            include("login.php");}
+          }
+         }
             
             
 
