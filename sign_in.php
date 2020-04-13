@@ -42,17 +42,17 @@ $connection = mysqli_connect("localhost","root","","rasmah");
        // $_SESSION['email']=$email;
             }
  
-        elseif(mysqli_num_rows($query2) == 1){
-           // if($row=mysqli_fetch_assoc($query2))
-            if($row['Approved'] = 'true'){
+        else if(mysqli_num_rows($query2) == 1){
+            while($row=mysqli_fetch_assoc($query2)){
+            if($row['Approved'] == '1'){
             $_SESSION['email']=$email;
-            $_SESSION['role']='artist';
+            $_SESSION['role']='artist';}}
           header("Location: artHome2.php");}
             
-            }
+            
 
     
-      elseif(mysqli_num_rows($query3) == 1){
+      else if(mysqli_num_rows($query3) == 1){
       //  if($row=mysqli_fetch_assoc($query3))
         $_SESSION['email']=$email;
         $_SESSION['role']='visitor';
