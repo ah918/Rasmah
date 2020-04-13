@@ -199,7 +199,7 @@ background-color :#88ca5e;
             
             <div class="row">
 				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" color=#c4e17f>Send</a></div>
+				<div class="col-xs-12 col-md-6"><a href="Home.php" class="btn btn-success btn-block btn-lg" color=#c4e17f>Send</a></div>
 			</div>
 		</form>
 	</div>
