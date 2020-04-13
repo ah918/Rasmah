@@ -154,10 +154,10 @@ background-color :#88ca5e;
            
                 
   <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> Sign up</a>
+                  <a href="sign_up.php"><i class="fas fa-user-plus"></i> Sign up</a>
                 </li>
   <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Home.php"><i class="fas fa-home"></i> Home</a>
                     </li>
 </ul>
 </div>
