@@ -193,6 +193,7 @@ background-color :#88ca5e;
   background-color: white;
 }
 </style>
+<title>Rasmah</title>
     </head>
 <!------ Include the above in your HEAD tag ---------->
 <body>

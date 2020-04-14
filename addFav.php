@@ -54,6 +54,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-header('Location:FavoriteList.php?id='. $PostID .'');
-
+#header('Location:FavoriteList.php?id='. $PostID .'');
+header('Location:FavoriteList.php');
 ?>

@@ -32,7 +32,7 @@ if(!isset($_SESSION['email'])) {
     <meta charset="utf-8">
 		
 
-
+    <title>Rasmah</title>
  
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -344,8 +344,8 @@ position:relative;
 	</div>
     
     <?php
-    #$_SESSION['Email']
-$query2 = "SELECT * FROM artwork WHERE ID IN (SELECT ID FROM favoritelist WHERE VEmail ='lolo@gmail.com') ;";
+$email = $_SESSION['email'];
+$query2 = "SELECT * FROM artwork WHERE ID IN (SELECT ID FROM favoritelist WHERE VEmail ='".$email."') ;";
 $result2 = mysqli_query($conn,$query2);
 $storepicture2 = Array();
 $storeTitle2 = Array();
@@ -383,7 +383,7 @@ $number2 = count($storeTitle2);
      
         for ( $z=0; $z<count($storeTitle2);$z++) {
 
-        if($z%4==0 && z!=0){
+        if($z%3==0 && z!=0){
           echo'<div class="row mt-5 mb-5">';}
           ?>
                <!------- ------->
@@ -392,13 +392,13 @@ $number2 = count($storeTitle2);
             <div class="col5">
                 <div class="content">
 		   
-    <a href="#" target="_blank">
+                <a href="ViewArtWork.php?id= <?php echo $storeID2[$z]; ?>" target="_blank">
       <div class="content-overlay"></div>
       <?php $current2 = $storepicture2[$z]; 
      # echo $current;
      
       ?>
-      <img class="content-image" src="<?php echo $current2; ?>">
+      <img class="content-image" width="300px" height="300px" src="<?php echo $current2; ?>">
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title"><?php echo $storeTitle2[$z]; ?></h3>
         <p class="content-text"><?php echo $storeDes2[$z]; ?></p>
@@ -448,7 +448,7 @@ echo '</p>
        </div>
        
      <!--end row !--> 
-     <?php if($z%4==0 && z!=0){
+     <?php if($z%3==0 && z!=0){
     echo '</div>';}
      }
     ?>        

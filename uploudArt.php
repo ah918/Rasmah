@@ -184,7 +184,7 @@ background-color :#88ca5e;
 			padding-bottom: 5%;
 		}
     </style>
-    
+      <title>Rasmah</title>
     
     </head>
 <!------ Include the above in your HEAD tag ---------->
@@ -279,7 +279,7 @@ background-color :#88ca5e;
                    <!-- <div class ="jojo4">-->
                    
                 <button type="submit" name="submit" class="btn btn-success btn-block btn-lg"  >Post</button>
-						 <a href="#"  class="btn btn-success btn-block btn-lg"  >Cancel</a>
+						 <a href="artHome2.php"  class="btn btn-success btn-block btn-lg"  >Cancel</a>
                    <!-- </div>-->
                 <br>
                 <br>

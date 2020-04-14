@@ -134,7 +134,7 @@ background-color :#88ca5e;
  .row { font-family:cursive;}
 
 </style>
-    
+<title>Rasmah</title>
     </head>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -154,21 +154,22 @@ background-color :#88ca5e;
 <img class="ourLogo" src="img/owrlogo.png" >
 <ul>
 
-   <li class=" bfirst" >
+   <!---<li class=" bfirst" >
     <a href="Home.html"><i class="fas fa-sign-in-alt"></i> Sign out</a>
-             
+            
                   
-                </li>
+                </li>--> 
   <li class=" bSecoend">
-                  <a href="Sign in final.html"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+                  <a href="login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
            
                 </li>
   <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> Sign up</a>
+                  <a href="sign_Up.php"><i class="fas fa-user-plus"></i> Sign up</a>
                 </li>
-  <li class=" bfifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
-                    </li>
+                <li class=" bFifth">
+        <a href="Home.php"><i class="fas fa-home"></i> Home </a>
+                           
+                              </li>
 </ul>
 </div>
 <div class="container">
@@ -180,14 +181,14 @@ background-color :#88ca5e;
         <div class="col-md-8 well" id="rightPanel">
             <div class="row">
     <div class="col-md-12">
-    	<form role="form">
+    	<form role="form"  action="checkEmail.php" method="post">
 			<h2 style="font-family:cursive;">Account Recovery</h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 					<label style="font-family:cursive;">Enter your Email Address:
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="" tabindex="1">
+                        <input type="text" name="emailRec" id="first_name" class="form-control input-lg" placeholder="" tabindex="1">
 						</label>
 					</div>
 				</div>
@@ -199,7 +200,8 @@ background-color :#88ca5e;
             
             <div class="row">
 				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="Home.php" class="btn btn-success btn-block btn-lg" color=#c4e17f>Send</a></div>
+        <button type="submit" class="btn btn-success btn-block btn-lg" color=#c4e17f name="send">Send</button>
+			<!--	<div class="col-xs-12 col-md-6"><a href="Home.php" class="btn btn-success btn-block btn-lg" color=#c4e17f>Send</a></div>-->
 			</div>
 		</form>
 	</div>

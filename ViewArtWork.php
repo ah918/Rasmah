@@ -48,6 +48,7 @@ if(!isset($_SESSION['email'])) {
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
 
   <script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
+  <title>Rasmah</title>
 </head>
 <style>
 
@@ -342,10 +343,15 @@ left:17%;
 
 
 }
-html{
-height:100%;
 
-}
+body ,html {
+    
+    width:%100;
+    margin:0px;
+    padding:0px;
+    overflow-x:hidden;
+  }
+
 </style>
 
 <body>
@@ -851,7 +857,7 @@ if (mysqli_num_rows($result) > 0) {
 </body>
 
 
-<footer id="sticky-footer" style="width: 100%;"><svg viewbox="0 0 100 25">
+<footer id="sticky-footer" style="width: 150%;"><svg viewbox="0 0 100 25">
   <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
   </svg>
   </footer>

@@ -7,6 +7,6 @@
    window.location = "Home.php"</script> <?php }
         else if($select=="Visitor"){?>
    <script> alert("Thank you for your registration"); 
-   window.location = "Home.php"</script> <?php } } } ?>   
+   window.location = "login.php"</script> <?php } } } ?>   
    </div>
    

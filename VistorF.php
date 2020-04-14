@@ -42,7 +42,7 @@ if(!isset($_SESSION['email'])) {
 
 <html>
 <head> 
-
+<title>Rasmah</title>
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
     
     <!-- "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" -->
@@ -232,7 +232,7 @@ background-color:;
         #center3{
   position: absolute;
   top:  74%;
-  left: 53%;
+  left: 59%;
   transform: translate(-50%, -50%);
   font-size: 18px;
   background-color:white;
@@ -251,7 +251,7 @@ a{
  
 	    position:relative;
 	top:90%;
-	left:13%;
+	left:11%;
 }
 .riham{
     position:relative;

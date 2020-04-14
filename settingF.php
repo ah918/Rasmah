@@ -268,7 +268,7 @@ background-color :#88ca5e;
    }     
         
    </style>
-    
+      <title>Rasmah</title>
     </head>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -478,7 +478,7 @@ background-color :#88ca5e;
     
 
 
-				<input type="text" name="email" id="email" class="form-control input-lg"   value="<?php echo  $Artist_Email; ?>">
+				<input type="text" name="email" id="email" class="form-control input-lg"   value="<?php echo  $Artist_Email; ?>" readonly="readonly">
 
     
     

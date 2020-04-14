@@ -68,9 +68,16 @@ if(isset($_POST["submit"])) {
 
 $title = $_POST["title"];
 $discription = $_POST["discription"];
+$flag=false;
+if( !empty($_POST["comment"]) ) { 
+
+
+
 if ($_POST['comment'] == "on")
 $comment = "1"; #return 'Yes' if it checked
-else
+$flag=true;
+}
+if(!$flag)
 $comment = "0";
 date_default_timezone_set("Asia/Riyadh");
 $date =  date("Y-m-d  h:i:s") ;

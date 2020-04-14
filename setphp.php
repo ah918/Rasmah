@@ -26,7 +26,7 @@ $conn = new mysqli($servername, $username, $password);*/
 
 //include 'Conn.php';
 
-echo 'ses '.$_SESSION['role'];
+#echo 'ses '.$_SESSION['role'];
 
 //$_SESSION['email']=$email;
 if(!isset($_SESSION['email'])) {
@@ -98,31 +98,37 @@ $Newimage = true;
   else if ($_SESSION['role']=='visitor'){
     $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
     else if ($_SESSION['role']=='admin'){
-        $sql = "UPDATE admin SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE AEmail='$email'";}
-         
+        $sql = "UPDATE admin SET ProfilePic='$target_file', AEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE AEmail='$email'";}
+        move_uploaded_file($fileTmpName ,$target_file);   
 } else {
         if ($_SESSION['role']=='artist'){
     $sql = " UPDATE artists SET ArtEmail='$email', Name='$Name', LastName='$lastname',Password='$pass'  WHERE Artemail='$email'"; }
    
     else if ($_SESSION['role']=='visitor'){
-        $sql = "UPDATE visitor SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
+        $sql = "UPDATE visitor SET VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE VEmail='$email'";}
         else if ($_SESSION['role']=='admin'){
-            $sql = "UPDATE admin SET ProfilePic='$target_file', VEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE AEmail='$email'";}
+            $sql = "UPDATE admin SET  AEmail='$email',Name='$Name',LastName='$lastname',Password='$pass' WHERE AEmail='$email'";}
              
     }
    
     
     $result1 = mysqli_query($conn,$sql);
  
-    move_uploaded_file($fileTmpName ,$target_file);
+ 
 
     
    // echo $result1;
-    
+   ?>
+   <script> alert("your change has been saved successfully"); 
+   </script>
+   <!--<script> window.location="artHome2.php";</script>; 
+   <?php
    if ($_SESSION['role']=='artist')
-    header("location:/test/GitHub/Rasmah/artHome2.php");   
+   header("location:/test/GitHub/Rasmah/artHome2.php");   
     else if ($_SESSION['role']=='visitor')
     header("location:/test/GitHub/Rasmah/VistorF.php"); 
+    if ($_SESSION['role']=='admin')
+    header("location:/test/GitHub/Rasmah/Admin.php");
 
 
 

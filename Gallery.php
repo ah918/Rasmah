@@ -161,7 +161,18 @@ body ,html {
     padding:0px;
     overflow-x:hidden;
   }
+  #sticky-footer{
+    bottom: 0;
+
+  height: auto;
+    width:%100;
+    position:relative;
+left:-50;
+    margin-left:0px;
+    padding-left:0px;
+  }
 </style>
+<title>Rasmah</title>
   </head>
   <body>
 	<?php if ($_SESSION['role']=='visitor'){ ?>
@@ -322,12 +333,16 @@ $number2 = count($storeTitle2);
     <div class="container-fluid" >
       <?php 
       define('z', 0);
-      
-     
-        for ( $z=0; $z<count($storeTitle2);$z++) {
+      define('s', 1);
+     $flag1=true;
+     $z=0;
+        for ($s=1;  $s<=count($storeTitle2);) {
 
-        if($z%3==0 && z!=0){
-          echo'<br> <div class="row mt-5 mb-5">';}
+
+          if($s %3 == 0 ){
+          
+          echo'<div class="row mt-5 mb-5">';
+        }
           ?>
                <!------- ------->
 
@@ -341,7 +356,7 @@ $number2 = count($storeTitle2);
      # echo $current;
      
       ?>
-      <img class="content-image" src="<?php echo $current2; ?>">
+      <img class="content-image" width="300px" height="300px" src="<?php echo $current2; ?>">
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title"><?php echo $storeTitle2[$z]; ?></h3>
         <p class="content-text"><?php echo $storeDes2[$z]; ?></p>
@@ -381,9 +396,12 @@ echo '</p>
        </div>
        
      <!--end row !--> 
-     <?php if($z%3==0 && z!=0){
+     <?php if($s % 3 == 0 ){
     echo '</div>';}
+    $z++;
+    $s++;
      }
+    
     ?>        
     
 
@@ -414,7 +432,7 @@ echo '</p>
   
   <footer>
   
-  <footer id="sticky-footer" style="width: 100%; margin-left:0px;"><svg viewbox="0 0 100 25">
+  <footer id="sticky-footer" style="width: 150%; margin-left:0px;"><svg viewbox="0 0 100 25">
   <path fill="#e0efe3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
   </svg>
   </footer>

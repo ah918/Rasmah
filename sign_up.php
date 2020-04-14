@@ -3,7 +3,7 @@
 <html>
 <html lang="en">
 <head> 
-    
+<title>Rasmah</title>
     <!-- "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" -->
     <link href="css/desset3.css" rel="stylesheet" id="bootstrap-css">
      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -150,6 +150,7 @@ li {
 
 
 .OurBar  li > a {
+  font-family: cursive;
   float: none;
   padding: 30px 15px 30px;
   color: white;
@@ -339,11 +340,11 @@ hr {
                   
                 </li>-->
   <li class=" bSecoend">
-                  <a href="login.php"><i class="fas fa-sign-in-alt"></i> <u>Sign in</u></a>
+                  <a href="login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
            
                 
   <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> <u>Sign up</u></a>
+                  <a href="sign_up.php"><i class="fas fa-user-plus"></i> <u>Sign up</u></a>
                 </li>
   <li class=" bFifth">
     <a href="Home.php"><i class="fas fa-home"></i> Home</a>

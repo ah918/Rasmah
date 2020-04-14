@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>Rasmah</title>
 	<script src="https://kit.fontawesome.com/6964ae7319.js" crossorigin="anonymous"></script>
 
   <!-- styles -->

@@ -135,7 +135,7 @@ background-color :#88ca5e;
 .form-group { font-family:cursive;}
 .row { font-family:cursive;}
 </style>
-    
+<title>Rasmah</title>
     </head>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -154,10 +154,10 @@ background-color :#88ca5e;
            
                 
   <li class=" bthird">
-                  <a href="Sign Up final.html"><i class="fas fa-user-plus"></i> Sign up</a>
+                  <a href="sign_Up.php"><i class="fas fa-user-plus"></i> Sign up</a>
                 </li>
   <li class=" bFifth">
-    <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Home.php"><i class="fas fa-home"></i> Home</a>
                     </li>
 </ul>
 </div>
@@ -193,7 +193,7 @@ background-color :#88ca5e;
 
                <p>
 			   <div class="form-group">
-             <a href ="Forget password (1).html">Forget password?</a></p><!-- URL-->
+             <a href ="Forget password.php">Forget password?</a></p><!-- URL-->
                 </label></p></div>
 			</div>
 			<hr class="colorgraph">

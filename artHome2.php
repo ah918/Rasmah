@@ -55,7 +55,7 @@ if(!isset($_SESSION['email'])) {
 
   
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
-    <title>My profile</title>
+    <title>Rasmah</title>
  
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -467,7 +467,7 @@ $number = count($storeTitle);
      # echo $current;
      
       ?>
-      <img class="content-image" src="<?php echo $current; ?>">
+      <img class="content-image" width="300px" height="300px" src="<?php echo $current; ?>">
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title"><?php echo $storeTitle[$i]; ?></h3>
         <p class="content-text"><?php echo $storeDes[$i]; ?></p>
@@ -583,7 +583,7 @@ $number2 = count($storeTitle2);
      # echo $current;
      
       ?>
-      <img class="content-image" src="<?php echo $current2; ?>">
+      <img class="content-image" width="300px" height="300px" src="<?php echo $current2; ?>">
       <div class="content-details fadeIn-bottom">
         <h3 class="content-title"><?php echo $storeTitle2[$z]; ?></h3>
         <p class="content-text"><?php echo $storeDes2[$z]; ?></p>

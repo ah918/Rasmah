@@ -93,9 +93,10 @@ else if($storeComment ==1 && $commentNew ==0){
 else if ($storeComment ==0 && $commentNew ==1){
     if ($Newimage)
     {$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription',comment='1' WHERE ID='".$id."';"; 
-        move_uploaded_file($fileTmpName ,$target_file); }else
+        move_uploaded_file($fileTmpName ,$target_file); }
+        else{
    $sql = "UPDATE artwork SET Title='$title',Description='$discription',comment='1' WHERE ID='".$id."';"; 
-    $result2 = mysqli_query($conn,$sql);
+    $result2 = mysqli_query($conn,$sql);}
 }else if ($storeComment ==0 && $commentNew ==0){
     if ($Newimage)
     {$sql = "UPDATE artwork SET picture='$target_file',Title='$title',Description='$discription' WHERE ID='".$id."';"; 
