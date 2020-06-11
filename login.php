@@ -154,11 +154,11 @@ background-color :#88ca5e;
            
                 
   <li class=" bthird">
-<<<<<<< HEAD
+
                   <a href="sign_Up.php"><i class="fas fa-user-plus"></i> Sign up</a>
-=======
-                  <a href="sign_up.php"><i class="fas fa-user-plus"></i> Sign up</a>
->>>>>>> e3d72ef998735dc38c8dbc5aec3166e7a82b0699
+
+              
+
                 </li>
   <li class=" bFifth">
     <a href="Home.php"><i class="fas fa-home"></i> Home</a>
