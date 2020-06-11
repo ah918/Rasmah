@@ -576,8 +576,8 @@ $number2 = count($storeTitle2);
          <div class="col-md-4 text-center">
             <div class="col5">
                 <div class="content">
-		   
-    <a href="#" target="_blank">
+                <a href="ViewArtWork.php?id= <?php echo $storeID2[$z]; ?>" target="_blank">
+    <!--- <a href="#" target="_blank"> -->
       <div class="content-overlay"></div>
       <?php $current2 = $storepicture2[$z]; 
      # echo $current;
